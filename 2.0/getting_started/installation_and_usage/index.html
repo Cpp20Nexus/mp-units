@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1375,15 +1377,17 @@ is with <code>pip</code>:</p>
 </span></code></pre></div>
 <p>After that, you can either:</p>
 <ul>
-<li>easily <a href="https://squidfunk.github.io/mkdocs-material/creating-your-site/#previewing-as-you-write">start a live server to preview the documentation as you write</a></li>
-</ul>
+<li>
+<p>easily <a href="https://squidfunk.github.io/mkdocs-material/creating-your-site/#previewing-as-you-write">start a live server to preview the documentation as you write</a></p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mkdocs<span class="w"> </span>serve
 </span></code></pre></div>
-<ul>
-<li><a href="https://squidfunk.github.io/mkdocs-material/creating-your-site/#building-your-site">build the documentation</a></li>
-</ul>
+</li>
+<li>
+<p><a href="https://squidfunk.github.io/mkdocs-material/creating-your-site/#building-your-site">build the documentation</a></p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mkdocs<span class="w"> </span>build
 </span></code></pre></div>
+</li>
+</ul>
 <h2 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h2>
 <p>To test CMake installation and Conan packaging or create a Conan package run:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>conan<span class="w"> </span>create<span class="w"> </span>.<span class="w"> </span>&lt;username&gt;/&lt;channel&gt;<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-c<span class="w"> </span>user.build:all<span class="o">=</span>True<span class="w"> </span>-b<span class="w"> </span>missing
@@ -1475,6 +1479,18 @@ is with <code>pip</code>:</p>
     
     
       <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
       
     
   </body>

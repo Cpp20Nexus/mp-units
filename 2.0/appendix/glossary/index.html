@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -75,6 +77,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#glossary" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -638,10 +645,50 @@ You're not viewing the latest version.
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Glossary
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Glossary
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iso-definitions" class="md-nav__link">
+    ISO definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-definitions" class="md-nav__link">
+    Other definitions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -685,6 +732,30 @@ You're not viewing the latest version.
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iso-definitions" class="md-nav__link">
+    ISO definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-definitions" class="md-nav__link">
+    Other definitions
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -715,9 +786,414 @@ You're not viewing the latest version.
   
 
 
-  <h1>Glossary</h1>
-
-
+<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h1>
+<h2 id="iso-definitions">ISO definitions<a class="headerlink" href="#iso-definitions" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ISO terms provided below are only a few of many defined in
+the <a href="https://www.iso.org/obp/ui#iso:std:iso-iec:guide:99:ed-1:v2:en">ISO/IEC Guide 99</a>.</p>
+</div>
+<dl>
+<dt><a href="#quantity" id="quantity"><code>quantity</code></a></dt>
+<dd>
+<ul>
+<li>Property of a phenomenon, body, or substance, where the property has a magnitude that can
+  be expressed by means of a number and a reference.</li>
+<li>A reference can be a <a href="#unit">measurement unit</a>, a measurement procedure, a reference material,
+  or a combination of such.</li>
+<li>A quantity as defined here is a scalar. However, a vector or a tensor, the components of
+  which are quantities, is also considered to be a quantity.</li>
+<li>The concept ’quantity’ may be generically divided into, e.g. ‘physical quantity’,
+  ‘chemical quantity’, and ‘biological quantity’, or <a href="#base-quantity">‘base quantity’</a>
+  and <a href="#derived-quantity">‘derived quantity’</a>.</li>
+<li>Examples of quantities are: length, radius, wavelength, energy, electric charge, etc.</li>
+</ul>
+</dd>
+<dt><a href="#kind" id="kind"><code>kind of quantity, kind</code></a></dt>
+<dd>
+<ul>
+<li>Aspect common to mutually comparable <a href="#quantity">quantities</a>.</li>
+<li>The division of the concept ‘quantity’ into several kinds is to some extent arbitrary, for example:<ul>
+<li>the quantities diameter, circumference, and wavelength are generally considered
+  to be quantities of the same kind, namely, of the kind of quantity called length,</li>
+<li>the quantities heat, kinetic energy, and potential energy are generally considered
+  to be quantities of the same kind, namely of the kind of quantity called energy.</li>
+</ul>
+</li>
+<li>Quantities of the same kind within a given <a href="#system-of-quantities">system of quantities</a>
+  have the same <a href="#dimension">quantity dimension</a>. However, <a href="#quantity">quantities</a>
+  of the same <a href="#dimension">dimension</a> are not necessarily of the same kind.<ul>
+<li>For example, the quantities moment of force and energy are, by convention, not regarded
+  as being of the same kind, although they have the same dimension. Similarly for
+  heat capacity and entropy, as well as for number of entities, relative permeability,
+  and mass fraction.</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt><a href="#system-of-quantities" id="system-of-quantities"><code>system of quantities</code></a></dt>
+<dd>
+<ul>
+<li>Set of <a href="#quantity">quantities</a> together with a set of non-contradictory equations
+  relating those <a href="#quantity">quantities</a>.</li>
+<li>Examples of systems of quantities are: <a href="#isq">the International System of Quantities</a>,
+  the Imperial System, etc.</li>
+</ul>
+</dd>
+<dt><a href="#base-quantity" id="base-quantity"><code>base quantity</code></a></dt>
+<dd>
+<ul>
+<li><a href="#quantity">Quantity</a> in a conventionally chosen subset of a given
+  <a href="#system-of-quantities">system of quantities</a>, where no <a href="#quantity">quantity</a> in the
+  subset can be expressed in terms of the others.</li>
+<li>Base quantities are referred to as being mutually independent since a base quantity
+  cannot be expressed as a product of powers of the other base quantities.</li>
+<li>‘Number of entities’ can be regarded as a base quantity in any
+  <a href="#system-of-quantities">system of quantities</a>.</li>
+</ul>
+</dd>
+<dt><a href="#derived-quantity" id="derived-quantity"><code>derived quantity</code></a></dt>
+<dd>
+<ul>
+<li><a href="#quantity">Quantity</a>, in a <a href="#system-of-quantities">system of quantities</a>, defined in
+  terms of the <a href="#base-quantity">base quantities</a> of that system.</li>
+</ul>
+</dd>
+<dt><a href="#isq" id="isq"><code>International System of Quantities, ISQ</code></a></dt>
+<dd>
+<ul>
+<li><a href="#system-of-quantities">System of quantities</a> based on the seven <a href="#base-quantity">base quantities</a>:
+  length, mass, time, electric current, thermodynamic temperature, amount of substance,
+  and luminous intensity.</li>
+<li>This system of quantities is published in the ISO 80000 and IEC 80000 series <em>Quantities and units</em>.</li>
+<li><a href="#si">The International System of Units (SI)</a> is based on the ISQ.</li>
+</ul>
+</dd>
+<dt><a href="#dimension" id="dimension"><code>quantity dimension, dimension of a quantity, dimension</code></a></dt>
+<dd>
+<ul>
+<li>Expression of the dependence of a <a href="#quantity">quantity</a> on the <a href="#base-quantity">base quantities</a>
+  of a <a href="#system-of-quantities">system of quantities</a> as a product of powers of factors corresponding
+  to the <a href="#base-quantity">base quantities</a>, omitting any numerical factor.<ul>
+<li>i.e. in the <a href="#isq">ISQ</a>, the quantity dimension of force is denoted by <span class="arithmatex">\(\textsf{dim }F = \mathsf{LMT}^{–2}\)</span>.</li>
+</ul>
+</li>
+<li>A power of a factor is the factor raised to an exponent. Each factor is the dimension
+  of a <a href="#base-quantity">base quantity</a>.</li>
+<li>In deriving the dimension of a quantity, no account is taken of its scalar, vector, or
+  tensor character.</li>
+<li>In a given <a href="#system-of-quantities">system of quantities</a>:<ul>
+<li><a href="#quantity">quantities</a> of the same <a href="#kind">kind</a> have the same quantity dimension,</li>
+<li><a href="#quantity">quantities</a> of different quantity dimensions are always of different <a href="#kind">kinds</a>,</li>
+<li><a href="#quantity">quantities</a> having the same quantity dimension are not necessarily of the same
+  <a href="#kind">kind</a>.</li>
+</ul>
+</li>
+<li>
+<p>Symbols representing the dimensions of the <a href="#base-quantity">base quantities</a> in the <a href="#isq">ISQ</a> are:</p>
+<table>
+<thead>
+<tr>
+<th>Base quantity</th>
+<th align="center">Symbol for dimension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>length</td>
+<td align="center"><span class="arithmatex">\(\mathsf{L}\)</span></td>
+</tr>
+<tr>
+<td>mass</td>
+<td align="center"><span class="arithmatex">\(\mathsf{M}\)</span></td>
+</tr>
+<tr>
+<td>time</td>
+<td align="center"><span class="arithmatex">\(\mathsf{T}\)</span></td>
+</tr>
+<tr>
+<td>electric current</td>
+<td align="center"><span class="arithmatex">\(\mathsf{I}\)</span></td>
+</tr>
+<tr>
+<td>thermodynamic temperature</td>
+<td align="center"><span class="arithmatex">\(\mathsf{Θ}\)</span></td>
+</tr>
+<tr>
+<td>amount of substance</td>
+<td align="center"><span class="arithmatex">\(\mathsf{N}\)</span></td>
+</tr>
+<tr>
+<td>luminous intensity</td>
+<td align="center"><span class="arithmatex">\(\mathsf{J}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Thus, the dimension of a quantity <span class="arithmatex">\(Q\)</span> is denoted by
+<span class="arithmatex">\(\textsf{dim }Q = \mathsf{L}^α\mathsf{M}^β\mathsf{T}^γ\mathsf{I}^δ\mathsf{Θ}^ε\mathsf{N}^ζ\mathsf{J}^η\)</span>
+where the exponents, named dimensional exponents, are positive, negative, or zero.</p>
+</li>
+</ul>
+</dd>
+<dt><a href="#dimensionless-quantity" id="dimensionless-quantity"><code>quantity of dimension one, dimensionless quantity</code></a></dt>
+<dd>
+<ul>
+<li><a href="#quantity">quantity</a> for which all the exponents of the factors corresponding to the
+    <a href="#base-quantity">base quantities</a> in its <a href="#dimension">quantity dimension</a> are zero.</li>
+<li>The term “dimensionless quantity” is commonly used and is kept here for historical
+    reasons. It stems from the fact that all exponents are zero in the symbolic
+    representation of the <a href="#dimension">dimension</a> for such <a href="#quantity">quantities</a>.
+    The term “quantity of dimension one” reflects the convention in which the symbolic
+    representation of the <a href="#dimension">dimension</a> for such <a href="#quantity">quantities</a> is
+    the symbol <code>1</code>.</li>
+<li>The <a href="#unit">measurement units</a> and <a href="#quantity-value">values</a> of quantities of
+    dimension one are numbers, but such quantities convey more information than a number.</li>
+<li>Some quantities of dimension one are defined as the ratios of two
+    <a href="#kind">quantities of the same kind</a>.</li>
+<li>Numbers of entities are quantities of dimension one.</li>
+</ul>
+</dd>
+<dt><a href="#unit" id="unit"><code>measurement unit, unit of measurement, unit</code></a></dt>
+<dd>
+<ul>
+<li>Real scalar <a href="#quantity">quantity</a>, defined and adopted by convention, with which any other
+  <a href="#kind">quantity of the same kind</a> can be compared to express the ratio of the two
+  <a href="#quantity">quantities</a> as a number.</li>
+<li>Measurement units are designated by conventionally assigned names and symbols.</li>
+<li>Measurement units of <a href="#quantity">quantities</a> of the same <a href="#dimension">quantity dimension</a>
+  may be designated by the same name and symbol even when the <a href="#quantity">quantities</a> are
+  not of the same <code>kind</code>.<ul>
+<li>For example, joule per kelvin and J/K are respectively the name and symbol of both a
+  measurement unit of heat capacity and a measurement unit of entropy, which are generally
+  not considered to be <a href="#kind">quantities of the same kind</a>. However, in some cases special
+  measurement unit names are restricted to be used with <a href="#quantity">quantities</a> of specific
+  <a href="#kind">kind</a> only. For example, the measurement unit ‘second to the power minus one’
+  (1/s) is called hertz (Hz) when used for frequencies and becquerel (Bq) when used for
+  activities of radionuclides. As another example, the joule (J) is used as a unit of
+  energy, but never as a unit of moment of force, i.e. the newton metre (N·m).</li>
+</ul>
+</li>
+<li>Measurement units of <a href="#dimensionless-quantity">quantities of dimension one</a> are
+  numbers. In some cases, these measurement units are given special names, e.g. radian,
+  steradian, and decibel, or are expressed by quotients such as millimole per mole equal
+  to <span class="arithmatex">\(10^{−3}\)</span> and microgram per kilogram equal to <span class="arithmatex">\(10^{−9}\)</span>.</li>
+</ul>
+</dd>
+<dt><a href="#base-unit" id="base-unit"><code>base unit</code></a></dt>
+<dd>
+<ul>
+<li><a href="#unit">Measurement unit</a> that is adopted by convention for a <a href="#base-quantity">base quantity</a>.</li>
+<li>In each <a href="#coherent-system-of-units">coherent system of units</a>, there is only one base unit
+  for each <a href="#base-quantity">base quantity</a>.<ul>
+<li>i.e. in the <a href="#si">SI</a>, the metre is the base unit of length. In the CGS systems,
+  the centimetre is the base unit of length.</li>
+</ul>
+</li>
+<li>A base unit may also serve for a <a href="#derived-quantity">derived quantity</a> of the same
+  <a href="#dimension">quantity dimension</a>.</li>
+<li>For number of entities, the number one, symbol <code>1</code>, can be regarded as a base unit in
+  any system of units.</li>
+</ul>
+</dd>
+<dt><a href="#derived-unit" id="derived-unit"><code>derived unit</code></a></dt>
+<dd>
+<ul>
+<li><a href="#unit">Measurement unit</a> for a <a href="#derived-quantity">derived quantity</a>.</li>
+<li>For example, the metre per second, symbol m/s, and the centimetre per second, symbol cm/s,
+  are derived units of speed in the <a href="#si">SI</a>. The kilometre per hour, symbol km/h, is a
+  <a href="#unit">measurement unit</a> of speed outside the <a href="#si">SI</a> but accepted for use with
+  the <a href="#si">SI</a>. The knot, equal to one nautical mile per hour, is a measurement unit of speed
+  outside the <a href="#si">SI</a>.</li>
+</ul>
+</dd>
+<dt><a href="#coherent-derived-unit" id="coherent-derived-unit"><code>coherent derived unit</code></a></dt>
+<dd>
+<ul>
+<li><a href="#derived-unit">Derived unit</a> that, for a given <a href="#system-of-quantities">system of quantities</a>
+  and for a chosen set of <a href="#base-unit">base units</a>, is a product of powers of
+  <a href="#base-unit">base units</a> with no other proportionality factor than one.</li>
+<li>A power of a <a href="#base-unit">base unit</a> is the <a href="#base-unit">base unit</a> raised to an exponent.</li>
+<li>Coherence can be determined only with respect to a particular
+  <a href="#system-of-quantities">system of quantities</a> and a given set of <a href="#base-unit">base units</a>.<ul>
+<li>For example, if the metre, the second, and the mole are base units, the metre per second is
+  the coherent derived unit of velocity when velocity is defined by the
+  <a href="#quantity-equation">quantity equation</a> <span class="arithmatex">\(v = \mathsf{d}r/\mathsf{d}t\)</span>, and the mole per
+  cubic metre is the coherent derived unit of amount-of-substance concentration when
+  amount-of-substance concentration is defined by the <a href="#quantity-equation">quantity equation</a>
+  <span class="arithmatex">\(c = n/V\)</span>. The kilometre per hour and the knot, given as examples of <a href="#derived-unit">derived units</a>,
+  are not coherent derived units in such a <a href="#system-of-quantities">system of quantities</a>.</li>
+</ul>
+</li>
+<li>A <a href="#derived-unit">derived unit</a> can be coherent with respect to one
+  <a href="#system-of-quantities">system of quantities</a> but not to another.<ul>
+<li>For example, the centimetre per second is the coherent derived unit of speed in a CGS system
+  of units but is not a coherent derived unit in the <a href="#si">SI</a>.</li>
+</ul>
+</li>
+<li>The coherent derived unit for every <a href="#dimensionless-quantity">derived quantity of dimension one</a>
+  in a given <a href="#system-of-units">system of units</a> is the number one, symbol <code>1</code>. The name and
+  symbol of the <a href="#unit">measurement unit</a> one are generally not indicated.</li>
+</ul>
+</dd>
+<dt><a href="#system-of-units" id="system-of-units"><code>system of units</code></a></dt>
+<dd>
+<ul>
+<li>Set of <a href="#base-unit">base units</a> and <a href="#derived-unit">derived units</a>, together with
+  their multiples and submultiples, defined in accordance with given rules, for a given
+  <a href="#system-of-quantities">system of quantities</a>.</li>
+</ul>
+</dd>
+<dt><a href="#coherent-system-of-units" id="coherent-system-of-units"><code>coherent system of units</code></a></dt>
+<dd>
+<ul>
+<li><a href="#system-of-units">System of units</a>, based on a given <a href="#system-of-quantities">system of quantities</a>,
+  in which the <a href="#unit">measurement unit</a> for each <a href="#derived-quantity">derived quantity</a> is
+  a <a href="#coherent-derived-unit">coherent derived unit</a>.</li>
+<li>A <a href="#system-of-units">system of units</a> can be coherent only with respect to a
+  <a href="#system-of-quantities">system of quantities</a> and the adopted <a href="#base-unit">base units</a>.</li>
+<li>For a coherent system of units, <a href="#numerical-value-equation">numerical value equations</a> have
+  the same form, including numerical factors, as the corresponding
+  <a href="#quantity-equation">quantity equations</a>.</li>
+</ul>
+</dd>
+<dt><a href="#off-system-unit" id="off-system-unit"><code>off-system measurement unit, off-system unit</code></a></dt>
+<dd>
+<ul>
+<li><a href="#unit">Measurement unit</a> that does not belong to a given <a href="#system-of-units">system of units</a>.</li>
+<li>For example, the electronvolt (about <span class="arithmatex">\(1.602\;18 × 10^{–19} \mathsf{J}\)</span>) is an
+  off-system measurement unit of energy with respect to the <a href="#si">SI</a>. Day, hour, minute
+  are off-system measurement units of time with respect to the <a href="#si">SI</a>.</li>
+</ul>
+</dd>
+<dt><a href="#si" id="si"><code>International System of Units, SI</code></a></dt>
+<dd>
+<ul>
+<li><a href="#system-of-units">System of units</a>, based on the <a href="#isq">International System of Quantities</a>,
+  their names and symbols, including a series of prefixes and their names and symbols,
+  together with rules for their use, adopted by the General Conference on Weights and
+  Measures (CGPM).</li>
+</ul>
+</dd>
+<dt><a href="#quantity-value" id="quantity-value"><code>quantity value, value of a quantity, value</code></a></dt>
+<dd>
+<ul>
+<li>Number and reference together expressing magnitude of a <a href="#quantity">quantity</a>.</li>
+<li>The number can be complex.</li>
+<li>A quantity value can be presented in more than one way.</li>
+<li>In the case of vector or tensor quantities, each component has a quantity value.<ul>
+<li>For example, force acting on a given particle, e.g. in Cartesian components
+  <span class="arithmatex">\((F_x; F_y; F_z) = (−31.5; 43.2; 17.0) \mathsf{N}\)</span>.</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt><a href="#quantity-equation" id="quantity-equation"><code>quantity equation</code></a></dt>
+<dd>
+<ul>
+<li>Mathematical relation between <a href="#quantity">quantities</a> in a given <a href="#system-of-quantities">system of quantities</a>,
+  independent of <a href="#unit">measure­ment units</a>.</li>
+<li>For example, <span class="arithmatex">\(T = (1/2) mv^2\)</span> where <span class="arithmatex">\(T\)</span> is the kinetic energy and <span class="arithmatex">\(v\)</span> the speed
+  of a specified particle of mass <span class="arithmatex">\(m\)</span>.</li>
+</ul>
+</dd>
+<dt><a href="#unit-equation" id="unit-equation"><code>unit equation</code></a></dt>
+<dd>
+<ul>
+<li>Mathematical relation between <a href="#base-unit">base units</a>,
+  <a href="#coherent-derived-unit">coher­ent derived units</a> or other <a href="#unit">measurement units</a>.</li>
+<li>For example, <span class="arithmatex">\(\mathsf{J} := \mathsf{kg}\:\mathsf{m}^2/\mathsf{s}^2\)</span>, where, <span class="arithmatex">\(\mathsf{J}\)</span>,
+  <span class="arithmatex">\(\mathsf{kg}\)</span>, <span class="arithmatex">\(\mathsf{m}\)</span>, and <span class="arithmatex">\(\mathsf{s}\)</span> are the symbols for the joule, kilogram,
+  metre, and second, respectively. (The symbol <span class="arithmatex">\(:=\)</span> denotes “is by definition equal to”
+  as given in the ISO 80000 and IEC 80000 series.). <span class="arithmatex">\(1\;\mathsf{km/h} = (1/3.6)\;\mathsf{m/s}\)</span>.</li>
+</ul>
+</dd>
+<dt><a href="#numerical-value-equation" id="numerical-value-equation"><code>numerical value equation, numerical quantity value equation</code></a></dt>
+<dd>
+<ul>
+<li>Mathematical relation between numerical <a href="#quantity-value">quantity values</a>, based on
+  a given <a href="#quantity-equation">quantity equation</a> and specified <a href="#unit">measurement units</a>.</li>
+<li>For example, in the <a href="#quantity-equation">quantity equation</a> for kinetic energy of a particle,
+  <span class="arithmatex">\(T = (1/2) mv^2\)</span>, if <span class="arithmatex">\(m = 2 kg\)</span> and <span class="arithmatex">\(v = 3 m/s\)</span>, then <span class="arithmatex">\({T} = (1/2) × 2 × 3^2\)</span> is a numerical
+  value equation giving the numerical value <span class="arithmatex">\(9\)</span> of <span class="arithmatex">\(T\)</span> in joules.</li>
+</ul>
+</dd>
+</dl>
+<h2 id="other-definitions">Other definitions<a class="headerlink" href="#other-definitions" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The below terms are describing the implementation-related part of the <strong>mp-units</strong> library.</p>
+</div>
+<dl>
+<dt><a href="#base-dimension" id="base-dimension"><code>base dimension</code></a></dt>
+<dd>
+<ul>
+<li>A <a href="#dimension">dimension</a> of a <a href="#base-quantity">base quantity</a>.</li>
+</ul>
+</dd>
+<dt><a href="#derived-dimension" id="derived-dimension"><code>derived dimension</code></a></dt>
+<dd>
+<ul>
+<li>A <a href="#dimension">dimension</a> of a <a href="#derived-quantity">derived quantity</a>.</li>
+<li>Implemented as an expression template being the result of the
+  <a href="#dimension-equation">dimension equation</a> on <a href="#base-dimension">base dimensions</a>.</li>
+</ul>
+</dd>
+<dt><a href="#dimension-equation" id="dimension-equation"><code>dimension equation</code></a></dt>
+<dd>
+<ul>
+<li>Mathematical relation between <a href="#dimension">dimensions</a> in a given
+  <a href="#system-of-quantities">system of quantities</a>, independent of <a href="#unit">measure­ment units</a>.</li>
+</ul>
+</dd>
+<dt><a href="#quantity-hierarchy" id="quantity-hierarchy"><code>quantity kind hierarchy, quantity hierarchy</code></a></dt>
+<dd>
+<ul>
+<li><a href="#kind">Quantities of the same kind</a> form a hierarchy that determines their:<ul>
+<li>convertibility (i.e. every width is a length, but width should not be
+  convertible to height)</li>
+<li>common quantity type (i.e. width + height -&gt; length)</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt><a href="#character" id="character"><code>quantity character, character of the quantity, character</code></a></dt>
+<dd>
+<ul>
+<li>Scalars, vectors and tensors are mathematical objects that can be used to denote
+  certain <a href="#quantity">physical quantities</a> and their <a href="#quantity-value">values</a>.
+  They are as such independent of the particular choice of a coordinate system,
+  whereas each scalar component of a vector or a tensor and each component vector
+  and component tensor depend on that choice.</li>
+<li>A vector is a tensor of the first order and a scalar is a tensor of order zero.</li>
+<li>For vectors and tensors, the components are <a href="#quantity">quantities</a> that can be
+  expressed as a product of a number and a <a href="#unit">unit</a>.</li>
+<li>Vectors and tensors can also be expressed as a numerical value vector or tensor,
+  respectively, multiplied by a <a href="#unit">unit</a>.</li>
+<li>The term ’character’ was borrowed from the below quote:</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">ISO 80000-1_2009</p>
+<p>In deriving the dimension of a quantity, no account is taken of its scalar,
+vector, or tensor <strong>character</strong>.</p>
+</div>
+</dd>
+<dt><a href="#quantity_spec" id="quantity_spec"><code>quantity specification, quantity_spec</code></a></dt>
+<dd>
+<ul>
+<li>An entity storing all the information about a specific <a href="#quantity">quantity</a>:<ul>
+<li>location in a <a href="#quantity-hierarchy">quantity hierarchy</a></li>
+<li><a href="#quantity-equation">quantity equation</a></li>
+<li><a href="#dimension">dimension of a quantity</a></li>
+<li><a href="#kind">quantity kind</a></li>
+<li><a href="#character">quantity character</a></li>
+<li>additional constraints (i.e. non-negative)</li>
+</ul>
+</li>
+<li><a href="#dimension">Dimension of a quantity</a> is not enough to specify all the properties of
+  a <a href="#quantity">quantity</a>.</li>
+</ul>
+</dd>
+</dl>
 
 
 
@@ -801,6 +1277,18 @@ You're not viewing the latest version.
     
     
       <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
       
     
   </body>
