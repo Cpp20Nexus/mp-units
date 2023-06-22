@@ -1572,10 +1572,30 @@ vector, or tensor <strong>character</strong>.</p>
   <a href="#unit">unit</a>).</li>
 </ul>
 </dd>
+<dt><a href="#absolute-point-origin" id="absolute-point-origin"><code>absolute quantity point origin</code>, <code>absolute point origin</code></a></dt>
+<dd>
+<ul>
+<li>An explicit point on an axis of values of a specific <a href="#quantity">quantity</a> type that serves
+  as an absolute reference point for all <a href="#quantity-point">quantity points</a> which definitions
+  are (explicitly or implicitly) based on it.</li>
+<li>For example, mean sea level is commonly used as an absolute reference point to measure altitudes.</li>
+</ul>
+</dd>
+<dt><a href="#point-origin" id="point-origin"><code>quantity point origin</code>, <code>point origin</code></a></dt>
+<dd>
+<ul>
+<li>An explicit point on an axis of values of a specific <a href="#quantity">quantity</a> type serving as a reference
+  for other <a href="#quantity">quantities</a>.</li>
+<li>It might be ether an <a href="#absolute-point-origin">absolute point origin</a> or a compile-time known
+  <a href="#quantity-point">quantity point</a>.</li>
+<li>For example, an ice point is a quantity point with a value of <code>273.15 K</code> that is used as
+  the zero point of a degree Celsius scale.</li>
+</ul>
+</dd>
 <dt><a href="#quantity-point" id="quantity-point"><code>quantity point</code>, <code>absolute quantity</code></a></dt>
 <dd>
 <ul>
-<li>An absolute <a href="#quantity">quantity</a> with respect to an origin</li>
+<li>An absolute <a href="#quantity">quantity</a> with respect to an <a href="#point-origin">origin</a>.</li>
 <li>For example, timestamp (as opposed to duration), altitude (as opposed to height),
   absolute temperature (as opposed to temperature difference).</li>
 </ul>
