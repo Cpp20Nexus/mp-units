@@ -56,6 +56,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/library_reference/magnitudes/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mpusz.github.io/mp-units/2.0/users_guide/terms_and_definitions/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
@@ -96,7 +101,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/dimensionless_quantities/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/faster_than_lightspeed_constants/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/quantities_of_different_characters/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/quantity_arithmetics/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -116,6 +136,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/text_output/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/the_affine_space/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/value_conversions/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
@@ -127,6 +157,11 @@
     </url>
     <url>
          <loc>https://mpusz.github.io/mp-units/2.0/users_guide/use_cases/interoperability_with_other_units_libraries/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/use_cases/pure_dimensional_analysis/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>

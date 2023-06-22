@@ -434,6 +434,13 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-cant-i-create-a-quantity-by-passing-a-number-to-a-constructor" class="md-nav__link">
+    Why can't I create a quantity by passing a number to a constructor?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-60-km-h-does-not-compile" class="md-nav__link">
     Why 60 * km / h does not compile?
   </a>
@@ -560,6 +567,16 @@ You're not viewing the latest version.
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -650,8 +667,78 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
+      <a href="../../users_guide/framework_basics/quantity_arithmetics/" class="md-nav__link">
+        Quantity Arithmetics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../users_guide/framework_basics/quantities_of_different_characters/" class="md-nav__link">
         Quantities of Different Characters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users_guide/framework_basics/dimensionless_quantities/" class="md-nav__link">
+        Dimensionless Quantities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users_guide/framework_basics/the_affine_space/" class="md-nav__link">
+        The Affine Space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users_guide/framework_basics/faster_than_lightspeed_constants/" class="md-nav__link">
+        Faster Than Lightspeed Constants
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users_guide/framework_basics/text_output/" class="md-nav__link">
+        Text Output
       </a>
     </li>
   
@@ -804,6 +891,8 @@ You're not viewing the latest version.
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -817,6 +906,20 @@ You're not viewing the latest version.
           Use Cases
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users_guide/use_cases/pure_dimensional_analysis/" class="md-nav__link">
+        Pure Dimensional Analysis
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -960,6 +1063,8 @@ You're not viewing the latest version.
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -982,6 +1087,20 @@ You're not viewing the latest version.
     <li class="md-nav__item">
       <a href="../../library_reference/core_library/" class="md-nav__link">
         Core Library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../library_reference/magnitudes/" class="md-nav__link">
+        Magnitudes
       </a>
     </li>
   
@@ -1138,6 +1257,13 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-cant-i-create-a-quantity-by-passing-a-number-to-a-constructor" class="md-nav__link">
+    Why can't I create a quantity by passing a number to a constructor?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-60-km-h-does-not-compile" class="md-nav__link">
     Why 60 * km / h does not compile?
   </a>
@@ -1250,33 +1376,56 @@ You're not viewing the latest version.
 </span></code></pre></div>
 </li>
 </ol>
+<h2 id="why-cant-i-create-a-quantity-by-passing-a-number-to-a-constructor">Why can't I create a quantity by passing a number to a constructor?<a class="headerlink" href="#why-cant-i-create-a-quantity-by-passing-a-number-to-a-constructor" title="Permanent link">&para;</a></h2>
+<p>A quantity class template in the <strong>mp-units</strong> library has no publicly available constructor taking a raw value.
+Such support is provided by the <code>std::chrono::duration</code> and was pointed out to us as a red flag safety issue
+by a few parties already.</p>
+<p>Consider the following structure and a code using it:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="c1">// ...</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">};</span>
+</span></code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">x</span><span class="p">.</span><span class="n">vec</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Everything works fine for years until at some point someone changes the structure to:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="c1">// ...</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">};</span>
+</span></code></pre></div>
+<p>The code continues to compile just fine but all the calculations are off now. This is why we decided to not
+follow this path.</p>
+<p>In the <strong>mp-units</strong> library, both a number and a unit have to always be explicitly provided in order to
+form a quantity.</p>
 <h2 id="why-60-km-h-does-not-compile">Why <code>60 * km / h</code> does not compile?<a class="headerlink" href="#why-60-km-h-does-not-compile" title="Permanent link">&para;</a></h2>
 <p>The library design does not allow multiplying or dividing a quantity (the result of <code>60 * km</code>)
 by another unit. This significantly limits the number of possible errors and surprises in the
 quantity equations.</p>
 <p>Consider the following expression:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Looks like <code>30 km/h</code>, right? But it is not. If the above code was allowed, it would result
 in <code>30 km⋅h</code>. In case you want to divide <code>60 * km</code> by <code>2 * h</code> a parenthesis is needed
 <code>60 * km / (2 * h)</code>.</p>
 <p>Another surprising issue could result from the following code:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">make_length</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">auto</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_length</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">make_length</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">auto</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_length</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
 </span></code></pre></div>
 <p>The above might look like a good idea, but consider what would happen in the user provided
 an already existing quantity:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_length</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_length</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Fortunately, with the current design, such issues are detected at compile-time.</p>
 <h2 id="why-a-dimensionless-quantity-is-not-just-a-fundamental-arithmetic-type">Why a dimensionless quantity is not just a fundamental arithmetic type?<a class="headerlink" href="#why-a-dimensionless-quantity-is-not-just-a-fundamental-arithmetic-type" title="Permanent link">&para;</a></h2>
 <p>In the initial design of this library, the resulting type of division of two quantities was their
 common representation type:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="p">)),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="p">)),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">);</span>
 </span></code></pre></div>
 <p>First of all, this was consistent with
 <a href="https://en.cppreference.com/w/cpp/chrono/duration/operator_arith4"><code>std::chrono::duration</code></a> behavior.
