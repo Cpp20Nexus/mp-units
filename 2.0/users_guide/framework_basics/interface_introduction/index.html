@@ -12,20 +12,20 @@
         <meta name="author" content="mp-units Team">
       
       
-        <link rel="canonical" href="https://mpusz.github.io/mp-units/2.0/users_guide/defining_systems/si/">
+        <link rel="canonical" href="https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/interface_introduction/">
       
       
-        <link rel="prev" href="../isq/">
+        <link rel="prev" href="../basic_concepts/">
       
       
-        <link rel="next" href="../strong_angular_system/">
+        <link rel="next" href="../systems_of_quantities/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>International System of Units (SI) - The mp-units library</title>
+        <title>Interface Introduction - The mp-units library</title>
       
     
     
@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#interface-introduction" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -125,7 +130,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              International System of Units (SI)
+              Interface Introduction
             
           </span>
         </div>
@@ -458,14 +463,16 @@ You're not viewing the latest version.
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
       
       
         
@@ -500,7 +507,7 @@ You're not viewing the latest version.
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           Framework Basics
@@ -513,7 +520,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/basic_concepts/" class="md-nav__link">
+      <a href="../basic_concepts/" class="md-nav__link">
         Basic Concepts
       </a>
     </li>
@@ -525,11 +532,100 @@ You're not viewing the latest version.
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../framework_basics/interface_introduction/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Interface Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Interface Introduction
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-style-of-definitions" class="md-nav__link">
+    New style of definitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entities-composability" class="md-nav__link">
+    Entities composability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-templates" class="md-nav__link">
+    Expression templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identities" class="md-nav__link">
+    Identities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-operations-and-their-results" class="md-nav__link">
+    Supported operations and their results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifying-the-resulting-expression-templates" class="md-nav__link">
+    Simplifying the resulting expression templates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -541,7 +637,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/systems_of_quantities/" class="md-nav__link">
+      <a href="../systems_of_quantities/" class="md-nav__link">
         Systems of Quantities
       </a>
     </li>
@@ -555,7 +651,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/systems_of_units/" class="md-nav__link">
+      <a href="../systems_of_units/" class="md-nav__link">
         Systems of Units
       </a>
     </li>
@@ -569,7 +665,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/value_conversions/" class="md-nav__link">
+      <a href="../value_conversions/" class="md-nav__link">
         Value Conversions
       </a>
     </li>
@@ -583,7 +679,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/simple_and_typed_quantities/" class="md-nav__link">
+      <a href="../simple_and_typed_quantities/" class="md-nav__link">
         Simple and Typed Quantities
       </a>
     </li>
@@ -597,7 +693,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/quantity_arithmetics/" class="md-nav__link">
+      <a href="../quantity_arithmetics/" class="md-nav__link">
         Quantity Arithmetics
       </a>
     </li>
@@ -611,7 +707,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/quantities_of_different_characters/" class="md-nav__link">
+      <a href="../quantities_of_different_characters/" class="md-nav__link">
         Quantities of Different Characters
       </a>
     </li>
@@ -625,7 +721,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/dimensionless_quantities/" class="md-nav__link">
+      <a href="../dimensionless_quantities/" class="md-nav__link">
         Dimensionless Quantities
       </a>
     </li>
@@ -639,7 +735,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/the_affine_space/" class="md-nav__link">
+      <a href="../the_affine_space/" class="md-nav__link">
         The Affine Space
       </a>
     </li>
@@ -653,7 +749,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/faster_than_lightspeed_constants/" class="md-nav__link">
+      <a href="../faster_than_lightspeed_constants/" class="md-nav__link">
         Faster Than Lightspeed Constants
       </a>
     </li>
@@ -667,7 +763,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../framework_basics/text_output/" class="md-nav__link">
+      <a href="../text_output/" class="md-nav__link">
         Text Output
       </a>
     </li>
@@ -686,16 +782,14 @@ You're not viewing the latest version.
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
       
       
         
@@ -716,7 +810,7 @@ You're not viewing the latest version.
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Defining Systems
@@ -729,7 +823,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+      <a href="../../defining_systems/introduction/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -743,7 +837,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../isq/" class="md-nav__link">
+      <a href="../../defining_systems/isq/" class="md-nav__link">
         International System of Quantities (ISQ)
       </a>
     </li>
@@ -755,19 +849,11 @@ You're not viewing the latest version.
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../defining_systems/si/" class="md-nav__link">
         International System of Units (SI)
       </a>
-      
     </li>
   
 
@@ -779,7 +865,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../strong_angular_system/" class="md-nav__link">
+      <a href="../../defining_systems/strong_angular_system/" class="md-nav__link">
         Strong Angular System
       </a>
     </li>
@@ -793,7 +879,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../natural_units/" class="md-nav__link">
+      <a href="../../defining_systems/natural_units/" class="md-nav__link">
         Natural Units
       </a>
     </li>
@@ -1171,7 +1257,7 @@ You're not viewing the latest version.
                   
 
   
-    <a href="https://github.com/mpusz/mp-units/edit/master/docs/users_guide/defining_systems/si.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/mpusz/mp-units/edit/master/docs/users_guide/framework_basics/interface_introduction.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1180,16 +1266,322 @@ You're not viewing the latest version.
     
       
     
-    <a href="https://github.com/mpusz/mp-units/raw/master/docs/users_guide/defining_systems/si.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/mpusz/mp-units/raw/master/docs/users_guide/framework_basics/interface_introduction.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-  <h1>International System of Units (SI)</h1>
-
-
+<h1 id="interface-introduction">Interface Introduction<a class="headerlink" href="#interface-introduction" title="Permanent link">&para;</a></h1>
+<h2 id="new-style-of-definitions">New style of definitions<a class="headerlink" href="#new-style-of-definitions" title="Permanent link">&para;</a></h2>
+<p>The <strong>mp-units</strong> library decided to use a rather unusual pattern to define entities.
+Here is how we define <code>metre</code> and <code>second</code> <a href="../../../appendix/glossary/#si">SI</a> base units:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">metre</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;m&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">metre</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">second</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Please note that the above reuses the same identifier for a type and its object. The rationale
+behind this is that:</p>
+<ul>
+<li>Users always work with objects and never have to spell such a type name.</li>
+<li>The types appear in the compilation errors and during debugging.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To improve compiler errors' readability and make it easier to correlate them with
+a user's written code, a new idiom in the library is to use the same identifier for
+a type and its instance.</p>
+</div>
+<h2 id="entities-composability">Entities composability<a class="headerlink" href="#entities-composability" title="Permanent link">&para;</a></h2>
+<p>Many physical units libraries (in C++ or any other programming language) assign strong types
+to library entities (i.e. derived units). While <code>metre_per_second</code> as a type may not look too
+scary, consider, for example, units of angular momentum. If we followed this path, its
+<a href="../../../appendix/glossary/#coherent-derived-unit">coherent unit</a> would look like
+<code>kilogram_metre_sq_per_second</code>. Now, consider how many scaled versions of this unit would you
+predefine in the library to ensure that all users are happy with your choice?
+How expensive would it be from the implementation point of view?
+What about potential future standardization efforts?</p>
+<p>This is why in <strong>mp-units</strong>, we put a strong requirement to make everything as composable as
+possible. For example, to create a quantity with a unit of speed, one may write:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span></code></pre></div>
+<p>In case you use such an unit often and would prefer to have a handy helper for it, you can
+always do something like this:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">metre_per_second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">second</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">metre_per_second</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span></code></pre></div>
+<p>or choose any shorter identifier of your choice.</p>
+<p>Coming back to the angular momentum case, thanks to the composability of units, a user can
+create such a quantity in the following way:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">mp_units</span><span class="o">::</span><span class="nn">si</span><span class="o">::</span><span class="nn">unit_symbols</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">la_vector</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">angular_momentum</span><span class="p">[</span><span class="n">kg</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">];</span>
+</span></code></pre></div>
+<p>It is a much better solution. It is terse and easy to understand. Please also notice how
+easy it is to obtain any scaled version of such a unit (i.e. <code>mg * square(mm) / min</code>)
+without having to introduce hundreds of types to predefine them.</p>
+<h2 id="expression-templates">Expression templates<a class="headerlink" href="#expression-templates" title="Permanent link">&para;</a></h2>
+<p>The previous chapter provided a rationale for not having predefined types for derived entities.
+In many libraries, such an approach results in long and unreadable compilation errors, as
+framework-generated types are typically far from being easy to read and understand.</p>
+<p>The <strong>mp-units</strong> library greatly improves the user experience by extensively using
+expression templates. Such expressions are used consistently throughout the entire library
+to describe the results of:</p>
+<ul>
+<li><a href="../../../appendix/glossary/#dimension-equation">dimension equation</a> - the result is put into
+  the <code>derived_dimension&lt;&gt;</code> class template</li>
+<li><a href="../../../appendix/glossary/#quantity-equation">quantity equation</a> - the result is put into
+  the <code>derived_quantity_spec&lt;&gt;</code> class template</li>
+<li><a href="../../../appendix/glossary/#unit-equation">unit equation</a> - the result is put into
+  the <code>derived_unit&lt;&gt;</code> class template</li>
+</ul>
+<p>For example, if we take the above-defined base units and put the results of their division into
+the quantity class template like this:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">metre</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span></code></pre></div>
+<p>we will observe the following type in the debugger</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>(gdb) ptype q
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>type = class mp_units::quantity&lt;mp_units::derived_unit&lt;metre, mp_units::per&lt;second&gt;&gt;(), double&gt; [with Rep = double] {
+</span></code></pre></div>
+<p>The same type identifier will be visible in the compilation error (in case it happens).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Expressions templates are extensively used throughout the library to improve the readability
+of the resulting types.</p>
+</div>
+<h3 id="identities">Identities<a class="headerlink" href="#identities" title="Permanent link">&para;</a></h3>
+<p>As mentioned above, equations can be done on dimensions, quantities, and units. Each such domain must
+introduce an identity object that can be used in the resulting expressions. Here is the list of
+identities used in the library:</p>
+<table>
+<thead>
+<tr>
+<th>Domain Concept</th>
+<th align="center">Identity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dimension</code></td>
+<td align="center"><code>dimension_one</code></td>
+</tr>
+<tr>
+<td><code>QuantitySpec</code></td>
+<td align="center"><code>dimensionless</code></td>
+</tr>
+<tr>
+<td><code>Unit</code></td>
+<td align="center"><code>one</code></td>
+</tr>
+</tbody>
+</table>
+<p>In the equations, a user can refer to an identity object either explicitly:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">my_unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+</span></code></pre></div>
+<p>or implicitly:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">my_unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Both cases with result in the same expression template being generated and put into the wrapper
+class template.</p>
+<h3 id="supported-operations-and-their-results">Supported operations and their results<a class="headerlink" href="#supported-operations-and-their-results" title="Permanent link">&para;</a></h3>
+<p>There are only a few operations that one can do on such entities and the result of each of them has
+its unique representation in the library:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Operation</th>
+<th align="center">Resulting template expression arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>A * B</code></td>
+<td align="center"><code>A, B</code></td>
+</tr>
+<tr>
+<td align="center"><code>B * A</code></td>
+<td align="center"><code>A, B</code></td>
+</tr>
+<tr>
+<td align="center"><code>A * A</code></td>
+<td align="center"><code>power&lt;A, 2&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>{identity} * A</code></td>
+<td align="center"><code>A</code></td>
+</tr>
+<tr>
+<td align="center"><code>A * {identity}</code></td>
+<td align="center"><code>A</code></td>
+</tr>
+<tr>
+<td align="center"><code>A / B</code></td>
+<td align="center"><code>A, per&lt;B&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>A / A</code></td>
+<td align="center"><code>{identity}</code></td>
+</tr>
+<tr>
+<td align="center"><code>A / {identity}</code></td>
+<td align="center"><code>A</code></td>
+</tr>
+<tr>
+<td align="center"><code>{identity} / A</code></td>
+<td align="center"><code>{identity}, per&lt;A&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>pow&lt;2&gt;(A)</code></td>
+<td align="center"><code>power&lt;A, 2&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>pow&lt;2&gt;({identity})</code></td>
+<td align="center"><code>{identity}</code></td>
+</tr>
+<tr>
+<td align="center"><code>sqrt(A)</code> or <code>pow&lt;1, 2&gt;(A)</code></td>
+<td align="center"><code>power&lt;A, 1, 2&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>sqrt({identity})</code> or <code>pow&lt;1, 2&gt;({identity})</code></td>
+<td align="center"><code>{identity}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="simplifying-the-resulting-expression-templates">Simplifying the resulting expression templates<a class="headerlink" href="#simplifying-the-resulting-expression-templates" title="Permanent link">&para;</a></h3>
+<p>To limit the length and improve the readability of generated types, there are many rules to simplify
+the resulting expression template.</p>
+<ol>
+<li>
+<p><strong>Ordering</strong></p>
+<p>The resulting comma-separated arguments of multiplication are always sorted according to
+a specific predicate. This is why:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">);</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">),</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">B</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>This is probably the most important of all steps, as it allows comparing types and enables the rest of
+simplification rules.</p>
+</li>
+<li>
+<p><strong>Aggregation</strong></p>
+<p>In case two of the same identifiers are found next to each other on the argument list they
+will be aggregated in one entry:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Before</th>
+<th align="center">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>A, A</code></td>
+<td align="center"><code>power&lt;A, 2&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>A, power&lt;A, 2&gt;</code></td>
+<td align="center"><code>power&lt;A, 3&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>power&lt;A, 1, 2&gt;, power&lt;A, 2&gt;</code></td>
+<td align="center"><code>power&lt;A, 5, 2&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>power&lt;A, 1, 2&gt;, power&lt;A, 1, 2&gt;</code></td>
+<td align="center"><code>A</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Simplification</strong></p>
+<p>In case two of the same identifiers are found in the numerator and denominator argument lists;
+they are being simplified into one entry:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Before</th>
+<th align="center">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>A, per&lt;A&gt;</code></td>
+<td align="center"><code>{identity}</code></td>
+</tr>
+<tr>
+<td align="center"><code>power&lt;A, 2&gt;, per&lt;A&gt;</code></td>
+<td align="center"><code>A</code></td>
+</tr>
+<tr>
+<td align="center"><code>power&lt;A, 3&gt;, per&lt;A&gt;</code></td>
+<td align="center"><code>power&lt;A, 2&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>A, per&lt;power&lt;A, 2&gt;&gt;</code></td>
+<td align="center"><code>{identity}, per&lt;A&gt;</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Repacking</strong></p>
+<p>In case an expression uses two results of other operations, the components of its arguments are repacked
+into one resulting type and simplified there.</p>
+<p>For example, assuming:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+</span></code></pre></div>
+<p>then:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Operation</th>
+<th align="center">Resulting template expression arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>X * B</code></td>
+<td align="center"><code>A</code></td>
+</tr>
+<tr>
+<td align="center"><code>X * A</code></td>
+<td align="center"><code>power&lt;A, 2&gt;, per&lt;B&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>X * X</code></td>
+<td align="center"><code>power&lt;A, 2&gt;, per&lt;power&lt;B, 2&gt;&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>X / X</code></td>
+<td align="center"><code>{identity}</code></td>
+</tr>
+<tr>
+<td align="center"><code>X / A</code></td>
+<td align="center"><code>{identity}, per&lt;B&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>X / B</code></td>
+<td align="center"><code>A, per&lt;power&lt;B, 2&gt;&gt;</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>Thanks to all of the features described above, a user may write the code like this one:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">mp_units</span><span class="o">::</span><span class="nn">si</span><span class="o">::</span><span class="nn">unit_symbols</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60.</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">[</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">];</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">auto</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">auto</span><span class="w"> </span><span class="n">acceleration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">duration</span><span class="p">;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;acceleration: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">acceleration</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; (&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="n">m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>The <code>acceleration</code>, being the result of the above code, has the following type
+(after stripping the <code>mp_units</code> namespace for brevity):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>quantity&lt;reference&lt;derived_quantity_spec&lt;isq::speed, per&lt;isq::time&gt;&gt;{}, derived_unit&lt;si::kilo_&lt;si::metre{}&gt;, per&lt;non_si::hour, si::second&gt;&gt;{}&gt;{}, int&gt;
+</span></code></pre></div>
+<p>and the text output presents:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>acceleration: 7.5 km h⁻¹ s⁻¹ (2.08333 m/s²)
+</span></code></pre></div>
 
 
 
@@ -1211,7 +1603,7 @@ You're not viewing the latest version.
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../isq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: International System of Quantities (ISQ)" rel="prev">
+          <a href="../basic_concepts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic Concepts" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1220,20 +1612,20 @@ You're not viewing the latest version.
                 Previous
               </span>
               <div class="md-ellipsis">
-                International System of Quantities (ISQ)
+                Basic Concepts
               </div>
             </div>
           </a>
         
         
           
-          <a href="../strong_angular_system/" class="md-footer__link md-footer__link--next" aria-label="Next: Strong Angular System" rel="next">
+          <a href="../systems_of_quantities/" class="md-footer__link md-footer__link--next" aria-label="Next: Systems of Quantities" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Strong Angular System
+                Systems of Quantities
               </div>
             </div>
             <div class="md-footer__button md-icon">
