@@ -12,20 +12,20 @@
         <meta name="author" content="mp-units Team">
       
       
-        <link rel="canonical" href="https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/quantities_of_different_characters/">
+        <link rel="canonical" href="https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/character_of_a_quantity/">
       
       
-        <link rel="prev" href="../quantity_arithmetics/">
+        <link rel="prev" href="../value_conversions/">
       
       
-        <link rel="next" href="../faster_than_lightspeed_constants/">
+        <link rel="next" href="../quantity_arithmetics/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Quantities of Different Characters - The mp-units library</title>
+        <title>Character of a Quantity - The mp-units library</title>
       
     
     
@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#character-of-a-quantity" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -125,7 +130,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quantities of Different Characters
+              Character of a Quantity
             
           </span>
         </div>
@@ -599,6 +604,103 @@ You're not viewing the latest version.
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Character of a Quantity
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Character of a Quantity
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scalars-vectors-and-tensors" class="md-nav__link">
+    Scalars, vectors, and tensors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-from-the-isq" class="md-nav__link">
+    Examples from the ISQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#characters-apply-to-quantities-but-not-dimensions-or-units" class="md-nav__link">
+    Characters apply to quantities but not dimensions or units
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-vector-and-tensor-quantities" class="md-nav__link">
+    Defining vector and tensor quantities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representation-types-for-vector-and-tensor-quantities" class="md-nav__link">
+    Representation types for vector and tensor quantities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hacking-the-character" class="md-nav__link">
+    Hacking the character
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#different-shades-of-vector-and-tensor-quantities" class="md-nav__link">
+    Different shades of vector and tensor quantities
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../quantity_arithmetics/" class="md-nav__link">
@@ -613,32 +715,10 @@ You're not viewing the latest version.
               
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Quantities of Different Characters
-      </a>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
   
     <li class="md-nav__item">
       <a href="../faster_than_lightspeed_constants/" class="md-nav__link">
-        Faster than Lightspeed Constants
+        Faster-than-lightspeed Constants
       </a>
     </li>
   
@@ -1187,7 +1267,7 @@ You're not viewing the latest version.
                   
 
   
-    <a href="https://github.com/mpusz/mp-units/edit/master/docs/users_guide/framework_basics/quantities_of_different_characters.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/mpusz/mp-units/edit/master/docs/users_guide/framework_basics/character_of_a_quantity.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1196,16 +1276,213 @@ You're not viewing the latest version.
     
       
     
-    <a href="https://github.com/mpusz/mp-units/raw/master/docs/users_guide/framework_basics/quantities_of_different_characters.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/mpusz/mp-units/raw/master/docs/users_guide/framework_basics/character_of_a_quantity.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-  <h1>Quantities of Different Characters</h1>
-
-
+<h1 id="character-of-a-quantity">Character of a Quantity<a class="headerlink" href="#character-of-a-quantity" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Features described in this chapter are experimental and are subject to change or removal. Please
+share your feedback if something doesn't seem right or could be improved.</p>
+</div>
+<h2 id="scalars-vectors-and-tensors">Scalars, vectors, and tensors<a class="headerlink" href="#scalars-vectors-and-tensors" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">ISO 80000-2</p>
+<p>Scalars, vectors and tensors are mathematical objects that can be used to denote certain physical
+quantities and their values. They are as such independent of the particular choice of a coordinate system,
+whereas each scalar component of a vector or a tensor and each component vector and component
+tensor depend on that choice.</p>
+</div>
+<p>While defining quantities ISO 80000 explicitly mentions when a specific quantity has a vector or tensor
+character. Such distinction is important because each quantity character represent different properties
+and allows different operations to be done on their quantities.</p>
+<p>For example, imagine a physical units library that allows to create a <code>speed</code> quantity from both
+<code>length / time</code> and <code>length * time</code>. It wouldn't be too safe to use such a product, right?</p>
+<p>Now we have to realize that both of the above operations (multiplication and division) are even not
+mathematically defined for linear algebra types such as vector or tensors. On the other hand, two vectors
+can be passed as arguments to dot (<code>⋅</code>) and cross (<code>×</code>) product operations. The result of the first one is
+a scalar. The second one results with a vector that is perpendicular to both vectors passed as arguments.
+Again, it wouldn't be safe to allow replacing those two operations with each other or expect the same
+results from both cases. This simply can't work.</p>
+<h2 id="examples-from-the-isq">Examples from the ISQ<a class="headerlink" href="#examples-from-the-isq" title="Permanent link">&para;</a></h2>
+<p>To provide some examples for further discussion let's pick a few quantities defined in the ISO 80000:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th align="center">Character</th>
+<th align="center">Quantity Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>duration</code></td>
+<td align="center">scalar</td>
+<td align="center"><em>{base quantity}</em></td>
+</tr>
+<tr>
+<td><code>mass</code></td>
+<td align="center">scalar</td>
+<td align="center"><em>{base quantity}</em></td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td align="center">scalar</td>
+<td align="center"><em>{base quantity}</em></td>
+</tr>
+<tr>
+<td><code>path_length</code></td>
+<td align="center">scalar</td>
+<td align="center"><em>{base quantity}</em></td>
+</tr>
+<tr>
+<td><code>radius</code></td>
+<td align="center">scalar</td>
+<td align="center"><em>{base quantity}</em></td>
+</tr>
+<tr>
+<td><code>position_vector</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><em>{base quantity}</em></td>
+</tr>
+<tr>
+<td><code>velocity</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><code>position_vector / duration</code></td>
+</tr>
+<tr>
+<td><code>acceleration</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><code>velocity / duration</code></td>
+</tr>
+<tr>
+<td><code>force</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><code>mass * acceleration</code></td>
+</tr>
+<tr>
+<td><code>power</code></td>
+<td align="center">scalar</td>
+<td align="center"><code>force ⋅ velocity</code></td>
+</tr>
+<tr>
+<td><code>moment_of_force</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><code>position_vector × force</code></td>
+</tr>
+<tr>
+<td><code>torque</code></td>
+<td align="center">scalar</td>
+<td align="center"><code>moment_of_force ⋅ {unit-vector}</code></td>
+</tr>
+<tr>
+<td><code>surface_tension</code></td>
+<td align="center">scalar</td>
+<td align="center"><code>|force| / length</code></td>
+</tr>
+<tr>
+<td><code>angular_displacement</code></td>
+<td align="center">scalar</td>
+<td align="center"><code>path_length / radius</code></td>
+</tr>
+<tr>
+<td><code>angular_velocity</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><code>angular_displacement / duration * {unit-vector}</code></td>
+</tr>
+<tr>
+<td><code>momentum</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><code>mass * velocity</code></td>
+</tr>
+<tr>
+<td><code>angular_momentum</code></td>
+<td align="center"><strong>vector</strong></td>
+<td align="center"><code>position_vector × momentum</code></td>
+</tr>
+<tr>
+<td><code>moment_of_inertia</code></td>
+<td align="center"><strong><em>tensor</em></strong></td>
+<td align="center"><code>angular_momentum ⊗ angular_velocity</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of now, all of the C++ physical units libraries on the market besides <strong>mp-units</strong> do not
+support above-mentioned operations. They expose only multiplication and division operators which
+do not work for proper linear-algebra-based representation types. In case one would like to
+construct the quantities provided in the above table with those libraries, this would result with
+a compile-time error stating that multiplication and division of two linear-algebra vectors is not
+possible.</p>
+</div>
+<h2 id="characters-apply-to-quantities-but-not-dimensions-or-units">Characters apply to quantities but not dimensions or units<a class="headerlink" href="#characters-apply-to-quantities-but-not-dimensions-or-units" title="Permanent link">&para;</a></h2>
+<p>ISO 80000 explicitly states that dimensions are orthogonal to quantity characters:</p>
+<div class="admonition quote">
+<p class="admonition-title">ISO 80000-1:2009</p>
+<p>In deriving the dimension of a quantity, no account is taken of its scalar, vector, or tensor character.</p>
+</div>
+<p>Also, it explicitly states that:</p>
+<div class="admonition quote">
+<p class="admonition-title">ISO 80000-2</p>
+<p>All units are scalars.</p>
+</div>
+<h2 id="defining-vector-and-tensor-quantities">Defining vector and tensor quantities<a class="headerlink" href="#defining-vector-and-tensor-quantities" title="Permanent link">&para;</a></h2>
+<p>To specify that a specific quantity has a vector or tensor character a value of <code>quantity_character</code>
+enumeration can be appended to the <code>quantity_spec</code> describing such a quantity type:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">position_vector</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">quantity_character</span><span class="o">::</span><span class="n">vector</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">position_vector</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">displacement</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">quantity_character</span><span class="o">::</span><span class="n">vector</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">displacement</span><span class="p">;</span>
+</span></code></pre></div>
+<p>From now on all the quantities derived from <code>position_vector</code> or <code>displacement</code> will have a correct
+character consistent with the operations performed in the <a href="../../../appendix/glossary/#quantity-equation">quantity equation</a>
+on their arguments.</p>
+<h2 id="representation-types-for-vector-and-tensor-quantities">Representation types for vector and tensor quantities<a class="headerlink" href="#representation-types-for-vector-and-tensor-quantities" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current version of the C++ Standard Library does not provide any types that could be used as
+a representation type for vector and tensor quantities. This is why users are on their own here
+<img alt="😟" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f61f.svg" title=":worried:" />.</p>
+<p>To provide examples and implement unit tests our library uses the types proposed in the <a href="https://wg21.link/p1385">P1385</a>
+and available as <a href="https://conan.io/center/wg21-linear_algebra">a Conan package in the Conan Center</a>.</p>
+</div>
+<p>In order to enable the usage of a user-defined type as a representation type for vector or tensor
+quantities you need to provide a partial specialization of <code>is_vector</code> or <code>is_tensor</code> customization
+points.</p>
+<p>For example, here is how it can be done for the <a href="https://wg21.link/p1385">P1385</a> types:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;matrix&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="n">la_vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STD_LA</span><span class="o">::</span><span class="n">fixed_size_column_vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">template</span><span class="o">&lt;&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">mp_units</span><span class="o">::</span><span class="n">is_vector</span><span class="o">&lt;</span><span class="n">la_vector</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="hacking-the-character">Hacking the character<a class="headerlink" href="#hacking-the-character" title="Permanent link">&para;</a></h2>
+<p>Sometimes you want to use a vector quantity but you do not care about its direction. For example,
+the standard gravity acceleration constant is always pointing down and you might not care about this
+in a particular case. In such a case you may want to "hack" the library to allow scalar types
+to be used as a representation type for scalar quantities.</p>
+<p>For example, you can do something like this:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n">mp_units</span><span class="o">::</span><span class="n">is_scalar</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">mp_units</span><span class="o">::</span><span class="n">is_vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span></code></pre></div>
+<p>which says that every type that can be used a scalar representation is also allowed for vector
+quantities.</p>
+<p>Doing the above is actually not such a big "hack" as the ISO 80000 explicitly allows it:</p>
+<div class="admonition quote">
+<p class="admonition-title">ISO 80000-2</p>
+<p>A vector is a tensor of the first order and a scalar is a tensor of order zero.</p>
+</div>
+<p>However, for type-safety reasons, we do not want to allow of such a behavior by default.</p>
+<h2 id="different-shades-of-vector-and-tensor-quantities">Different shades of vector and tensor quantities<a class="headerlink" href="#different-shades-of-vector-and-tensor-quantities" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code>Instead of treating each coordinate of a vector as a physical quantity value (i.e. a number multiplied by
+a unit), the vector could be written as a numerical vector multiplied by a unit. 
+The same considerations apply to tensors of second and higher orders.
+</code></pre></div>
 
 
 
@@ -1227,7 +1504,7 @@ You're not viewing the latest version.
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../quantity_arithmetics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quantity Arithmetics" rel="prev">
+          <a href="../value_conversions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Value Conversions" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1236,20 +1513,20 @@ You're not viewing the latest version.
                 Previous
               </span>
               <div class="md-ellipsis">
-                Quantity Arithmetics
+                Value Conversions
               </div>
             </div>
           </a>
         
         
           
-          <a href="../faster_than_lightspeed_constants/" class="md-footer__link md-footer__link--next" aria-label="Next: Faster than Lightspeed Constants" rel="next">
+          <a href="../quantity_arithmetics/" class="md-footer__link md-footer__link--next" aria-label="Next: Quantity Arithmetics" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Faster than Lightspeed Constants
+                Quantity Arithmetics
               </div>
             </div>
             <div class="md-footer__button md-icon">
