@@ -12,20 +12,20 @@
         <meta name="author" content="mp-units Team">
       
       
-        <link rel="canonical" href="https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/quantity_arithmetics/">
+        <link rel="canonical" href="https://mpusz.github.io/mp-units/2.0/users_guide/framework_basics/generic_interfaces/">
       
       
-        <link rel="prev" href="../character_of_a_quantity/">
+        <link rel="prev" href="../quantity_arithmetics/">
       
       
-        <link rel="next" href="../generic_interfaces/">
+        <link rel="next" href="../faster_than_lightspeed_constants/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Quantity Arithmetics - The mp-units library</title>
+        <title>Generic Interfaces - The mp-units library</title>
       
     
     
@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#generic-interfaces" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -125,7 +130,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quantity Arithmetics
+              Generic Interfaces
             
           </span>
         </div>
@@ -615,19 +620,11 @@ You're not viewing the latest version.
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../quantity_arithmetics/" class="md-nav__link">
         Quantity Arithmetics
       </a>
-      
     </li>
   
 
@@ -637,11 +634,80 @@ You're not viewing the latest version.
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../generic_interfaces/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Generic Interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Generic Interfaces
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-issues-with-unit-specific-interfaces" class="md-nav__link">
+    The issues with unit-specific interfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-naive-solution" class="md-nav__link">
+    A naive solution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraining-function-template-arguments-with-concepts" class="md-nav__link">
+    Constraining function template arguments with concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraining-function-template-return-type" class="md-nav__link">
+    Constraining function template return type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraining-a-variable-on-the-stack" class="md-nav__link">
+    Constraining a variable on the stack
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1203,7 +1269,7 @@ You're not viewing the latest version.
                   
 
   
-    <a href="https://github.com/mpusz/mp-units/edit/master/docs/users_guide/framework_basics/quantity_arithmetics.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/mpusz/mp-units/edit/master/docs/users_guide/framework_basics/generic_interfaces.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1212,16 +1278,163 @@ You're not viewing the latest version.
     
       
     
-    <a href="https://github.com/mpusz/mp-units/raw/master/docs/users_guide/framework_basics/quantity_arithmetics.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/mpusz/mp-units/raw/master/docs/users_guide/framework_basics/generic_interfaces.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-  <h1>Quantity Arithmetics</h1>
-
-
+<h1 id="generic-interfaces">Generic Interfaces<a class="headerlink" href="#generic-interfaces" title="Permanent link">&para;</a></h1>
+<p>Using a concrete unit in the interface often has a lot of sense. It is especially useful if we
+store the data internally in the object. In such a case, we have to select a specific unit anyway.</p>
+<p>For example, let's consider a simple storage tank:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">StorageTank</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">horizontal_area</span><span class="p">[</span><span class="n">m2</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">base_</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">height_</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">mass_density</span><span class="p">[</span><span class="n">kg</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m3</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">density_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">air_density</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">StorageTank</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">horizontal_area</span><span class="p">[</span><span class="n">m2</span><span class="p">]</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="n">base_</span><span class="p">(</span><span class="n">base</span><span class="p">),</span><span class="w"> </span><span class="n">height_</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="c1">// ...</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">};</span>
+</span></code></pre></div>
+<p>As the quantities provided in the function's interface are then stored in the class, there is probably
+no sense in using generic interfaces here.</p>
+<h2 id="the-issues-with-unit-specific-interfaces">The issues with unit-specific interfaces<a class="headerlink" href="#the-issues-with-unit-specific-interfaces" title="Permanent link">&para;</a></h2>
+<p>However, in many cases, using a specific unit in the interface is counterproductive. Let's consider
+the following function:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">[</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">[</span><span class="n">km</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">                                       </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">[</span><span class="n">h</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">duration</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Everything seems fine for now. It also works great if we call it with:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">[</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">220</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
+</span></code></pre></div>
+<p>However, if the user starts doing the following:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">[</span><span class="n">mi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">140</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mi</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">[</span><span class="n">m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<p>some issues start to be clearly visible:</p>
+<ol>
+<li>The arguments must be converted to units mandated by the function's parameters at each call.
+   This involves potentially expensive multiplication/division operations at runtime.</li>
+<li>After the function returns the speed in a unit of <code>km/h</code>, another potentially expensive
+   multiplication/division operations have to be performed to convert the resulting quantity into
+   a unit being the derived unit of the initial function's arguments.</li>
+<li>Besides the obvious runtime cost, some unit conversions may result in a data truncation which
+   means that the result will not be exactly equal to a direct division of the function's arguments.</li>
+<li>
+<p>We have to use a floating-point representation type (the <code>quantity</code> class template by default uses
+   <code>double</code> as a representation type) which is considered
+   <a href="../value_conversions/#value-preserving-conversions">value preserving</a>.
+   Trying to use an integral type in this scenario will work only for <code>s1</code>, while <code>s2</code> and <code>s3</code>
+   will fail to compile. Failing to compile is a good thing here as the library tries to prevent
+   the user from doing a clearly wrong thing. To make the code compile, the user needs to use
+   a dedicated <a href="../value_conversions/#value-truncating-conversions"><code>value_cast</code></a> like this:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">[</span><span class="n">mi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="n">value_cast</span><span class="o">&lt;</span><span class="n">km</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">140</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mi</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">[</span><span class="n">m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="n">value_cast</span><span class="o">&lt;</span><span class="n">km</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">),</span><span class="w"> </span><span class="n">value_cast</span><span class="o">&lt;</span><span class="n">h</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">));</span>
+</span></code></pre></div>
+<p>but the above will obviously provide an incorrect behavior (i.e. division by <code>0</code> in the evaluation
+of <code>s3</code>).</p>
+</li>
+</ol>
+<h2 id="a-naive-solution">A naive solution<a class="headerlink" href="#a-naive-solution" title="Permanent link">&para;</a></h2>
+<p>A naive solution here would be to implement the function as an unconstrained function template:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">duration</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Beware that there are better solutions than this. The above code is too generic. Such a function template
+accepts everything:</p>
+<ul>
+<li>quantities of other types<ul>
+<li>the compiler will not prevent accidental reordering of the function's arguments</li>
+<li>quantities of different types can be passed as well</li>
+</ul>
+</li>
+<li>plain <code>double</code> arguments</li>
+<li><code>std::vector</code> and <code>std::lock_guard</code> will be accepted as well (of course, this will fail in the
+  function's body later in the compilation process)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The usage of <code>auto</code> instead of a function parameter type is a C++20 feature. It makes such
+a code a function template where the type of such a parameter will be deduced during
+the template instantiation process from the argument type passed by the user.</p>
+</div>
+<h2 id="constraining-function-template-arguments-with-concepts">Constraining function template arguments with concepts<a class="headerlink" href="#constraining-function-template-arguments-with-concepts" title="Permanent link">&para;</a></h2>
+<p>Much better generic code can be implemented using <a href="../basic_concepts">basic concepts</a>
+provided with the library:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">               </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This explicitly states that the arguments passed by the user must not only satisfy
+a <a href="../basic_concepts/#quantity"><code>Quantity</code></a> concept but also their quantity specification must
+be implicitly convertible to <code>isq::length</code> and <code>isq::time</code> accordingly. This no longer leaves
+room for error while still allowing the compiler to generate the most efficient code.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Please note that now it is safe just to use integral types all the way which again
+improves the runtime performance as the multiplication/division operations are often
+faster on integral rather than floating-point types.</p>
+</div>
+<h2 id="constraining-function-template-return-type">Constraining function template return type<a class="headerlink" href="#constraining-function-template-return-type" title="Permanent link">&para;</a></h2>
+<p>The above function template resolves all of the <a href="#the-issues-with-unit-specific-interfaces">issues described before</a>.
+However, we can do even better here by additionally constraining the return type:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">                                      </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Doing so has two important benefits:</p>
+<ol>
+<li>It informs the users of our interface about what to expect to be the result of a function
+   invocation. It is superior to just returning <code>auto</code>, which does not provide any hint about
+   the thing being returned there.</li>
+<li>Such a concept constrains the type returned from the function. This means that it works as
+   a unit test to verify if our function actually performs what it is supposed to do. If there is
+   an error in <a href="../../appendix/glossary/#quantity-equation">quantity equations</a>, we will learn
+   about it right away.</li>
+</ol>
+<h2 id="constraining-a-variable-on-the-stack">Constraining a variable on the stack<a class="headerlink" href="#constraining-a-variable-on-the-stack" title="Permanent link">&para;</a></h2>
+<p>If we know exactly what the function does in its internals and if we know the exact argument types
+passed to such a function, we often know the exact type that will be returned from its invocation.</p>
+<p>However, if we care about performance, we should often use the generic interfaces described in this
+chapter. A side effect is that we sometimes are unsure about the return type. Even if we know it
+today, it might change a week from now due to some code refactoring.</p>
+<p>In such cases, we can again use <code>auto</code> to denote the type:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">220</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">140</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mi</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">auto</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<p>In this case, it is probably OK to do so as the <code>avg_speed</code> function name explicitly provides
+the information on what to expect as a result.</p>
+<p>In other scenarios where the returned quantity type is not so obvious, it is again helpful to
+constrain the type with a concept like so:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">220</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">140</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mi</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Again this explicitly provides additional information about the quantity we are dealing with in
+the code, and it serves as a unit test checking if the "thing" returned from a function is actually
+what we expected here.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>QuantityOf</code> and <code>QuantityPointOf</code> concepts are probably the most useful, but there
+are a few more to play with. A list of all the concepts can be found in
+<a href="../basic_concepts">the "Basic Concepts" chapter</a>.</p>
+</div>
 
 
 
@@ -1243,7 +1456,7 @@ You're not viewing the latest version.
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../character_of_a_quantity/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Character of a Quantity" rel="prev">
+          <a href="../quantity_arithmetics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quantity Arithmetics" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1252,20 +1465,20 @@ You're not viewing the latest version.
                 Previous
               </span>
               <div class="md-ellipsis">
-                Character of a Quantity
+                Quantity Arithmetics
               </div>
             </div>
           </a>
         
         
           
-          <a href="../generic_interfaces/" class="md-footer__link md-footer__link--next" aria-label="Next: Generic Interfaces" rel="next">
+          <a href="../faster_than_lightspeed_constants/" class="md-footer__link md-footer__link--next" aria-label="Next: Faster-than-lightspeed Constants" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Generic Interfaces
+                Faster-than-lightspeed Constants
               </div>
             </div>
             <div class="md-footer__button md-icon">
