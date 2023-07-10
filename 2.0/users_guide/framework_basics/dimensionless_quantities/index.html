@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#dimensionless-quantities" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -665,10 +670,98 @@ You're not viewing the latest version.
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dimensionless Quantities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Dimensionless Quantities
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dividing-two-quantities-of-the-same-kind" class="md-nav__link">
+    Dividing two quantities of the same kind
+  </a>
+  
+    <nav class="md-nav" aria-label="Dividing two quantities of the same kind">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dividing-quantities-of-the-same-type" class="md-nav__link">
+    Dividing quantities of the same type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dividing-quantities-of-different-types" class="md-nav__link">
+    Dividing quantities of different types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dividing-quantities-of-different-units" class="md-nav__link">
+    Dividing quantities of different units
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counts-of-things" class="md-nav__link">
+    Counts of things
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predefined-units-of-the-dimensionless-quantity" class="md-nav__link">
+    Predefined units of the dimensionless quantity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#angular-quantities" class="md-nav__link">
+    Angular quantities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-quantity-kinds" class="md-nav__link">
+    Nested quantity kinds
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1219,9 +1312,187 @@ You're not viewing the latest version.
   
 
 
-  <h1>Dimensionless Quantities</h1>
-
-
+<h1 id="dimensionless-quantities">Dimensionless Quantities<a class="headerlink" href="#dimensionless-quantities" title="Permanent link">&para;</a></h1>
+<p>The quantities we discussed so far always had some specific type and physical dimension.
+However, this is not always the case. While performing various computations, we sometimes end up with
+so-called "dimensionless" quantities, which ISO correctly defines as
+<a href="../../../appendix/glossary/#dimensionless-quantity">quantities of dimension one</a>:</p>
+<div class="admonition quote">
+<p class="admonition-title">ISO/IEC Guide 99</p>
+<ul>
+<li>Quantity for which all the exponents of the factors corresponding to the base quantities in
+  its quantity dimension are zero.</li>
+<li>The measurement units and values of quantities of dimension one are numbers, but such quantities
+  convey more information than a number.</li>
+<li>Some quantities of dimension one are defined as the ratios of two quantities of the same kind.</li>
+<li>Numbers of entities are quantities of dimension one.</li>
+</ul>
+</div>
+<h2 id="dividing-two-quantities-of-the-same-kind">Dividing two quantities of the same kind<a class="headerlink" href="#dividing-two-quantities-of-the-same-kind" title="Permanent link">&para;</a></h2>
+<p>Dividing two quantities of the same kind always results in a
+<a href="../../../appendix/glossary/#dimensionless-quantity">quantity of dimension one</a>.
+However, depending on what type of quantities we divide or what their units are, we may end up
+with slightly different results.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In <strong>mp-units</strong>, dividing two quantities of the same dimension always results in a quantity
+with the dimension being <code>dimension_one</code>. This is often different for other physical units
+libraries, which may return a raw representation type for such cases. A raw value is also always
+returned from the division of two <code>std::chrono::duration</code> objects.</p>
+<p>To read more about the reasoning for this design decision, please check our
+<a href="../../../getting_started/faq/#why-a-dimensionless-quantity-is-not-just-a-fundamental-arithmetic-type">FAQ</a>.</p>
+</div>
+<h3 id="dividing-quantities-of-the-same-type">Dividing quantities of the same type<a class="headerlink" href="#dividing-quantities-of-the-same-type" title="Permanent link">&para;</a></h3>
+<p>First, let's analyze what happens if we divide two quantities of the same type:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">dimensionless</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">(</span><span class="mi">50</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span>
+</span></code></pre></div>
+<p>In such a case, we end up with a dimensionless quantity that has the following properties:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">quantity_spec</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">dimensionless</span><span class="p">);</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">dimension</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">dimension_one</span><span class="p">);</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">unit</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">one</span><span class="p">);</span>
+</span></code></pre></div>
+<p>In case we would like to print its value, we would see a raw value of <code>4</code> in the output with no unit
+being printed.</p>
+<h3 id="dividing-quantities-of-different-types">Dividing quantities of different types<a class="headerlink" href="#dividing-quantities-of-different-types" title="Permanent link">&para;</a></h3>
+<p>Now let's see what happens if we divide quantities of the same dimension and unit but which have
+different quantity types:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">dimensionless</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">work</span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">heat</span><span class="p">(</span><span class="mi">50</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">J</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Again we end up with <code>dimension_one</code> and <code>one</code>, but this time:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">quantity_spec</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">work</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">heat</span><span class="p">);</span>
+</span></code></pre></div>
+<p>As shown above, the result is not of a <code>dimensionless</code> type anymore. Instead, we get a quantity type
+derived from the performed <a href="../../../appendix/glossary/#quantity-equation">quantity equation</a>.
+According to the <a href="../../../appendix/glossary/#isq">ISQ</a>, work divided by heat is the recipe for
+the thermodynamic efficiency quantity, thus:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">quantity_spec</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">efficiency_thermodynamics</span><span class="p">));</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The quantity of <code>isq::efficiency_thermodynamics</code> is of a kind <code>dimensionless</code>, so it is implicitly
+convertible to <code>dimensionless</code> and satisfies the <code>QuantityOf&lt;dimensionless&gt;</code> concept.</p>
+</div>
+<h3 id="dividing-quantities-of-different-units">Dividing quantities of different units<a class="headerlink" href="#dividing-quantities-of-different-units" title="Permanent link">&para;</a></h3>
+<p>Now, let's see what happens when we divide two quantities of the same type but different units:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">dimensionless</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span>
+</span></code></pre></div>
+<p>This time we still get a quantity of <code>dimensionless</code> type with a <code>dimension_one</code> as its dimension.
+However, the resulting unit is not <code>one</code> anymore:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">unit</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">one</span><span class="p">);</span>
+</span></code></pre></div>
+<p>In case we would print the text output of this quantity, we would not see a raw value of <code>2000</code>,
+but <code>2 km/m</code>.</p>
+<p>First, it may look surprising, but this is actually consistent with the division of quantities
+of different dimensions. For example, if we divide <code>4 * km / 2 * s</code>, we do not expect <code>km</code> to be
+"expanded" to <code>m</code> before the division, right? We would expect the result of <code>2 km/s</code>, which is
+exactly what we get when we divide quantities of the same kind.</p>
+<p>This is a compelling feature that allows us to express huge or tiny ratios without the need
+for big and expensive representation types. With this, we can easily define things like
+a <a href="https://en.wikipedia.org/wiki/Hubble%27s_law#Dimensionless_Hubble_constant">Hubble's constant</a>
+that uses a unit that is proportional to the ratio of kilometers per megaparsecs, which are both
+units of length:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">hubble_constant</span><span class="w"> </span><span class="o">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">basic_symbol_text</span><span class="p">{</span><span class="s">&quot;H₀&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;H_0&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">mag</span><span class="o">&lt;</span><span class="n">ratio</span><span class="p">{</span><span class="mi">701</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">kilo</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">second</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">mega</span><span class="o">&lt;</span><span class="n">parsec</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">hubble_constant</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="counts-of-things">Counts of things<a class="headerlink" href="#counts-of-things" title="Permanent link">&para;</a></h2>
+<p>Another important use case for dimensionless quantities is to provide strong types for counts
+of things. For example:</p>
+<ul>
+<li>ISO-80000-3 provides a <code>rotation</code> quantity defined as the number of revolutions,</li>
+<li>IEC-80000-6 provides a <code>number_of_turns_in_a_winding</code> quantity,</li>
+<li>IEC-80000-13 provides a <code>Hamming_distance</code> quantity defined as the number of digit positions
+  in which the corresponding digits of two words of the same length are different.</li>
+</ul>
+<p>Thanks to assigning strong names to such quantities, later on they can be explicitly used as
+arguments in the <a href="../../../appendix/glossary/#quantity-equation">quantity equations</a> of other
+quantities deriving from them.</p>
+<h2 id="predefined-units-of-the-dimensionless-quantity">Predefined units of the dimensionless quantity<a class="headerlink" href="#predefined-units-of-the-dimensionless-quantity" title="Permanent link">&para;</a></h2>
+<p>As we observed above, the most common unit for dimensionless quantities is <code>one</code>. It has the
+ratio of <code>1</code> and does not output any textual symbol.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A unit <code>one</code> is special in the entire type system of units as it is considered to be
+<a href="../interface_introduction/#identities">an identity operand in the unit expression templates</a>.
+This means that, for example:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">one</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">one</span><span class="p">);</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">one</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="p">);</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">one</span><span class="p">);</span>
+</span></code></pre></div>
+<p>The same is also true for <code>dimension_one</code> and <code>dimensionless</code> in the domains of dimensions
+and quantity specifications.</p>
+</div>
+<p>Besides the unit <code>one</code>, there are a few other scaled units predefined in the library for usage
+with dimensionless quantities:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">percent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;%&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag</span><span class="o">&lt;</span><span class="n">ratio</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">one</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">percent</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">per_mille</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">basic_symbol_text</span><span class="p">{</span><span class="s">&quot;‰&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%o&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">mag</span><span class="o">&lt;</span><span class="n">ratio</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">one</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">per_mille</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="angular-quantities">Angular quantities<a class="headerlink" href="#angular-quantities" title="Permanent link">&para;</a></h2>
+<p>Special, often controversial, examples of dimensionless quantities are an angular measure
+and solid angular measure quantities that are defined in the <a href="../../../appendix/glossary/#isq">ISQ</a>
+to be the result of a division of <code>arc_length / radius</code> and <code>area / pow&lt;2&gt;(radius)</code> respectively.
+Moreover, <a href="../../../appendix/glossary/#isq">ISQ</a> also explicitly states that both can be
+expressed in the unit <code>one</code>. This means that both <code>isq::angular_measure</code> and <code>isq::solid_angular_measure</code>
+should be of a <a href="../../../appendix/glossary/#kind">kind</a> of <code>dimensionless</code>.</p>
+<p>On the other hand, <a href="../../../appendix/glossary/#isq">ISQ</a> also specifies that a unit <code>radian</code> can
+be used for <code>isq::angular_measure</code>, and a unit <code>steradian</code> can be used for <code>isq::solid_angular_measure</code>.
+Those should not be mixed or used to express other types of dimensionless quantities. This means
+that both <code>isq::angular_measure</code> and <code>isq::solid_angular_measure</code> should also be
+<a href="../../../appendix/glossary/#kind">quantity kinds</a> by themselves.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many people claim that angle being a dimensionless quantity is a bad idea. There are
+proposals submitted to make an angle a base quantity and <code>rad</code> to become a base unit. More on this
+topic can be found in the <a href="../../defining_systems/strong_angular_system">"Strong Angular System" chapter</a>.</p>
+</div>
+<h2 id="nested-quantity-kinds">Nested quantity kinds<a class="headerlink" href="#nested-quantity-kinds" title="Permanent link">&para;</a></h2>
+<p>Angular quantities are not the only ones with such a "strange" behavior. Another, but a similar case
+is a <code>storage_capacity</code> quantity specified in IEC-80000-13 that again allows expressing it in both
+<code>one</code> and <code>bit</code> units.</p>
+<p>Those cases make dimensionless quantities an exceptional tree in the library. This is the only
+<a href="../../../appendix/glossary/#quantity-hierarchy">quantity hierarchy</a> that contains more than one
+<a href="../../../appendix/glossary/#kind">quantity kind</a> in its tree:</p>
+<pre class="mermaid"><code>flowchart TD
+    dimensionless["dimensionless\n[one]"]
+    dimensionless --- rotation
+    dimensionless --- efficiency
+    dimensionless --- angular_measure["angular_measure\n[rad]"]
+    angular_measure --- rotational_displacement
+    angular_measure --- phase_angle
+    dimensionless --- solid_angular_measure["solid_angular_measure\n[sr]"]
+    dimensionless --- drag_factor
+    dimensionless --- storage_capacity["storage_capacity\n[bit]"] --- equivalent_binary_storage_capacity
+    dimensionless --- ...</code></pre>
+<p>To provide such support in the library, we provided an <code>is_kind</code> specifier that can be appended
+to the quantity specification:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C++20</label><label for="__tabbed_1_2">C++23</label><label for="__tabbed_1_3">Portable</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">angular_measure</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">angular_measure</span><span class="p">,</span><span class="w"> </span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">arc_length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">is_kind</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">angular_measure</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">solid_angular_measure</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">solid_angular_measure</span><span class="p">,</span><span class="w"> </span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">radius</span><span class="p">),</span><span class="w"> </span><span class="n">is_kind</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">solid_angular_measure</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">storage_capacity</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">storage_capacity</span><span class="p">,</span><span class="w"> </span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">is_kind</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">storage_capacity</span><span class="p">;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">angular_measure</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">arc_length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">is_kind</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">angular_measure</span><span class="p">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">solid_angular_measure</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">radius</span><span class="p">),</span><span class="w"> </span><span class="n">is_kind</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">solid_angular_measure</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">storage_capacity</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">quantity_spec</span><span class="o">&lt;</span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">is_kind</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">storage_capacity</span><span class="p">;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">QUANTITY_SPEC</span><span class="p">(</span><span class="n">angular_measure</span><span class="p">,</span><span class="w"> </span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">arc_length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">is_kind</span><span class="p">);</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">QUANTITY_SPEC</span><span class="p">(</span><span class="n">solid_angular_measure</span><span class="p">,</span><span class="w"> </span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">radius</span><span class="p">),</span><span class="w"> </span><span class="n">is_kind</span><span class="p">);</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">QUANTITY_SPEC</span><span class="p">(</span><span class="n">storage_capacity</span><span class="p">,</span><span class="w"> </span><span class="n">dimensionless</span><span class="p">,</span><span class="w"> </span><span class="n">is_kind</span><span class="p">);</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>With the above, we can constrain <code>radian</code>, <code>steradian</code>, and <code>bit</code> to be allowed for usage with
+specific quantity kinds only:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">radian</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;rad&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">metre</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metre</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">angular_measure</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">radian</span><span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">steradian</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;sr&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="n">metre</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="n">metre</span><span class="p">),</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">solid_angular_measure</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">steradian</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">bit</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;bit&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">storage_capacity</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">bit</span><span class="p">;</span>
+</span></code></pre></div>
+<p>but still allow a usage of <code>one</code> and its scaled versions for such quantities.</p>
 
 
 

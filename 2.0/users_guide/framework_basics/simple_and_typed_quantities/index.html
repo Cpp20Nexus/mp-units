@@ -625,12 +625,18 @@ You're not viewing the latest version.
     Simple quantities
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Simple quantities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#easy-to-understand-compilation-error-messages" class="md-nav__link">
     Easy to understand compilation error messages
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -639,19 +645,25 @@ You're not viewing the latest version.
     Typed quantities
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Typed quantities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#additional-type-safety-with-typed-quantities" class="md-nav__link">
     Additional type safety with typed quantities
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#quantity_cast-to-force-unsafe-conversions" class="md-nav__link">
     quantity_cast() to force unsafe conversions
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1365,7 +1377,7 @@ have shorter type identifiers, resulting in easier-to-understand error messages 
 <div class="admonition example">
 <p class="admonition-title"><a href="https://godbolt.org/z/W6Ej7aqxj">Try it on Compiler Explorer</a></p>
 </div>
-<h2 id="easy-to-understand-compilation-error-messages">Easy to understand compilation error messages<a class="headerlink" href="#easy-to-understand-compilation-error-messages" title="Permanent link">&para;</a></h2>
+<h3 id="easy-to-understand-compilation-error-messages">Easy to understand compilation error messages<a class="headerlink" href="#easy-to-understand-compilation-error-messages" title="Permanent link">&para;</a></h3>
 <p>In case a user makes an error in a quantity equation and the result of the calculation
 will not match the function return type, the compiler will detect such an issue at
 compile-time.</p>
@@ -1433,7 +1445,7 @@ get a bit longer error message also containing information about the quantity ty
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>      |            quantity&lt;mp_units::reference&lt;mp_units::derived_quantity_spec&lt;mp_units::isq::length, mp_units::isq::time&gt;(), mp_units::derived_unit&lt;mp_units::si::metre, mp_units::si::second&gt;()&gt;(),[...]&gt;
 </span></code></pre></div>
 <p>As we can see above, the compilation error is longer but still relatively easy to understand.</p>
-<h2 id="additional-type-safety-with-typed-quantities">Additional type safety with typed quantities<a class="headerlink" href="#additional-type-safety-with-typed-quantities" title="Permanent link">&para;</a></h2>
+<h3 id="additional-type-safety-with-typed-quantities">Additional type safety with typed quantities<a class="headerlink" href="#additional-type-safety-with-typed-quantities" title="Permanent link">&para;</a></h3>
 <p>Based on the previous example, it might seem that typed quantities are not that useful,
 more to type and provide harder-to-understand error messages. It might be true in some cases,
 but there are cases where they provide an additional level of safety.</p>
@@ -1605,7 +1617,7 @@ in the following way:</p>
 <p>If you need to use various quantities of the same kind, consider using typed quantities
 to bring an additional level of safety to your project.</p>
 </div>
-<h2 id="quantity_cast-to-force-unsafe-conversions"><code>quantity_cast()</code> to force unsafe conversions<a class="headerlink" href="#quantity_cast-to-force-unsafe-conversions" title="Permanent link">&para;</a></h2>
+<h3 id="quantity_cast-to-force-unsafe-conversions"><code>quantity_cast()</code> to force unsafe conversions<a class="headerlink" href="#quantity_cast-to-force-unsafe-conversions" title="Permanent link">&para;</a></h3>
 <p>Did you notice the <code>quantity_cast()</code> usage in the other child class?</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CylindricalStorageTank</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">StorageTank</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">public</span><span class="o">:</span>
