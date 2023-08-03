@@ -1389,7 +1389,7 @@ a code a function template where the type of such a parameter will be deduced du
 the template instantiation process from the argument type passed by the user.</p>
 </div>
 <h2 id="constraining-function-template-arguments-with-concepts">Constraining function template arguments with concepts<a class="headerlink" href="#constraining-function-template-arguments-with-concepts" title="Permanent link">&para;</a></h2>
-<p>Much better generic code can be implemented using <a href="../basic_concepts">basic concepts</a>
+<p>Much better generic code can be implemented using <a href="../basic_concepts/">basic concepts</a>
 provided with the library:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">               </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span>
@@ -1423,7 +1423,7 @@ However, we can do even better here by additionally constraining the return type
    the thing being returned there.</li>
 <li>Such a concept constrains the type returned from the function. This means that it works as
    a unit test to verify if our function actually performs what it is supposed to do. If there is
-   an error in <a href="../../appendix/glossary/#quantity-equation">quantity equations</a>, we will learn
+   an error in <a href="../../../appendix/glossary/#quantity-equation">quantity equations</a>, we will learn
    about it right away.</li>
 </ol>
 <h2 id="constraining-a-variable-on-the-stack">Constraining a variable on the stack<a class="headerlink" href="#constraining-a-variable-on-the-stack" title="Permanent link">&para;</a></h2>
@@ -1452,7 +1452,7 @@ what we expected here.</p>
 <p class="admonition-title">Note</p>
 <p>The <code>QuantityOf</code> and <code>QuantityPointOf</code> concepts are probably the most useful, but there
 are a few more to play with. A list of all the concepts can be found in
-<a href="../basic_concepts">the "Basic Concepts" chapter</a>.</p>
+<a href="../basic_concepts/">the "Basic Concepts" chapter</a>.</p>
 </div>
 
 
