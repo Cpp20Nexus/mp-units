@@ -1498,11 +1498,19 @@ of different origins.</p>
 </span></code></pre></div>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is allowed to only covert between various origins defined in terms of the same
+<code>absolute_point_origin</code>. Even if it is possible to express the same <em>point</em> as a <em>vector</em>
+from another <code>absolute_point_origin</code>, the <strong>mp-units</strong> library will not allow it, and
+a custom user-defined conversion function will be needed to provide such a functionality.</p>
+<p>Said otherwise, in the <strong>mp-units</strong> library, there is no way to spell how two distinct
+<code>absolute_point_origin</code> types relate to each other.</p>
+</div>
 <h3 id="point-arithmetics"><em>Point</em> arithmetics<a class="headerlink" href="#point-arithmetics" title="Permanent link">&para;</a></h3>
-<p>Let's assume we are going to attend the CppCon conference that is hosted in Aurora, CO, and we
-want to estimate the distance we are going to travel. We have to take a taxi to a local airport, fly to
-DEN airport with a stopover in FRA, and in the end, get a taxi to the Gaylord Rockies Resort &amp; Convention
-Center:</p>
+<p>Let's assume we will attend the CppCon conference hosted in Aurora, CO, and we want to estimate
+the distance we will travel. We have to take a taxi to a local airport, fly to DEN airport with
+a stopover in FRA, and in the end, get a cab to the Gaylord Rockies Resort &amp; Convention Center:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">home_location</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">absolute_point_origin</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">distance</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">home_location</span><span class="p">;</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">quantity_point</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">distance</span><span class="p">[</span><span class="n">km</span><span class="p">],</span><span class="w"> </span><span class="n">home_location</span><span class="o">&gt;</span><span class="w"> </span><span class="n">home</span><span class="p">{};</span>
@@ -1541,8 +1549,8 @@ of temperature quantity points in units different than kelvin [<code>K</code>].<
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Notice that while stacking point origins we can use not only different representation types but
-also different units for an origin and a <em>point</em>.</p>
+<p>Notice that while stacking point origins, we can use not only different representation types
+but also different units for an origin and a <em>point</em>.</p>
 </div>
 <p>With the above, for example, if we want to implement a room temperature controller, we can type:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">room_reference_temperature</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">relative_point_origin</span><span class="o">&lt;</span><span class="n">Celsius_point</span><span class="p">{</span><span class="mi">21</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">deg_C</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">room_reference_temperature</span><span class="p">;</span>
