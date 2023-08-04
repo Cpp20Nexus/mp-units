@@ -775,6 +775,13 @@ You're not viewing the latest version.
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#no-text-output-for-points" class="md-nav__link">
+    No text output for points
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1575,6 +1582,12 @@ but also different units for an origin and a <em>point</em>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Lowest temp: -3 °C (18 °C)
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Highest temp: 3 °C (24 °C)
 </span></code></pre></div>
+<h3 id="no-text-output-for-points">No text output for <em>points</em><a class="headerlink" href="#no-text-output-for-points" title="Permanent link">&para;</a></h3>
+<p>The library does not provide a text output for quantity points, as printing just a number and a unit
+is not enough to adequately describe a quantity point. Often an additional postfix is required.</p>
+<p>For example, the text output of <code>42 m</code> may mean many things and can also be confused with an output
+of a regular quantity. On the other hand, printing <code>42 m AMSL</code> for altitudes above mean sea level is
+a much better solution, but the library does not have enough information to print it that way by itself.</p>
 <h2 id="the-affine-space-is-about-type-safety">The affine space is about type-safety<a class="headerlink" href="#the-affine-space-is-about-type-safety" title="Permanent link">&para;</a></h2>
 <p>The following operations are not allowed in the affine space:</p>
 <ul>
