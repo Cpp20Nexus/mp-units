@@ -1714,14 +1714,18 @@ To achieve that, it extensively uses C++20 features and the
 <a href="https://en.cppreference.com/w/cpp/language/member_functions#Explicit_object_parameter">explicit object parameter</a>
 from C++23.</p>
 <p>Even though the library benefits from C++23 (if available), C++20 is enough to compile and
-use all of the library's functionality. C++23 features are hidden behind a preprocessor macro
+use all of the library's functionality. C++23 features are hidden behind
+a <a href="users_guide/framework_basics/systems_of_quantities.md#defining-quantities">preprocessor macro</a>
 providing a backward-compatible way to use it.</p>
-<p>Sadly, as of today, not many compilers provide full C++20 support. The library compiles fine
-on the following compilers (or newer):</p>
+<p>As of today, the library compiles fine on the following compilers (or newer):</p>
 <ul>
-<li>gcc-12.2</li>
+<li>gcc-11<ul>
+<li>please note that we observed some ICEs on gcc-11</li>
+<li>no problems with gcc-12.2+</li>
 </ul>
-<p>In the upcoming weeks, we will be actively working to extend the support to other compilers as well.</p>
+</li>
+<li>clang-16</li>
+</ul>
 </div>
 <h2 id="repository-structure-and-dependencies">Repository Structure and Dependencies<a class="headerlink" href="#repository-structure-and-dependencies" title="Permanent link">&para;</a></h2>
 <p>This repository contains three independent CMake-based projects:</p>
