@@ -2064,7 +2064,7 @@ implicitly convertible from quantity specification <code>V</code>, which means t
 <details class="abstract">
 <summary>Examples</summary>
 <p><code>ice_point</code> can serve as a point origin for <em>points</em> of <code>isq::Celsius_temperature</code> because this quantity
-type implicitly converts to <code>isq::thermodynamic_temperature</code>. </p>
+type implicitly converts to <code>isq::thermodynamic_temperature</code>.</p>
 <p>However, if we define <code>mean_sea_level</code> in the following way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">mean_sea_level</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">absolute_point_origin</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">altitude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">mean_sea_level</span><span class="p">;</span>
 </span></code></pre></div>
