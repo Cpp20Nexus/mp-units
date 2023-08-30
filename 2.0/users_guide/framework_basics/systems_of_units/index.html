@@ -1635,8 +1635,8 @@ this is expressed by associating a quantity kind (that we discussed in detail in
 previous chapter) with a unit that is used to express it:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">metre</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;m&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">metre</span><span class="p">;</span>
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>The <code>kind_of&lt;isq::length&gt;</code> above states explicitly that this unit has
 an associated quantity kind. In other words, <code>si::metre</code> (and scaled units based
 on it) can be used to express the amount of any quantity of kind length.</p>

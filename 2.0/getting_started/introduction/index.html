@@ -1596,8 +1596,8 @@ manipulation. The initial versions of the library were inspired by the
 <a href="https://en.cppreference.com/w/cpp/chrono/duration"><code>std::chrono::duration</code></a>
 but with each release, the interfaces diverged from the original to provide a better user
 experience.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>A brief introduction to the library's interfaces and the rationale for changes in the version 2.0
 of <strong>mp-units</strong> were provided in detail by <a href="https://github.com/mpusz">Mateusz Pusz</a> in the
 <a href="https://www.youtube.com/watch?v=l0rXdJfXLZc">"mp-units: Lessons Learned and a New C++ Library Design" talk at the ACCU 2023 conference</a>.</p>
@@ -1620,8 +1620,8 @@ errors and debugging as easy and user-friendly as possible.</p>
 <li><a href="../../users_guide/framework_basics/interface_introduction/#expression-templates">usage of expression templates to improve the readability of generated types</a>,</li>
 <li>limiting the number of template arguments to the bare minimum.</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>In many generic C++ libraries compile-time errors do not happen often. It is hard to
 break <code>std::string</code> or <code>std::vector</code> in a way it won't compile with a huge error
 log. Physical Units libraries are different. <strong>Generation of compile-time errors

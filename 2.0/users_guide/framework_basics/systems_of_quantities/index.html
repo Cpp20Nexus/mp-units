@@ -1668,8 +1668,8 @@ Both of those have the same dimension but are different quantities.</p>
 <p>All of those quantities have the same dimension, namely <span class="arithmatex">\(\mathsf{T}^{-1}\)</span>, but probably it
 is not wise to allow adding, subtracting, or comparing them, as they describe vastly different
 physical properties.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>More than one quantity may be defined for the same dimension:</p>
 <ul>
 <li>quantities of <em>different kinds</em> (i.e. frequency, modulation rate, activity, ...)</li>
@@ -1933,8 +1933,8 @@ can be expressed in the same units.</p>
 <p>To annotate a quantity to represent its kind (and not just a hierarchy tree's root quantity)
 we introduced a <code>kind_of&lt;&gt;</code> specifier. For example, to express any quantity of length, we need
 to type <code>kind_of&lt;isq::length&gt;</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p><code>isq::length</code> and <code>kind_of&lt;isq::length&gt;</code> are two different things.</p>
 </div>
 <p>Such an entity behaves as any quantity of its kind. This means that it is implicitly
@@ -1950,8 +1950,8 @@ quantity where all the kinds are converted to the hierarchy tree's root quantiti
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">same_type</span><span class="o">&lt;</span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">same_type</span><span class="o">&lt;</span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;</span><span class="p">);</span>
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>Only a root quantity from the hierarchy tree or the one marked with <code>is_kind</code> specifier
 in the <code>quantity_spec</code> definition can be put as a template parameter to the <code>kind_of</code>
 specifier. For example, <code>kind_of&lt;isq::width&gt;</code> will fail to compile.</p>

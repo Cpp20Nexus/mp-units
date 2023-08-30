@@ -1829,8 +1829,8 @@ a <em>~/.conan2/global.conf</em> file that will set <code>tools.cmake.cmaketoolc
 generators. For example:</p>
 <div class="language-text highlight"><span class="filename">~/.conan2/global.conf</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tools.cmake.cmaketoolchain:generator=&quot;Ninja Multi-Config&quot;
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p><em>~/.conan2/global.conf</em> file may also set <code>tools.cmake.cmake_layout:build_folder_vars</code> which
 <a href="https://docs.conan.io/2/reference/tools/cmake/cmake_layout.html#multi-setting-option-cmake-layout">makes working with several compilers or build configurations easier</a>.
 For example, the below line will force Conan to generate separate CMake presets and folders for
@@ -1896,8 +1896,8 @@ like:</p>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Ninja Multi-Config&quot;</span><span class="w"> </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>&lt;path_to_generators_dir&gt;/conan_toolchain.cmake
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>cmake<span class="w"> </span>--build<span class="w"> </span>.<span class="w"> </span>--config<span class="w"> </span>Release
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>In case you can't use CMake 3.23 but you have access to CMake 3.20 or later, you can append
 <code>-c tools.cmake.cmaketoolchain.presets:max_schema_version=2</code> to the <code>conan install</code> command
 which will force Conan to use an older version of the CMake Presets schema.</p>
@@ -1905,8 +1905,8 @@ which will force Conan to use an older version of the CMake Presets schema.</p>
 <h2 id="installation-and-reuse">Installation and Reuse<a class="headerlink" href="#installation-and-reuse" title="Permanent link">&para;</a></h2>
 <p>There are many different ways of installing/reusing <strong>mp-units</strong> in your project. Below we mention
 only a few of many options possible.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>The easiest and most recommended way to obtain <strong>mp-units</strong> is with the Conan package manager.
 See <a href="#conan-cmake-release">Conan + CMake (release)</a> for a detailed instruction.</p>
 </div>
