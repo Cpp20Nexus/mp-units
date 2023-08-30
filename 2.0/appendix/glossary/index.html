@@ -1918,12 +1918,28 @@ where the exponents, named dimensional exponents, are positive, negative, or zer
 <dt><a href="#quantity-value" id="quantity-value"><code>quantity value, value of a quantity, value</code></a></dt>
 <dd>
 <ul>
-<li>Number and reference together expressing magnitude of a <a href="#quantity">quantity</a>.</li>
+<li>Number and reference together expressing magnitude of a <a href="#quantity">quantity</a>.<ul>
+<li>For example, length of a given rod: <code>5.34 m</code> or <code>534 cm</code>.</li>
+</ul>
+</li>
 <li>The number can be complex.</li>
 <li>A quantity value can be presented in more than one way.</li>
 <li>In the case of vector or tensor quantities, each component has a quantity value.<ul>
 <li>For example, force acting on a given particle, e.g. in Cartesian components
   <span class="arithmatex">\((F_x; F_y; F_z) = (−31.5; 43.2; 17.0)\;\mathsf{N}\)</span>.</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt><a href="#numerical-value" id="numerical-value"><code>numerical quantity value, numerical value of a quantity, numerical value</code></a></dt>
+<dd>
+<ul>
+<li>Number in the expression of a <a href="#quantity-value">quantity value</a>, other than any number serving
+  as the reference<ul>
+<li>For example, in an amount-of-substance fraction equal to <code>3 mmol/mol</code>, the numerical
+  quantity value is <code>3</code> and the <a href="#unit">unit</a> is <code>mmol/mol</code>. The <a href="#unit">unit</a> <code>mmol/mol</code>
+  is numerically equal to <code>0.001</code>, but this number <code>0.001</code> is not part of the numerical
+  quantity value, which remains <code>3</code>.</li>
 </ul>
 </li>
 </ul>
