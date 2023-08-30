@@ -91,7 +91,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/examples/avg_speed/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mpusz.github.io/mp-units/2.0/users_guide/examples/hello_units/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mpusz.github.io/mp-units/2.0/users_guide/examples/si_constants/</loc>
          <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
