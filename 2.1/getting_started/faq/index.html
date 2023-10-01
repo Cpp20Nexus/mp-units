@@ -516,6 +516,13 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-do-the-identifiers-for-concepts-in-the-library-use-camelcase" class="md-nav__link">
+    Why do the identifiers for concepts in the library use CamelCase?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-unicode-quantity-symbols-are-used-by-default-instead-of-ascii-only-characters" class="md-nav__link">
     Why Unicode quantity symbols are used by default instead of ASCII-only characters?
   </a>
@@ -1808,6 +1815,25 @@ all the properties of scaled units and is consistent with the rest of the librar
 <p class="admonition-title">Note</p>
 <p>More information on the current design can be found in
 <a href="../../users_guide/framework_basics/dimensionless_quantities/">the Dimensionless Quantities chapter</a>.</p>
+</div>
+<h2 id="why-do-the-identifiers-for-concepts-in-the-library-use-camelcase">Why do the identifiers for concepts in the library use <code>CamelCase</code>?<a class="headerlink" href="#why-do-the-identifiers-for-concepts-in-the-library-use-camelcase" title="Permanent link">&para;</a></h2>
+<p>Initially, C++20 was meant to use <code>CamelCase</code> for all the concept identifiers. All the concepts
+from the <code>std::ranges</code> library were merged with such names into the standard document draft.
+Frustratingly, <code>CamelCase</code> concepts got dropped from the C++ standard at the last moment before
+releasing C++20. Now, we are facing the predictable consequences of running out of names.</p>
+<p>As long as some concepts in the library could be easily named with a <code>standard_case</code> there are
+some that are hard to distinguish from the corresponding type names, such as <code>Quantity</code>,
+<code>QuantityPoint</code>, <code>QuantitySpec</code>, or <code>Reference</code>. This is why we decided to use <code>CamelCase</code>
+consistently for all the concept identifiers to make it clear when we are talking about a type
+or concept identifier.</p>
+<p>However, we are aware that this might be a temporary solution. In case the library gets
+standardized, we can expect the ISO C++ Committee to bikeshed/rename all of
+the concept identifiers to a <code>standard_case</code>, even if it will result in a harder to understand
+code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case you have a good idea on how to rename <a href="../../users_guide/framework_basics/basic_concepts/">existing concepts</a>
+to the <code>standard_case</code>, please let us know in the associated <a href="">GitHub Issue</a>. </p>
 </div>
 <h2 id="why-unicode-quantity-symbols-are-used-by-default-instead-of-ascii-only-characters">Why Unicode quantity symbols are used by default instead of ASCII-only characters?<a class="headerlink" href="#why-unicode-quantity-symbols-are-used-by-default-instead-of-ascii-only-characters" title="Permanent link">&para;</a></h2>
 <p>Both C++ and <a href="../../appendix/references/#ISO80000">ISO 80000</a> are standardized by the ISO.
