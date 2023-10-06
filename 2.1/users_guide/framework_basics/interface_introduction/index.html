@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.79e020e9.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bd3936ea.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a5377069.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -1831,14 +1831,17 @@ identities used in the library:</p>
 </tr>
 </tbody>
 </table>
-<p>In the equations, a user can refer to an identity object either explicitly:</p>
+<p>In the equations, a user can explicitly refer to an identity object:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">my_unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
 </span></code></pre></div>
-<p>or implicitly:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">my_unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Another way to achieve the same result is to call an <code>inverse()</code> function:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">my_unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inverse</span><span class="p">(</span><span class="n">second</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Both cases with result in the same expression template being generated and put into the wrapper
+<p>Both cases will result in the same expression template being generated and put into the wrapper
 class template.</p>
+</div>
 <h3 id="supported-operations-and-their-results">Supported operations and their results<a class="headerlink" href="#supported-operations-and-their-results" title="Permanent link">&para;</a></h3>
 <p>There are only a few operations that one can do on such entities and the result of each of them has
 its unique representation in the library:</p>
@@ -2121,10 +2124,10 @@ into one resulting type and simplified there.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.sections", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.sections", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.6eac0284.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.94c44541.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
