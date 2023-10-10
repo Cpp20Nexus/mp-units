@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.bd3936ea.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6a10b989.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
@@ -1746,7 +1746,7 @@ output text. To change this behavior, we have to provide a partial specializatio
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above works only for <a href="#default-formatting">the default formatting</a>. In case we provide our own
-format specification (i.e. <code>std::format("{:%Q %q}", q)</code>), the library will always obey this
+format specification (e.g. <code>std::format("{:%Q %q}", q)</code>), the library will always obey this
 specification for all the units (no matter of what is the actual value of the
 <code>space_before_unit_symbol</code> customization point) and the separating space will always be present
 in this case.</p>
@@ -1819,21 +1819,21 @@ fine-grained control over what and how it is being printed in the text output.</
   chapter of the C++ standard specification,</li>
 <li><code>units-text-encoding</code> tokens specify the unit text encoding:<ul>
 <li><code>U</code> (default) uses the <strong>Unicode</strong> symbols defined by the <a href="../../../appendix/glossary/#si">SI</a>
-  specification (i.e. <code>m³</code>, <code>µs</code>)</li>
-<li><code>A</code> token forces non-standard <strong>ASCII</strong>-only output (i.e. <code>m^3</code>, <code>us</code>)</li>
+  specification (e.g. <code>m³</code>, <code>µs</code>)</li>
+<li><code>A</code> token forces non-standard <strong>ASCII</strong>-only output (e.g. <code>m^3</code>, <code>us</code>)</li>
 </ul>
 </li>
 <li><code>units-unit-symbol-solidus</code> tokens specify how the division of units should look like:<ul>
 <li><code>o</code> (default) outputs <code>/</code> only when there is only <strong>one</strong> unit in the denominator, otherwise negative
-  exponents are printed (i.e. <code>m/s</code>, <code>kg m⁻¹ s⁻¹</code>)</li>
-<li><code>a</code> <strong>always</strong> uses solidus (i.e. <code>m/s</code>, <code>kg/(m s)</code>)</li>
-<li><code>n</code> <strong>never</strong> prints solidus, which means that negative exponents are always used (i.e. <code>m s⁻¹</code>,
+  exponents are printed (e.g. <code>m/s</code>, <code>kg m⁻¹ s⁻¹</code>)</li>
+<li><code>a</code> <strong>always</strong> uses solidus (e.g. <code>m/s</code>, <code>kg/(m s)</code>)</li>
+<li><code>n</code> <strong>never</strong> prints solidus, which means that negative exponents are always used (e.g. <code>m s⁻¹</code>,
   <code>kg m⁻¹ s⁻¹</code>)</li>
 </ul>
 </li>
 <li><code>units-unit-symbol-separator</code> tokens specify how multiplied unit symbols should be separated:<ul>
-<li><code>s</code> (default) uses <strong>space</strong> as a separator (i.e. <code>kg m²/s²</code>)</li>
-<li><code>d</code> uses half-high <strong>dot</strong> (<code>⋅</code>) as a separator (i.e. <code>kg⋅m²/s²</code>)</li>
+<li><code>s</code> (default) uses <strong>space</strong> as a separator (e.g. <code>kg m²/s²</code>)</li>
+<li><code>d</code> uses half-high <strong>dot</strong> (<code>⋅</code>) as a separator (e.g. <code>kg⋅m²/s²</code>)</li>
 </ul>
 </li>
 </ul>
@@ -1925,7 +1925,7 @@ For integral types:</p>
 </span></code></pre></div>
 <h3 id="unit-symbol-formatting">Unit symbol formatting<a class="headerlink" href="#unit-symbol-formatting" title="Permanent link">&para;</a></h3>
 <p>Unit symbols of some quantities are specified to use Unicode signs by the
-<a href="../../../appendix/glossary/#si">SI</a> (i.e. <code>Ω</code> symbol for the resistance quantity). The <strong>mp-units</strong>
+<a href="../../../appendix/glossary/#si">SI</a> (e.g. <code>Ω</code> symbol for the resistance quantity). The <strong>mp-units</strong>
 library follows this by default. From the engineering point of view, sometimes Unicode text might
 not be the best solution as terminals of many (especially embedded) devices are ASCII-only.
 In such a case, the unit symbol can be forced to be printed using ASCII-only characters thanks to
@@ -2054,7 +2054,7 @@ to just use the <code>·</code> symbol as a separator.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.sections", "navigation.footer", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.94c44541.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
