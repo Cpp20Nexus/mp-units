@@ -1726,6 +1726,32 @@ You're not viewing the latest version.
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
 <h2 id="mp-units">mp-units<a class="headerlink" href="#mp-units" title="Permanent link">&para;</a></h2>
 <h3 id="2.1.0">2.1.0 <small>WIP</small><a class="headerlink" href="#2.1.0" title="Permanent link">&para;</a></h3>
+<ul>
+<li>(!) feat: <code>inverse()</code> support added for dimensions, quantity_spec, units, and references
+            (<code>1 / s</code> will now create <code>quantity</code> and not a <code>Unit</code>)</li>
+<li>(!) feat: <code>quantity_point</code> does not provide <code>zero()</code> anymore</li>
+<li>(!) feat: <code>quantity_spec</code> and its kind should not compare equal</li>
+<li>(!) feat: mutating interface removed from <code>fixed_string</code></li>
+<li>feat: <code>basic_fixed_string(const CharT*, std::integral_constant&lt;std::size_t, N&gt;)</code> constructor added</li>
+<li>feat: <code>isq::activity</code> added and <code>becquerel</code> definition updated to benefit from it</li>
+<li>feat: <code>gray</code> and <code>sievert</code> now have correct associated quantity kinds</li>
+<li>feat: <code>UnitCompatibleWith</code> concept added and applied to <code>in(U)</code> and <code>force_in(U)</code> functions</li>
+<li>feat: quantities can now be multiplied and divided by units (no parenthesis needed anymore)</li>
+<li>feat: <code>Magnitude / Unit</code> operator added</li>
+<li>feat: interoperability with other libraries redesigned</li>
+<li>feat: equality for dimensions now will allow derived classes as well (but not from <code>derived_dimension</code>)</li>
+<li>feat: <code>zero_Fahrenheit</code> point origin added</li>
+<li>(!) refactor: <code>unit_symbol&lt;fmt&gt;(U)</code> signature refactored and the resulting text can now also be used at runtime</li>
+<li>refactor: <code>in(U)</code> and <code>force_in(U)</code> now return <code>auto</code> to provide better diagnostics on clang</li>
+<li>fix: symbols of named dimensionless units with the ratio = 1 were not printed</li>
+<li>fix: iterator is now properly updated for all cases in <code>unit_symbol</code></li>
+<li>fix: Fahrenheit conversion ratio was inverted</li>
+<li>fix(example): <code>latitude</code> and <code>longitude</code> fixed to include <code>0</code> for <code>N</code> and <code>E</code> respectively</li>
+<li>ci: clang-17 enabled</li>
+<li>ci: Added C++23 builds to the CI matrix</li>
+<li>docs: <code>CameCase</code> concept identifiers FAQ added</li>
+<li>docs: <code>gravitational_potential_energy</code> equation fixed on a graph</li>
+</ul>
 <h3 id="2.0.0">2.0.0 <small>September 24, 2023</small><a class="headerlink" href="#2.0.0" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>units</code> namespace renamed to <code>mp_units</code> (#317)</li>
