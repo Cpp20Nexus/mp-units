@@ -1682,7 +1682,7 @@ You're not viewing the latest version.
 <p>If we think about it, the <code>quantity</code> class template is just a "smart" numeric wrapper. It exposes
 properly constrained set of arithmetic operations on one or two operands.</p>
 <div class="admonition important">
-<p class="admonition-title">Important</p>
+<p class="admonition-title">Important: <code>quantity</code> propagates the underlying interface</p>
 <p>Every single arithmetic operator is exposed by the <code>quantity</code> class template only if
 the underlying representation type provides it as well and its implementation has proper
 semantics (e.g. returns a reasonable type).</p>
@@ -1822,7 +1822,7 @@ dimensionless kind.</li>
 of different quantity types, we do not convert quantity values to a common unit before the division.</li>
 </ol>
 <div class="admonition important">
-<p class="admonition-title">Beware of integral division</p>
+<p class="admonition-title">Important: Beware of integral division</p>
 <p>The physical units library can't do any runtime branching logic for the division operator.
 All logic has to be done at compile-time when the actual values are not known, and the quantity types
 can't change at runtime.</p>

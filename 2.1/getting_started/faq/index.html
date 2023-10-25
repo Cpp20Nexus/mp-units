@@ -1690,7 +1690,9 @@ You're not viewing the latest version.
 <p>Many reasons make UDLs a poor choice for a physical units library:</p>
 <ol>
 <li>UDLs work only with literals (compile-time known values). Our observation is that besides
-   the unit tests, there are few compile-time known constants used in the production code.</li>
+   the unit tests, there are only a few compile-time known quantity values used in the production
+   code. Please note that for physical constants, we recommend using
+   <a href="../../users_guide/framework_basics/faster_than_lightspeed_constants/">Faster-than-lightspeed Constants</a>.</li>
 <li>
 <p>Typical implementations of UDLs tend to always use the widest representation type available.
    In the case of <code>std::chrono::duration</code>, the following is true:</p>
@@ -1702,44 +1704,45 @@ You're not viewing the latest version.
 </span></code></pre></div>
 </li>
 <li>
-<p>While increasing the coverage for the library, we learned that many unit symbols conflict  with
+<p>While increasing the coverage for the library, we learned that many unit symbols conflict with
    built-in types or numeric extensions. A few of those are: <code>F</code> (farad), <code>J</code> (joule), <code>W</code> (watt),
-   <code>K</code> (kelvin), <code>d</code> (day), <code>l</code> or <code>L</code> (litre), <code>erg</code>, <code>ergps</code>. For a while for those we used <code>_</code> prefix
-   to make the library work at all, but at some point, we had to unify the naming, and we came up with <code>_q_</code>
-   prefix, which resulted in creating a quantity of a provided unit. So in case the library is
-   standardized, all quantities would be created with UDLs having <code>q_</code> prefix (e.g. <code>42q_s</code>)
-   which is not that nice anymore.</p>
+   <code>K</code> (kelvin), <code>d</code> (day), <code>l</code> or <code>L</code> (litre), <code>erg</code>, <code>ergps</code>. Usage of the <code>_</code> prefix would make
+   it work for <strong>mp-units</strong>, but in case the library is standardized, those naming collisions would
+   be a big issue. This is why we came up with the <code>_q_</code> prefix that would become <code>q_</code> after
+   standardization (e.g., <code>42q_s</code>), which is not that nice anymore.</p>
 </li>
 <li>
 <p>UDLs with the same identifiers defined in different namespace can't be disambiguated in the C++
    language. If both SI and CGS systems define <code>_q_s</code> UDL for a second unit, then it would not be possible
-   to specify which one to use in case both namespaces are "imported".</p>
+   to specify which one to use in case both namespaces are "imported" with using directives.</p>
 </li>
 <li>
 <p>Another bad property of UDLs is that they do not compose. A coherent unit of angular momentum would
    have a UDL specified as <code>_q_kg_m2_per_s</code>. Now imagine that you want to make every possible user happy.
-   How many variations of that unit would you predefine for differently scaled versions of unit ingredients?</p>
+   How many variations of that unit would you predefine for differently scaled versions of all unit
+   ingredients?</p>
 </li>
 <li>
-<p>UDLs are also really expensive to define and specify. For each unit, we need two definitions. One for
-   integral and another one for floating-point representation. Before the V2 framework, the coherent unit of
-   angular momentum was defined as:</p>
+<p>UDLs are also really expensive to define and specify. Typically, for each unit, we need two
+   definitions. One for integral and another one for floating-point representation. Before the
+   V2 framework, the coherent unit of angular momentum was defined as:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="n">_q_kg_m2_per_s</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="n">gsl_ExpectsAudit</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">in_range</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l</span><span class="p">));</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">angular_momentum</span><span class="o">&lt;</span><span class="n">kilogram_metre_sq_per_second</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l</span><span class="p">));</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="n">_q_kg_m2_per_s</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">{</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">angular_momentum</span><span class="o">&lt;</span><span class="n">kilogram_metre_sq_per_second</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="n">_q_kg_m2_per_s</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">angular_momentum</span><span class="o">&lt;</span><span class="n">kilogram_metre_sq_per_second</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
 </span></code></pre></div>
 </li>
 </ol>
 <h2 id="why-cant-i-create-a-quantity-by-passing-a-number-to-a-constructor">Why can't I create a quantity by passing a number to a constructor?<a class="headerlink" href="#why-cant-i-create-a-quantity-by-passing-a-number-to-a-constructor" title="Permanent link">&para;</a></h2>
-<p>A quantity class template in the <strong>mp-units</strong> library has no publicly available constructor taking a raw value.
-Such support is provided by the <code>std::chrono::duration</code> and was pointed out to us as a red flag safety issue
-by a few parties already.</p>
+<p>A quantity class template in the <strong>mp-units</strong> library has no publicly available constructor taking
+a raw value. Such support is provided by the <code>std::chrono::duration</code> and was pointed out to us as
+a red flag safety issue by a few parties already.</p>
 <p>Consider the following structure and a code using it:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">;</span>
@@ -1749,16 +1752,23 @@ by a few parties already.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">X</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">x</span><span class="p">.</span><span class="n">vec</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Everything works fine for years until at some point someone changes the structure to:</p>
+<p>Everything works fine for years until, at some point, someone changes the structure to:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">;</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="c1">// ...</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>The code continues to compile just fine but all the calculations are off now. This is why we decided to not
-follow this path.</p>
-<p>In the <strong>mp-units</strong> library, both a number and a unit have to always be explicitly provided in order to
-form a quantity.</p>
+<p>The code continues to compile just fine, but all the calculations are off now. This is why we decided
+to not follow this path.</p>
+<p>In the <strong>mp-units</strong> library, both a number and a unit have to always be explicitly provided in order
+to form a quantity.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The same applies to the <code>quantity_point</code> construction. To prevent similar issues during
+construction, it always needs to get both a <code>quantity</code> and
+a <a href="../../users_guide/framework_basics/basic_concepts/#PointOrigin"><code>PointOrigin</code></a> that we use
+as a reference point.</p>
+</div>
 <h2 id="why-a-dimensionless-quantity-is-not-just-a-fundamental-arithmetic-type">Why a dimensionless quantity is not just a fundamental arithmetic type?<a class="headerlink" href="#why-a-dimensionless-quantity-is-not-just-a-fundamental-arithmetic-type" title="Permanent link">&para;</a></h2>
 <p>In the initial design of this library, the resulting type of division of two quantities was their
 common representation type:</p>
@@ -1800,23 +1810,24 @@ the concept identifiers to a <code>standard_case</code>, even if it will result 
 code.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In case you have a good idea on how to rename <a href="../../users_guide/framework_basics/basic_concepts/">existing concepts</a>
-to the <code>standard_case</code>, please let us know in the associated <a href="">GitHub Issue</a>.</p>
+<p>In case you have a good idea of how to rename
+<a href="../../users_guide/framework_basics/basic_concepts/">existing concepts</a> to the <code>standard_case</code>,
+please let us know in the associated <a href="https://github.com/mpusz/mp-units/issues/93">GitHub Issue</a>.</p>
 </div>
 <h2 id="why-unicode-quantity-symbols-are-used-by-default-instead-of-ascii-only-characters">Why Unicode quantity symbols are used by default instead of ASCII-only characters?<a class="headerlink" href="#why-unicode-quantity-symbols-are-used-by-default-instead-of-ascii-only-characters" title="Permanent link">&para;</a></h2>
 <p>Both C++ and <a href="../../appendix/references/#ISO80000">ISO 80000</a> are standardized by the ISO.
 <a href="../../appendix/references/#ISO80000">ISO 80000</a> and the <a href="../../appendix/references/#SIBrochure">SI</a>
 standards specify Unicode symbols as the official unit names for some quantities
 (e.g. <code>Ω</code> symbol for the resistance quantity).
-As <strong>mp-units</strong> library will be proposed for standardization as a part of the C++ Standard Library
+As the <strong>mp-units</strong> library will be proposed for standardization as a part of the C++ Standard Library
 we have to obey the rules and be consistent with ISO specifications.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We do understand engineering reality and the constraints of some environments. This is why the library
-has the option of ASCII-only Quantity Symbols.</p>
+has the option of <a href="../../users_guide/framework_basics/text_output/#unit-symbol-formatting">ASCII-only Quantity Symbols</a>.</p>
 </div>
 <h2 id="why-dont-you-have-cmake-options-to-disable-the-building-of-tests-and-examples">Why don't you have CMake options to disable the building of tests and examples?<a class="headerlink" href="#why-dont-you-have-cmake-options-to-disable-the-building-of-tests-and-examples" title="Permanent link">&para;</a></h2>
-<p>Over time many people provided PRs proposing adding options to build tests and examples conditionally.
+<p>Over time, many people provided PRs proposing adding options to build tests and examples conditionally.
 Here are a few examples:</p>
 <ul>
 <li><a href="https://github.com/mpusz/mp-units/pull/124">Add CMake options for disabling docs, examples and tests</a></li>
@@ -1833,7 +1844,7 @@ environment with our development-specific settings. Propagating our restrictive 
 project is not the best idea as it might cause a lot of harm if this project stops to compile
 because of that.</p>
 <p>Last but not least, not having those options is on purpose. Top level <em>CMakeLists.txt</em> file should only
-be used by <strong>mp-units</strong> developers and contributors as an entry point for project's development.
+be used by <strong>mp-units</strong> developers and contributors as an entry point for the project's development.
 We want to ensure that everyone will build <strong>ALL</strong> the code correctly before pushing a commit. Having
 such options would allow unintended issues to leak to PRs and CI.</p>
 <p>This is why our projects have two entry points:</p>
@@ -1845,7 +1856,8 @@ such options would allow unintended issues to leak to PRs and CI.</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more details on this please refer to the <a href="https://youtu.be/mrSwJBJ-0z8?t=1931">CMake + Conan: 3 Years Later - Mateusz Pusz</a>
+<p>For more details on this please refer to the
+<a href="https://youtu.be/mrSwJBJ-0z8?t=1931">CMake + Conan: 3 Years Later - Mateusz Pusz</a>
 lecture that Mateusz Pusz provided at the C++Now 2021 conference.</p>
 </div>
 

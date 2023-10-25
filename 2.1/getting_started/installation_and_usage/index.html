@@ -1806,9 +1806,7 @@ providing a backward-compatible way to use it.</p>
 <li><a href="https://github.com/gsl-lite/gsl-lite">gsl-lite</a> to verify runtime contracts with
   the <code>gsl_Expects</code> macro,</li>
 <li><a href="https://github.com/fmtlib/fmt">{fmt}</a> to provide text formatting of quantities
-  (if <code>std::format</code> is not supported yet on a specific compiler),</li>
-<li>[only for clang &lt; 14 with libc++] <a href="https://github.com/ericniebler/range-v3">range-v3</a>
-  to provide needed C++20 concepts and utilities.</li>
+  (if <code>std::format</code> is not supported yet on a specific compiler).</li>
 </ul>
 </li>
 </ul>
@@ -1821,16 +1819,10 @@ providing a backward-compatible way to use it.</p>
 <li>
 <p>additionally to the dependencies of <em>./src</em> project, it uses:</p>
 <ul>
-<li><code>Catch2 &lt;https://github.com/catchorg/Catch2&gt;</code>_ library as a unit tests framework,</li>
-<li><code>linear algebra &lt;https://github.com/BobSteagall/wg21/tree/master/include&gt;</code><em>
-  library based on proposal <code>P1385 &lt;https://wg21.link/P1385&gt;</code></em> used in some examples
+<li><a href="https://github.com/catchorg/Catch2">Catch2</a> library as a unit tests framework,</li>
+<li><a href="https://github.com/BobSteagall/wg21/tree/master/include">linear algebra</a>
+  library based on proposal <a href="https://wg21.link/P1385">P1385</a> used in some examples
   and tests.</li>
-</ul>
-</li>
-<li>
-<p>in case you also want to generate the project's documentation, you will need:</p>
-<ul>
-<li><a href="https://squidfunk.github.io/mkdocs-material">Material for MkDocs</a></li>
 </ul>
 </li>
 </ul>
@@ -1838,12 +1830,12 @@ providing a backward-compatible way to use it.</p>
 <li>
 <p><em>./test_package</em></p>
 <ul>
-<li>library installation and Conan package verification.</li>
+<li>CMake library installation and Conan package verification.</li>
 </ul>
 </li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition important">
+<p class="admonition-title">Important: Library users should not use the top-level CMake file</p>
 <p>Top level <em>CMakeLists.txt</em> file should only be used by <strong>mp-units</strong> developers and contributors
 as an entry point for the project's development. We want to ensure that everyone will build <strong>ALL</strong>
 the code correctly before pushing a commit. Having such options would allow unintended issues to
@@ -1883,27 +1875,31 @@ in <em>~/.conan2/profiles</em> directory. An example profile can look as follows
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="na">tools.build</span><span class="o">:</span><span class="s">compiler_executables={&quot;c&quot;: &quot;gcc-12&quot;, &quot;cpp&quot;: &quot;g++-12&quot;}</span>
 </span></code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Please note that the <strong>mp-units</strong> library requires C++20 to be set in a Conan profile or forced
-via the Conan command line. If you do the former, you will not need to provide <code>-s compiler.cppstd=20</code>
-every time your run a Conan command line (as provided in the command line instructions below).</p>
+<p class="admonition-title">Setting the language version</p>
+<p>Please note that the <strong>mp-units</strong> library requires at least C++20 to be set in a Conan profile
+or forced via the Conan command line. If you do the former, you will not need to provide
+<code>-s compiler.cppstd=20</code> every time you run a Conan command line (as provided in the command
+line instructions below).</p>
 </div>
-<p>Additionally, it is recommended to set Ninja as a CMake generator for Conan. To do so, you should create
-a <em>~/.conan2/global.conf</em> file that will set <code>tools.cmake.cmaketoolchain:generator</code> to one of Ninja
-generators. For example:</p>
+<div class="admonition tip">
+<p class="admonition-title">Using Ninja as a CMake generator for Conan</p>
+<p>It is highly recommended to set Ninja as a CMake generator for Conan. To do so, you should
+create a <em>~/.conan2/global.conf</em> file that will set <code>tools.cmake.cmaketoolchain:generator</code>
+to one of the Ninja generators. For example:</p>
 <div class="language-text highlight"><span class="filename">~/.conan2/global.conf</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tools.cmake.cmaketoolchain:generator=&quot;Ninja Multi-Config&quot;
 </span></code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Separate build folders for different configurations</p>
 <p><em>~/.conan2/global.conf</em> file may also set <code>tools.cmake.cmake_layout:build_folder_vars</code> which
 <a href="https://docs.conan.io/2/reference/tools/cmake/cmake_layout.html#multi-setting-option-cmake-layout">makes working with several compilers or build configurations easier</a>.
 For example, the below line will force Conan to generate separate CMake presets and folders for
-each compiler:</p>
-<div class="language-text highlight"><span class="filename">~/.conan2/global.conf</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tools.cmake.cmake_layout:build_folder_vars=[&quot;settings.compiler&quot;, &quot;settings.compiler.version&quot;]
+each compiler and C++ standard version:</p>
+<div class="language-text highlight"><span class="filename">~/.conan2/global.conf</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tools.cmake.cmake_layout:build_folder_vars=[&quot;settings.compiler&quot;, &quot;settings.compiler.version&quot;, &quot;settings.compiler.cppstd&quot;]
 </span></code></pre></div>
 <p>In such a case, you will need to use a configuration-specific preset name in the Conan instructions
-provided below rather then just <code>conan-default</code> and <code>conan-release</code>
-(e.g. <code>conan-gcc-11</code> and <code>conan-gcc-11-release</code>)</p>
+provided below rather than just <code>conan-default</code> and <code>conan-release</code>
+(e.g. <code>conan-gcc-13-23</code> and <code>conan-gcc-13-23-release</code>)</p>
 </div>
 <h2 id="build-options">Build Options<a class="headerlink" href="#build-options" title="Permanent link">&para;</a></h2>
 <h3 id="conan-configuration-properties">Conan Configuration Properties<a class="headerlink" href="#conan-configuration-properties" title="Permanent link">&para;</a></h3>
@@ -1911,8 +1907,7 @@ provided below rather then just <code>conan-default</code> and <code>conan-relea
 <dt><a href="#user-build-all" id="user-build-all"><code>user.build:all</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v0.8.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 0.8.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>True</code>/<code>False</code> (Default: <code>False</code>)</p>
-<p>Enables compilation of all the source code including tests and examples. To support
-this it requires some additional Conan build dependencies described in
+<p>Enables compilation of all the source code, including tests and examples. To support this, it requires some additional Conan build dependencies described in
 <a href="#repository-structure-and-dependencies">Repository Structure and Dependencies</a>.
 It also runs unit tests during Conan build (unless <code>tools.build:skip_test</code>
 configuration property is set to <code>True</code>).</p>
@@ -1921,7 +1916,7 @@ configuration property is set to <code>True</code>).</p>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v0.8.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 0.8.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>True</code>/<code>False</code> (Default: <code>False</code>)</p>
 <p>If <code>user.build:all</code> is enabled, among others, Conan installs the external
-<a href="https://conan.io/center/wg21-linear_algebra">wg21-linear_algebra</a>
+<a href="https://conan.io/center/recipes/wg21-linear_algebra">wg21-linear_algebra</a>
 dependency and enables the compilation of linear algebra-based tests and usage examples.
 Such behavior can be disabled with this option.</p>
 </dd>
@@ -1947,13 +1942,13 @@ Additionally turns on <a href="#MP_UNITS_AS_SYSTEM_HEADERS"><code>MP_UNITS_AS_SY
 <dt><a href="#MP_UNITS_USE_LIBFMT" id="MP_UNITS_USE_LIBFMT"><code>MP_UNITS_USE_LIBFMT</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.0.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.0.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>ON</code>/<code>OFF</code> (Default: <code>ON</code>)</p>
-<p>Enables usage of <a href="https://github.com/fmtlib/fmt">{fmt}</a> library instead of the C++20 Standard
+<p>Forces usage of <a href="https://github.com/fmtlib/fmt">{fmt}</a> library instead of the C++20 Standard
 Library feature.</p>
 </dd>
 </dl>
 <h2 id="cmake-with-presets-support">CMake with Presets Support<a class="headerlink" href="#cmake-with-presets-support" title="Permanent link">&para;</a></h2>
 <p>It is recommended to use at least CMake 3.23 to build this project as this version introduced support
-for CMake Presets schema version 4 used now by Conan to generate presets files. All build instructions
+for CMake Presets schema version 4, used now by Conan to generate presets files. All build instructions
 below assume that you have such support. If not, your CMake invocations have to be replaced with something
 like:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
@@ -1970,7 +1965,7 @@ which will force Conan to use an older version of the CMake Presets schema.</p>
 <p>There are many different ways of installing/reusing <strong>mp-units</strong> in your project. Below we mention
 only a few of many options possible.</p>
 <div class="admonition important">
-<p class="admonition-title">Important</p>
+<p class="admonition-title">Important: Prefer using Conan if possible</p>
 <p>The easiest and most recommended way to obtain <strong>mp-units</strong> is with the Conan package manager.
 See <a href="#conan-cmake-release">Conan + CMake (release)</a> for a detailed instruction.</p>
 </div>
@@ -1979,13 +1974,13 @@ See <a href="#conan-cmake-release">Conan + CMake (release)</a> for a detailed in
 to your source tree.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In such a case, you are on your own to ensure all the dependencies are installed, and their header
+<p>In such a case, you are on your own to ensure all the dependencies are installed and their header
 files can be located during the build. Please also note that some compiler-specific flags are needed
 to make the code compile without issues.</p>
 </div>
 <h3 id="copy-cmake">Copy + CMake<a class="headerlink" href="#copy-cmake" title="Permanent link">&para;</a></h3>
 <p>If you copy the whole <strong>mp-units</strong> repository to your project's file tree, you can reuse CMake targets
-defined by the library. To do so, you should use <em>CMakeLists.txt</em> file from the <em>./src</em> directory:</p>
+defined by the library. To do so, <strong>you should use <em>CMakeLists.txt</em> file from the <em>./src</em> directory</strong>:</p>
 <div class="language-cmake highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">&lt;path_to_units_folder&gt;/src</span><span class="p">)</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c"># ...</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">&lt;your_target&gt;</span><span class="w"> </span><span class="s">&lt;PUBLIC|PRIVATE|INTERFACE&gt;</span><span class="w"> </span><span class="s">mp-units::mp-units</span><span class="p">)</span>
@@ -2003,8 +1998,8 @@ configuration files can be located during the build.</p>
 <a href="https://docs.conan.io/2/tutorial/consuming_packages.html">Consuming packages</a>
 chapter of the official Conan documentation for more information.</p>
 </div>
-<p><strong>mp-units</strong> releases are hosted on <a href="https://conan.io/center/mp-units">Conan-Center</a>.
-To obtain an official library release, the following steps may be performed:</p>
+<p><strong>mp-units</strong> releases are hosted on <a href="https://conan.io/center/recipes/mp-units">Conan-Center</a>.
+The following steps may be performed to obtain an official library release:</p>
 <ol>
 <li>
 <p>Create Conan configuration file (either <em>conanfile.txt</em> or <em>conanfile.py</em>) in your
@@ -2041,12 +2036,12 @@ To obtain an official library release, the following steps may be performed:</p>
 </li>
 </ol>
 <h3 id="conan-cmake-live-at-head">Conan + CMake (Live At Head)<a class="headerlink" href="#conan-cmake-live-at-head" title="Permanent link">&para;</a></h3>
-<p>This chapter describes the procedure to Live At Head, which means using the latest version
+<p>This chapter describes the procedure to Live At Head, which means using the latest stable version
 of <strong>mp-units</strong> all the time.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Please note that even though the Conan packages that you will be using are generated <strong>ONLY</strong>
-for builds that are considered stable (passed our CI tests) some minor regressions may happen
+for builds that are considered stable (passed our CI tests), some minor regressions may happen
 (our CI and C++20 build environment is not perfect yet). Also, please expect that the library
 interface might, and probably will, change occasionally. Even though we do our best, such
 changes might not be reflected in the project's documentation right away.</p>
@@ -2086,8 +2081,7 @@ with the following differences:</p>
 </ol>
 <h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h3>
 <p>In case you don't want to use Conan in your project and just want to install the <strong>mp-units</strong>
-library on your file system and use <code>find_package(mp-units)</code> from another repository
-to find it, it is enough to perform the following steps:</p>
+library on your file system and use <code>find_package(mp-units)</code> from another repository to find it; it is enough to perform the following steps:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>conan<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-b<span class="o">=</span>missing
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>mv<span class="w"> </span>CMakeUserPresets.json<span class="w"> </span>src
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">cd</span><span class="w"> </span>src
@@ -2133,7 +2127,7 @@ is with <code>pip</code>:</p>
 </ul>
 <h2 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h2>
 <p>To test CMake installation and Conan packaging or create a Conan package run:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>conan<span class="w"> </span>create<span class="w"> </span>.<span class="w"> </span>&lt;username&gt;/&lt;channel&gt;<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-c<span class="w"> </span>user.build:all<span class="o">=</span>True<span class="w"> </span>-b<span class="w"> </span>missing
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>conan<span class="w"> </span>create<span class="w"> </span>.<span class="w"> </span>--user<span class="w"> </span>&lt;username&gt;<span class="w"> </span>--channel<span class="w"> </span>&lt;channel&gt;<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-c<span class="w"> </span>user.build:all<span class="o">=</span>True<span class="w"> </span>-b<span class="w"> </span>missing
 </span></code></pre></div>
 <p>The above will create a Conan package and run tests provided in <em>./test_package</em> directory.</p>
 <h2 id="uploading-mp-units-package-to-the-conan-server">Uploading <strong>mp-units</strong> Package to the Conan Server<a class="headerlink" href="#uploading-mp-units-package-to-the-conan-server" title="Permanent link">&para;</a></h2>
