@@ -1831,8 +1831,10 @@ You're not viewing the latest version.
 
 
 <h1 id="basic-concepts">Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permanent link">&para;</a></h1>
-<p>The most important concepts in the <strong>mp-units</strong> library are <code>Dimension</code>, <code>QuantitySpec</code>, <code>Unit</code>,
-<code>Reference</code>, <code>Representation</code>, <code>Quantity</code>, and <code>QuantityPoint</code>:</p>
+<p>The most important concepts in the <strong>mp-units</strong> library are <a href="#Dimension"><code>Dimension</code></a>,
+<a href="#QuantitySpec"><code>QuantitySpec</code></a>, <a href="#Unit"><code>Unit</code></a>, <a href="#Reference"><code>Reference</code></a>,
+<a href="#Representation"><code>Representation</code></a>, <a href="#Quantity"><code>Quantity</code></a>, and <a href="#QuantityPoint"><code>QuantityPoint</code></a>.</p>
+<p>The tree provided below presents how those and a few other concepts depend on each other:</p>
 <pre class="mermaid"><code>flowchart TD
     Dimension --- QuantitySpec
     QuantitySpec --- Reference
@@ -1854,7 +1856,7 @@ You're not viewing the latest version.
 <p><code>Dimension</code> concept matches a <a href="../../../appendix/glossary/#dimension">dimension</a> of either a base
 or derived <a href="../../../appendix/glossary/#quantity">quantity</a>:</p>
 <ul>
-<li><a href="../../../appendix/glossary/#base-dimension">Base dimensions</a> are explicitly defined by a user
+<li><a href="../../../appendix/glossary/#base-dimension">Base dimensions</a> are explicitly defined by the user
   by inheriting from the instantiation of a <code>base_dimension</code> class template. It should be instantiated with
   a unique symbol identifier describing this dimension in a specific
   <a href="../../../appendix/glossary/#system-of-quantities">system of quantities</a>.</li>
@@ -1868,8 +1870,8 @@ or derived <a href="../../../appendix/glossary/#quantity">quantity</a>:</p>
 <code>isq::dim_thermodynamic_temperature</code>, <code>isq::dim_amount_of_substance</code>, and
 <code>isq::dim_luminous_intensity</code> are the dimensions of base quantities in the
 <a href="../../../appendix/glossary/#isq">ISQ</a>.</p>
-<p>IEC 80000 provides <code>iec80000::dim_traffic_intensity</code> base dimension to extend ISQ
-with information technology quantities.</p>
+<p>The implementation of IEC 80000 in this library provides <code>iec80000::dim_traffic_intensity</code>
+base dimension to extend ISQ with information technology quantities.</p>
 <p>A <code>Dimension</code> can be defined by the user in the following way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">dim_length</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">base_dimension</span><span class="o">&lt;</span><span class="s">&quot;L&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">dim_length</span><span class="p">;</span>
 </span></code></pre></div>
@@ -1979,8 +1981,8 @@ and when <code>T</code> is implicitly convertible to <code>V</code>.</p>
 <summary>Examples</summary>
 <p><code>si::second</code>, <code>si::metre</code>, <code>si::kilogram</code>, <code>si::ampere</code>, <code>si::kelvin</code>, <code>si::mole</code>, and <code>si::candela</code>
 are the base units of <a href="../../../appendix/glossary/#si">SI</a>.</p>
-<p><code>si::kilo&lt;si::metre&gt;</code> is a prefixed unit on length.</p>
-<p><code>si::radian</code>, <code>si::newton</code>, and <code>si::watt</code> are examples of named derived quantities within
+<p><code>si::kilo&lt;si::metre&gt;</code> is a prefixed unit of length.</p>
+<p><code>si::radian</code>, <code>si::newton</code>, and <code>si::watt</code> are examples of named derived units within
 <a href="../../../appendix/glossary/#si">SI</a>.</p>
 <p><code>non_si::minute</code> is an example of a scaled unit of time.</p>
 <p><code>si::si2019::speed_of_light_in_vacuum</code> is a physical constant standardized by the SI in 2019.</p>
@@ -2013,7 +2015,7 @@ and is satisfied by:</p>
 <p>All units in the <a href="../../../appendix/glossary/#si">SI</a> have associated quantities. For example,
 <code>si::second</code> is specified to measure <code>isq::time</code>.</p>
 <p>Natural units typically do not have an associated quantity. For example, if we assume <code>c = 1</code>,
-a <code>natural::second</code> unit can be used to measure both <code>time</code> and <code>length</code>. In such case <code>speed</code>
+a <code>natural::second</code> unit can be used to measure both <code>time</code> and <code>length</code>. In such case, <code>speed</code>
 would be a <a href="../../../appendix/glossary/#dimensionless-quantity">dimensionless quantity</a>.</p>
 </details>
 <h3 id="PrefixableUnit"><code>PrefixableUnit&lt;T&gt;</code><a class="headerlink" href="#PrefixableUnit" title="Permanent link">&para;</a></h3>
@@ -2024,7 +2026,7 @@ units can be passed as an argument to a <code>prefixed_unit</code> class templat
 <summary>Examples</summary>
 <p>All units in the <a href="../../../appendix/glossary/#si">SI</a> can be prefixed with SI-defined prefixes.</p>
 <p>Some <a href="../../../appendix/glossary/#off-system-unit">off-system units</a> like <code>non_si::day</code>
-can't be prefixed. To enforce that the following has to be provided:</p>
+can't be prefixed. To enforce that, the following has to be provided:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">unit_can_be_prefixed</span><span class="o">&lt;</span><span class="n">non_si</span><span class="o">::</span><span class="n">day</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 </span></code></pre></div>
 </details>
@@ -2036,7 +2038,7 @@ concept with an associated quantity type implicitly convertible to <code>V</code
 <p>Additionally, the kind of <code>V</code> and the kind of quantity type associated with <code>T</code> must be the same,
 or the quantity type associated with <code>T</code> may not be derived from the kind of <code>V</code>.</p>
 <p>This condition is required to make <code>dimensionless[si::radian]</code> invalid as <code>si::radian</code> should
-be only used for <code>isq::angular_measure</code> which is a
+be only used for <code>isq::angular_measure</code>, which is a
 <a href="../dimensionless_quantities/#nested-quantity-kinds">nested quantity kind within the dimensionless quantities tree</a>.</p>
 </details>
 <h3 id="UnitCompatibleWith"><code>UnitCompatibleWith&lt;T, V1, V2&gt;</code><a class="headerlink" href="#UnitCompatibleWith" title="Permanent link">&para;</a></h3>
@@ -2081,10 +2083,6 @@ instantiate a quantity of <code>isq::height</code> with a unit of <code>si::metr
 <td><code>QuantitySpec</code></td>
 <td>The quantity specification satisfies <a href="#QuantitySpecOf"><code>QuantitySpecOf&lt;V&gt;</code></a> concept.</td>
 </tr>
-<tr>
-<td><code>quantity_character</code></td>
-<td>The quantity specification has a character of <code>V</code>.</td>
-</tr>
 </tbody>
 </table>
 <h2 id="Representation"><code>Representation&lt;T&gt;</code><a class="headerlink" href="#Representation" title="Permanent link">&para;</a></h2>
@@ -2102,8 +2100,8 @@ with <code>true</code> for one or more of the following variable templates:</p>
 </ul>
 <details class="abstract">
 <summary>Examples</summary>
-<p>If we want to use scalar types to express <a href="../character_of_a_quantity/#defining-vector-and-tensor-quantities">vector quantities</a>
-(e.g. ignoring the "direction" of the vector) the following definition can be provided to enable such a behavior:</p>
+<p>If we want to use scalar types to also express <a href="../character_of_a_quantity/#defining-vector-and-tensor-quantities">vector quantities</a>
+(e.g., ignoring the "direction" of the vector) the following definition can be provided to enable such a behavior:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n">mp_units</span><span class="o">::</span><span class="n">is_scalar</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">mp_units</span><span class="o">::</span><span class="n">is_vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
@@ -2111,12 +2109,12 @@ with <code>true</code> for one or more of the following variable templates:</p>
 </details>
 <h2 id="Quantity"><code>Quantity&lt;T&gt;</code><a class="headerlink" href="#Quantity" title="Permanent link">&para;</a></h2>
 <p><code>Quantity</code> concept matches every <a href="../../../appendix/glossary/#quantity">quantity</a> in the library and is
-satisfied by all types being or deriving from and instantiation of a <code>quantity</code> class template.</p>
+satisfied by all types being or deriving from an instantiation of a <code>quantity</code> class template.</p>
 <details class="abstract">
 <summary>Examples</summary>
 <p>All of <code>42 * m</code>, <code>42 * si::metre</code>, <code>42 * isq::height[m]</code>, and <code>isq::height(42 * m)</code> create a quantity
 and thus satisfy a <code>Quantity</code> concept.</p>
-<p>A quantity type can also be specified explicitly (e.g. <code>quantity&lt;si::metre, int&gt;</code>,
+<p>A quantity type can also be specified explicitly (e.g., <code>quantity&lt;si::metre, int&gt;</code>,
 <code>quantity&lt;isq::height[m]&gt;</code>).</p>
 </details>
 <h3 id="QuantityOf"><code>QuantityOf&lt;T, V&gt;</code><a class="headerlink" href="#QuantityOf" title="Permanent link">&para;</a></h3>
@@ -2127,7 +2125,7 @@ is <code>true</code>.</p>
 the library. It is satisfied by either:</p>
 <ul>
 <li>All types derived from an <code>absolute_point_origin</code> class template.</li>
-<li>All types derived from an <code>relative_point_origin</code> class template.</li>
+<li>All types derived from a <code>relative_point_origin</code> class template.</li>
 </ul>
 <details class="abstract">
 <summary>Examples</summary>
@@ -2150,8 +2148,8 @@ type implicitly converts to <code>isq::thermodynamic_temperature</code>.</p>
 <p>then it can't be used as a point origin for <em>points</em> of <code>isq::length</code> or <code>isq::width</code> as none of them
 is implicitly convertible to <code>isq::altitude</code>:</p>
 <ul>
-<li>not every "length" is an "altitude",</li>
-<li>"width" is not compatible with "altitude".</li>
+<li>not every <em>length</em> is an <em>altitude</em>,</li>
+<li><em>width</em> is not compatible with <em>altitude</em>.</li>
 </ul>
 </details>
 <h2 id="QuantityPoint"><code>QuantityPoint&lt;T&gt;</code><a class="headerlink" href="#QuantityPoint" title="Permanent link">&para;</a></h2>

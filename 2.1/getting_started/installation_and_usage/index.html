@@ -1848,7 +1848,7 @@ restrictive compilation flags,</li>
 that prefer to use CMake's <code>add_subdirectory()</code> to handle the dependencies.</li>
 </ul>
 <p>To learn more about the rationale, please check our
-<a href="../faq/#why-dont-you-have-cmake-options-to-disable-building-of-tests-and-examples">FAQ</a>.</p>
+<a href="../faq/#why-dont-we-have-cmake-options-to-disable-building-of-tests-and-examples">FAQ</a>.</p>
 </div>
 <h2 id="obtaining-dependencies">Obtaining Dependencies<a class="headerlink" href="#obtaining-dependencies" title="Permanent link">&para;</a></h2>
 <p>This library assumes that most of the dependencies will be provided by the
@@ -1877,13 +1877,13 @@ in <em>~/.conan2/profiles</em> directory. An example profile can look as follows
 <div class="admonition tip">
 <p class="admonition-title">Setting the language version</p>
 <p>Please note that the <strong>mp-units</strong> library requires at least C++20 to be set in a Conan profile
-or forced via the Conan command line. If you do the former, you will not need to provide
-<code>-s compiler.cppstd=20</code> every time you run a Conan command line (as provided in the command
+or forced via the Conan command line. If we do the former, we will not need to provide
+<code>-s compiler.cppstd=20</code> every time we run a Conan command line (as provided in the command
 line instructions below).</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Using Ninja as a CMake generator for Conan</p>
-<p>It is highly recommended to set Ninja as a CMake generator for Conan. To do so, you should
+<p>It is highly recommended to set Ninja as a CMake generator for Conan. To do so, we should
 create a <em>~/.conan2/global.conf</em> file that will set <code>tools.cmake.cmaketoolchain:generator</code>
 to one of the Ninja generators. For example:</p>
 <div class="language-text highlight"><span class="filename">~/.conan2/global.conf</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tools.cmake.cmaketoolchain:generator=&quot;Ninja Multi-Config&quot;
@@ -1897,7 +1897,7 @@ For example, the below line will force Conan to generate separate CMake presets 
 each compiler and C++ standard version:</p>
 <div class="language-text highlight"><span class="filename">~/.conan2/global.conf</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tools.cmake.cmake_layout:build_folder_vars=[&quot;settings.compiler&quot;, &quot;settings.compiler.version&quot;, &quot;settings.compiler.cppstd&quot;]
 </span></code></pre></div>
-<p>In such a case, you will need to use a configuration-specific preset name in the Conan instructions
+<p>In such a case, we will need to use a configuration-specific preset name in the Conan instructions
 provided below rather than just <code>conan-default</code> and <code>conan-release</code>
 (e.g. <code>conan-gcc-13-23</code> and <code>conan-gcc-13-23-release</code>)</p>
 </div>
@@ -2081,7 +2081,8 @@ with the following differences:</p>
 </ol>
 <h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h3>
 <p>In case you don't want to use Conan in your project and just want to install the <strong>mp-units</strong>
-library on your file system and use <code>find_package(mp-units)</code> from another repository to find it; it is enough to perform the following steps:</p>
+library on your file system and use <code>find_package(mp-units)</code> from another repository to find it;
+it is enough to perform the following steps:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>conan<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-b<span class="o">=</span>missing
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>mv<span class="w"> </span>CMakeUserPresets.json<span class="w"> </span>src
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">cd</span><span class="w"> </span>src
