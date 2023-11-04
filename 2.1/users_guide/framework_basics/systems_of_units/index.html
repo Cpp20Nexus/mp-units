@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
@@ -565,6 +565,8 @@ You're not viewing the latest version.
       
         
       
+        
+      
     
     
     
@@ -601,11 +603,11 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../basic_concepts/" class="md-nav__link">
+      <a href="../interface_introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Basic Concepts
+    Interface Introduction
   </span>
   
 
@@ -621,11 +623,11 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../interface_introduction/" class="md-nav__link">
+      <a href="../design_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Interface Introduction
+    Design Overview
   </span>
   
 
@@ -928,6 +930,26 @@ You're not viewing the latest version.
   
   <span class="md-ellipsis">
     Obtaining Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
   </span>
   
 
@@ -1771,7 +1793,7 @@ unit magnitude in a more flexible way.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="n">PrefixableUnit</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">quecto_</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prefixed_unit</span><span class="o">&lt;</span><span class="s">&quot;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-30</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">template</span><span class="o">&lt;</span><span class="n">PrefixableUnit</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">quecto_</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">quecto</span><span class="p">;</span>
 </span></code></pre></div>
-<p>and then a <a href="../basic_concepts/#PrefixableUnit">PrefixableUnit</a> can be prefixed in the following
+<p>and then a <a href="../concepts/#PrefixableUnit">PrefixableUnit</a> can be prefixed in the following
 way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quecto</span><span class="o">&lt;</span><span class="n">metre</span><span class="o">&gt;</span><span class="p">;</span>
 </span></code></pre></div>

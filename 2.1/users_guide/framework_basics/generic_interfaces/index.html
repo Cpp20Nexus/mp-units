@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
@@ -565,6 +565,8 @@ You're not viewing the latest version.
       
         
       
+        
+      
     
     
     
@@ -601,11 +603,11 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../basic_concepts/" class="md-nav__link">
+      <a href="../interface_introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Basic Concepts
+    Interface Introduction
   </span>
   
 
@@ -621,11 +623,11 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../interface_introduction/" class="md-nav__link">
+      <a href="../design_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Interface Introduction
+    Design Overview
   </span>
   
 
@@ -921,6 +923,26 @@ You're not viewing the latest version.
   
   <span class="md-ellipsis">
     Obtaining Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
   </span>
   
 
@@ -1755,7 +1777,7 @@ a code a function template where the type of such a parameter will be deduced du
 the template instantiation process from the argument type passed by the user.</p>
 </div>
 <h2 id="constraining-function-template-arguments-with-concepts">Constraining function template arguments with concepts<a class="headerlink" href="#constraining-function-template-arguments-with-concepts" title="Permanent link">&para;</a></h2>
-<p>Much better generic code can be implemented using <a href="../basic_concepts/">basic concepts</a>
+<p>Much better generic code can be implemented using <a href="../concepts/">basic concepts</a>
 provided with the library:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">avg_speed</span><span class="p">(</span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">               </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span>
@@ -1764,7 +1786,7 @@ provided with the library:</p>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>This explicitly states that the arguments passed by the user must not only satisfy
-a <a href="../basic_concepts/#Quantity"><code>Quantity</code></a> concept but also their quantity specification must
+a <a href="../concepts/#Quantity"><code>Quantity</code></a> concept but also their quantity specification must
 be implicitly convertible to <code>isq::length</code> and <code>isq::time</code> accordingly. This no longer leaves
 room for error while still allowing the compiler to generate the most efficient code.</p>
 <div class="admonition tip">
@@ -1818,7 +1840,7 @@ what we expected here.</p>
 <p class="admonition-title">Note</p>
 <p>The <code>QuantityOf</code> and <code>QuantityPointOf</code> concepts are probably the most useful, but there
 are a few more to play with. A list of all the concepts can be found in
-<a href="../basic_concepts/">the "Basic Concepts" chapter</a>.</p>
+<a href="../concepts/">the "Basic Concepts" chapter</a>.</p>
 </div>
 
 

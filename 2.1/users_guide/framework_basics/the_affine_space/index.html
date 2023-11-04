@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
@@ -565,6 +565,8 @@ You're not viewing the latest version.
       
         
       
+        
+      
     
     
     
@@ -601,11 +603,11 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../basic_concepts/" class="md-nav__link">
+      <a href="../interface_introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Basic Concepts
+    Interface Introduction
   </span>
   
 
@@ -621,11 +623,11 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../interface_introduction/" class="md-nav__link">
+      <a href="../design_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Interface Introduction
+    Design Overview
   </span>
   
 
@@ -969,6 +971,26 @@ You're not viewing the latest version.
   
   <span class="md-ellipsis">
     Obtaining Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
   </span>
   
 
@@ -1767,7 +1789,7 @@ the affine space.</p>
 <h2 id="point-is-modeled-by-pointorigin-and-quantity_point"><em>Point</em> is modeled by <code>PointOrigin</code> and <code>quantity_point</code><a class="headerlink" href="#point-is-modeled-by-pointorigin-and-quantity_point" title="Permanent link">&para;</a></h2>
 <p>In the <strong>mp-units</strong> library the <em>point</em> abstraction is modelled by:</p>
 <ul>
-<li><a href="../basic_concepts/#PointOrigin"><code>PointOrigin</code> concept</a> that specifies measurement origin,</li>
+<li><a href="../concepts/#PointOrigin"><code>PointOrigin</code> concept</a> that specifies measurement origin,</li>
 <li><code>quantity_point</code> class template that specifies a <em>point</em> relative to a specific predefined origin.</li>
 </ul>
 <h3 id="absolute-point-origin">Absolute <em>point</em> origin<a class="headerlink" href="#absolute-point-origin" title="Permanent link">&para;</a></h3>
@@ -1783,7 +1805,7 @@ specify such an origin by deriving from the <code>absolute_point_origin</code> c
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">quantity_point</span><span class="p">;</span>
 </span></code></pre></div>
 <p>As we can see above, the <code>quantity_point</code> class template exposes one additional parameter compared
-to <code>quantity</code>. The <code>PO</code> parameter satisfies a <a href="../basic_concepts/#PointOriginFor"><code>PointOriginFor</code> concept</a>
+to <code>quantity</code>. The <code>PO</code> parameter satisfies a <a href="../concepts/#PointOriginFor"><code>PointOriginFor</code> concept</a>
 and specifies the origin of our measurement scale.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
