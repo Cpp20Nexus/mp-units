@@ -1706,11 +1706,11 @@ Thanks to that, the library can protect users from performing invalid operations
 quantities and provide automated conversion factors between various compatible units.</p>
 <p>Probably all the libraries in the wild model the <a href="../../../appendix/glossary/#si">SI</a>
 and many of them provide support for additional units belonging to various other systems
-(e.g. imperial).</p>
+(e.g., imperial, cgs, etc).</p>
 <h2 id="systems-of-units-are-based-on-systems-of-quantities">Systems of Units are based on Systems of Quantities<a class="headerlink" href="#systems-of-units-are-based-on-systems-of-quantities" title="Permanent link">&para;</a></h2>
 <p><a href="../../../appendix/glossary/#system-of-quantities">Systems of quantities</a> specify a set
 of quantities and equations relating to those quantities. Those equations do not take any
-unit or a numerical representation into account at all. In order to create a quantity,
+unit or a numerical representation into account at all. To create a quantity,
 we need to add those missing pieces of information. This is where
 a <a href="../../../appendix/glossary/#system-of-units">system of units</a> kicks in.</p>
 <p>The <a href="../../../appendix/glossary/#si">SI</a> is explicitly stated to be based on
@@ -1725,31 +1725,31 @@ previous chapter) with a unit that is used to express it:</p>
 <p class="admonition-title">Important</p>
 <p>The <code>kind_of&lt;isq::length&gt;</code> above states explicitly that this unit has
 an associated quantity kind. In other words, <code>si::metre</code> (and scaled units based
-on it) can be used to express the amount of any quantity of kind length.</p>
+on it) can be used to express the amount of any quantity of kind <em>length</em>.</p>
 </div>
 <h2 id="units-compose">Units compose<a class="headerlink" href="#units-compose" title="Permanent link">&para;</a></h2>
-<p>One of the strongest points of the <a href="../../../appendix/glossary/#si">SI</a> system
+<p>One of the most vital points of the <a href="../../../appendix/glossary/#si">SI</a> system
 is that its units compose. This allows providing thousands of different units for
-hundreds of various quantities with a really small set of predefined units
+hundreds of various quantities with a tiny set of predefined units
 and prefixes.</p>
 <p>The same is modeled in the <strong>mp-units</strong> library, which also allows composing
 predefined units to create a nearly infinite number of different
 <a href="../../../appendix/glossary/#derived-unit">derived units</a>. For example, one can write:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
 </span></code></pre></div>
-<p>to express a quantity of speed. The resulting quantity type is implicitly inferred
+<p>to express a quantity of <em>speed</em>. The resulting quantity type is implicitly inferred
 from the <a href="../../../appendix/glossary/#unit-equation">unit equation</a> by repeating
-exactly the same operations on the associated quantity kinds.</p>
+the same operations on the associated quantity kinds.</p>
 <h2 id="many-shades-of-the-same-unit">Many shades of the same unit<a class="headerlink" href="#many-shades-of-the-same-unit" title="Permanent link">&para;</a></h2>
 <p>The <a href="../../../appendix/glossary/#si">SI</a> provides the names for 22 common
 <a href="../../../appendix/glossary/#coherent-derived-unit">coherent units</a> of 22
 <a href="../../../appendix/glossary/#derived-quantity">derived quantities</a>.</p>
 <p>Each such named <a href="../../../appendix/glossary/#derived-unit">derived unit</a> is a result
 of a specific predefined <a href="../../../appendix/glossary/#unit-equation">unit equation</a>.
-For example, a unit of power quantity is defined in the library as:</p>
+For example, a unit of <em>power</em> quantity is defined in the library as:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">watt</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;W&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">joule</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">watt</span><span class="p">;</span>
 </span></code></pre></div>
-<p>However, a power quantity can be expressed in other units as well. For example,
+<p>However, a <em>power</em> quantity can be expressed in other units as well. For example,
 the following:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">q1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">q1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -1766,19 +1766,21 @@ the following:</p>
 <p>All of the above quantities are equivalent and mean exactly the same.</p>
 <h2 id="constraining-a-derived-unit-to-work-only-with-a-specific-derived-quantity">Constraining a derived unit to work only with a specific derived quantity<a class="headerlink" href="#constraining-a-derived-unit-to-work-only-with-a-specific-derived-quantity" title="Permanent link">&para;</a></h2>
 <p>Some derived units are valid only for specific derived quantities. For example,
-SI specifies both <code>hertz</code> and <code>becquerel</code> derived units with the same unit equation <code>1 / s</code>.
-However, it also explicitly states:</p>
+<a href="../../../appendix/glossary/#si">SI</a> specifies both <code>hertz</code> and <code>becquerel</code> derived units
+with the same unit equation <code>1 / s</code>. However, it also explicitly states:</p>
 <div class="admonition quote">
 <p class="admonition-title">SI Brochure</p>
 <p>The hertz shall only be used for periodic phenomena and the becquerel shall only be used for
 stochastic processes in activity referred to a radionuclide.</p>
 </div>
-<p>The library allows constraining such units in the following way:</p>
+<p>The above means that the usage of <code>becquerel</code> as a unit of a <em>frequency</em> quantity is an error.</p>
+<p>The library allows constraining such units to work only with quantities of a specific kind in
+the following way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">hertz</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;Hz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">frequency</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">hertz</span><span class="p">;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">becquerel</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;Bq&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">activity</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">becquerel</span><span class="p">;</span>
 </span></code></pre></div>
-<p>With the above, <code>hertz</code> can only be used for frequencies while becquerel should only be used for
-quantities of activity. This means that the following equation will not compile:</p>
+<p>With the above, <code>hertz</code> can only be used with <em>frequencies</em>, while <code>becquerel</code> should only be used with
+quantities of <em>activity</em>. This means that the following equation will not compile:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Hz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Bq</span><span class="p">;</span><span class="w">   </span><span class="c1">// Fails to compile</span>
 </span></code></pre></div>
 <p>This is exactly what we wanted to achieve to improve the type-safety of the library.</p>
@@ -1789,7 +1791,7 @@ versions of them.</p>
 <p>Implementation of <code>std::ratio</code> provided by all major compilers is able to express only
 16 of them. This is why, in the <strong>mp-units</strong>, we had to find an alternative way to represent
 unit magnitude in a more flexible way.</p>
-<p>Each prefix is implemented as:</p>
+<p>Each prefix is implemented similarly to the following:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="n">PrefixableUnit</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">quecto_</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prefixed_unit</span><span class="o">&lt;</span><span class="s">&quot;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-30</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">template</span><span class="o">&lt;</span><span class="n">PrefixableUnit</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">quecto_</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">quecto</span><span class="p">;</span>
 </span></code></pre></div>
@@ -1797,7 +1799,7 @@ unit magnitude in a more flexible way.</p>
 way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quecto</span><span class="o">&lt;</span><span class="n">metre</span><span class="o">&gt;</span><span class="p">;</span>
 </span></code></pre></div>
-<p>The usage of <code>mag_power</code> not only enables providing support for SI prefixes but it can also
+<p>The usage of <code>mag_power</code> not only enables providing support for SI prefixes, but it can also
 efficiently represent any rational magnitude. For example, IEC 80000 prefixes used in the
 IT industry can be implemented as:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="n">PrefixableUnit</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">yobi_</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prefixed_unit</span><span class="o">&lt;</span><span class="s">&quot;Yi&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
@@ -1805,9 +1807,9 @@ IT industry can be implemented as:</p>
 </span></code></pre></div>
 <h2 id="scaled-units">Scaled units<a class="headerlink" href="#scaled-units" title="Permanent link">&para;</a></h2>
 <p>In the <a href="../../../appendix/glossary/#si">SI</a>, all units are either base or derived units or prefixed
-versions of those. However, those are not the only options possible.</p>
+versions of those. However, those are only some of the options possible.</p>
 <p>For example, there is a list of <a href="../../../appendix/glossary/#off-system-unit">off-system units</a>
-accepted for use with SI. All of those are scaled versions of the SI units with ratios that can't
+accepted for use with SI. Those are scaled versions of the SI units with ratios that can't
 be explicitly expressed with predefined SI prefixes. Those include units like minute, hour, or
 electronvolt:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">minute</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;min&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag</span><span class="o">&lt;</span><span class="mi">60</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">minute</span><span class="p">;</span>

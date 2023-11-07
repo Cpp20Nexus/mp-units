@@ -1740,26 +1740,32 @@ enough to describe a quantity. For example, let's see the following implementati
 </span></code></pre></div>
 <p>How do you like such an interface? It turns out that in most existing strongly-typed libraries
 this is often the best we can do <img alt="🥴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f974.svg" title=":woozy_face:" /></p>
-<p>Another typical question many users ask is how to deal with energy and moment of force.
+<p>Another typical question many users ask is how to deal with <em>work</em> and <em>torque</em>.
 Both of those have the same dimension but are different quantities.</p>
-<p>Another question is what should be the result of:</p>
+<p>A similar issue is related to figuring out what should be the result of:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Hz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Bq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Bd</span><span class="p">;</span>
 </span></code></pre></div>
 <p>where:</p>
 <ul>
-<li><code>Hz</code> (hertz) - unit of frequency</li>
-<li><code>Bq</code> (becquerel) - unit of activity</li>
-<li><code>Bd</code> (baud) - unit of modulation rate</li>
+<li><code>Hz</code> (hertz) - unit of <em>frequency</em></li>
+<li><code>Bq</code> (becquerel) - unit of <em>activity</em></li>
+<li><code>Bd</code> (baud) - unit of <em>modulation rate</em></li>
 </ul>
 <p>All of those quantities have the same dimension, namely <span class="arithmatex">\(\mathsf{T}^{-1}\)</span>, but probably it
 is not wise to allow adding, subtracting, or comparing them, as they describe vastly different
 physical properties.</p>
+<p>If the above example seems too abstract, let's consider a <em>fuel consumption</em> (fuel <em>volume</em>
+divided by <em>distance</em>, e.g., <code>6.7 l/km</code>) and an <em>area</em>. Again, both have the same dimension
+<span class="arithmatex">\(\mathsf{L}^{2}\)</span>, but probably it wouldn't be wise to allow adding, subtracting, or comparing
+a <em>fuel consumption</em> of a car and the <em>area</em> of a football field. Such an operation does not
+have any physical sense and should fail to compile.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>More than one quantity may be defined for the same dimension:</p>
 <ul>
-<li>quantities of <em>different kinds</em> (e.g. frequency, modulation rate, activity, ...)</li>
-<li>quantities of <em>the same kind</em> (e.g. length, width, altitude, distance, radius, wavelength, position vector, ...)</li>
+<li>quantities of <strong>different kinds</strong> (e.g. <em>frequency</em>, <em>modulation rate</em>, <em>activity</em>, ...)</li>
+<li>quantities of <strong>the same kind</strong> (e.g. <em>length</em>, <em>width</em>, <em>altitude</em>, <em>distance</em>, <em>radius</em>,
+  <em>wavelength</em>, <em>position vector</em>, ...)</li>
 </ul>
 </div>
 <p>It turns out that the above issues can't be solved correctly without proper modeling of
@@ -1778,7 +1784,7 @@ a <a href="../../../appendix/glossary/#system-of-quantities">system of quantitie
 <li>Quantities of the <strong>same dimension are not necessarily of the same kind</strong></li>
 </ul>
 </div>
-<p>The above quotes from ISO 80000 answer to all the issues above. Two quantities can't be
+<p>The above quotes from ISO 80000 provide answers to all the issues above. Two quantities can't be
 added, subtracted, or compared unless they belong to the same <a href="../../../appendix/glossary/#kind">kind</a>.
 As frequency, activity, and modulation rate are different kinds, the expression provided above should
 not compile.</p>
@@ -1800,10 +1806,11 @@ form a hierarchy of quantities of the same kind.</p>
     length --- position_vector["position_vector\n{vector}"]
     length --- displacement["displacement\n{vector}"]
     radius --- radius_of_curvature</code></pre>
-<p>Each of the above quantities expresses some kind of length, and each can be measured with <code>si::metre</code>.
-However, each of them has different properties, usage, and sometimes even a different
+<p>Each of the above quantities expresses some kind of <em>length</em>, and each can be measured with <code>si::metre</code>.
+However, each of them has different properties, usage, and sometimes even requires a different
 representation type (notice that <code>position_vector</code> and <code>displacement</code> are vector quantities).</p>
-<p>Analyzing such a hierarchy can help us in defining arithmetics and conversion rules.</p>
+<p>Such a hierarchy helps us in defining arithmetics and conversion rules for various quantities of
+the same kind.</p>
 <h2 id="defining-quantities">Defining quantities<a class="headerlink" href="#defining-quantities" title="Permanent link">&para;</a></h2>
 <p>In the <strong>mp-units</strong> library all the information about the quantity is provided with the <code>quantity_spec</code>
 class template. In order to define a specific quantity a user should inherit a strong type
@@ -1888,14 +1895,14 @@ compilers, thanks to the <abbr title="Curiously Recurring Template Pattern">CRTP
 <a href="../../defining_systems/isq/">"International System of Quantities (ISQ)"</a> chapter.</p>
 </div>
 <h2 id="comparing-adding-and-subtracting-quantities">Comparing, adding, and subtracting quantities<a class="headerlink" href="#comparing-adding-and-subtracting-quantities" title="Permanent link">&para;</a></h2>
-<p>ISO 80000 explicitly states that <code>width</code> and <code>height</code> are quantities of the same kind, and as such they:</p>
+<p>ISO 80000 explicitly states that <em>width</em> and <em>height</em> are quantities of the same kind, and as such they:</p>
 <ul>
-<li>are mutually comparable</li>
-<li>can be added and subtracted</li>
+<li>are mutually comparable,</li>
+<li>can be added and subtracted.</li>
 </ul>
 <p>If we take the above for granted, the only reasonable result of <code>1 * width + 1 * height</code> is <code>2 * length</code>,
-where the result of <code>length</code> is known as a common quantity type. A result of such an equation is always
-the first common branch in a hierarchy tree of the same kind. For example:</p>
+where the result of <code>length</code> is known as a <strong>common quantity</strong> type. A result of such an equation is always
+the first common node in a hierarchy tree of the same kind. For example:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">common_quantity_spec</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">);</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">common_quantity_spec</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">thickness</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">);</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">common_quantity_spec</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">path_length</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">path_length</span><span class="p">);</span>
@@ -1906,33 +1913,33 @@ the first common branch in a hierarchy tree of the same kind. For example:</p>
 <li>
 <p><strong>Implicit conversions</strong></p>
 <ul>
-<li>every <code>width</code> is a <code>length</code></li>
-<li>every <code>radius</code> is a <code>width</code></li>
+<li>every <em>width</em> is a <em>length</em></li>
+<li>every <em>radius</em> is a <em>width</em></li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">));</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">));</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">));</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">));</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">));</span>
 </span></code></pre></div>
 </li>
 <li>
 <p><strong>Explicit conversions</strong></p>
 <ul>
-<li>not every <code>length</code> is a <code>width</code></li>
-<li>not every <code>width</code> is a <code>radius</code></li>
+<li>not every <em>length</em> is a <em>width</em></li>
+<li>not every <em>width</em> is a <em>radius</em></li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">));</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">));</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">radius</span><span class="p">));</span>
 </span></code></pre></div>
 </li>
 <li>
 <p><strong>Explicit casts</strong></p>
 <ul>
-<li><code>height</code> is not a <code>width</code></li>
-<li>both <code>height</code> and <code>width</code> are quantities of kind <code>length</code></li>
+<li><em>height</em> is not a <em>width</em></li>
+<li>both <em>height</em> and <em>width</em> are quantities of kind <em>length</em></li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">));</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">));</span>
@@ -1942,7 +1949,7 @@ the first common branch in a hierarchy tree of the same kind. For example:</p>
 <li>
 <p><strong>No conversion</strong></p>
 <ul>
-<li><code>time</code> has nothing in common with <code>length</code></li>
+<li><em>time</em> has nothing in common with <em>length</em></li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">));</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">));</span>
@@ -1959,12 +1966,12 @@ sometimes not obvious what such a tree should look like. Also, ISO explicitly st
 </div>
 <p>The below presents some arbitrary hierarchy of derived quantities of kind energy:</p>
 <pre class="mermaid"><code>flowchart TD
-    energy["energy\n(mass * length^2 / time^2)"]
+    energy["energy\n(mass * length&lt;sup&gt;2&lt;/sup&gt; / time&lt;sup&gt;2&lt;/sup&gt;)"]
     energy --- mechanical_energy
     mechanical_energy --- potential_energy
     potential_energy --- gravitational_potential_energy["gravitational_potential_energy\n(mass * acceleration_of_free_fall * height)"]
-    potential_energy --- elastic_potential_energy["elastic_potential_energy\n(spring_constant * amount_of_compression^2)"]
-    mechanical_energy --- kinetic_energy["kinetic_energy\n(mass * speed^2)"]
+    potential_energy --- elastic_potential_energy["elastic_potential_energy\n(spring_constant * amount_of_compression&lt;sup&gt;2&lt;/sup&gt;)"]
+    mechanical_energy --- kinetic_energy["kinetic_energy\n(mass * speed&lt;sup&gt;2&lt;/sup&gt;)"]
     energy --- enthalpy
     enthalpy --- internal_energy[internal_energy, thermodynamic_energy]
     internal_energy --- Helmholtz_energy[Helmholtz_energy, Helmholtz_function]
@@ -1972,21 +1979,21 @@ sometimes not obvious what such a tree should look like. Also, ISO explicitly st
     energy --- active_energy</code></pre>
 <p>Notice, that even though all of those quantities have the same dimension and can be expressed
 in the same units, they have different <a href="../../../appendix/glossary/#quantity-equation">quantity equations</a>
-used to create them implicitly:</p>
+that can be used to create them implicitly:</p>
 <ul>
 <li>
-<p><code>energy</code> is the most generic one and thus can be created from base quantities of <code>mass</code>, <code>length</code>,
-  and <code>time</code>. As those are also the roots of quantities of their kinds and all other quantities are
-  implicitly convertible to them (we agreed on that "every <code>width</code> is a <code>length</code>" already), it means
-  that an <code>energy</code> can be implicitly constructed from any quantity of mass, length, and time.</p>
+<p><em>energy</em> is the most generic one and thus can be created from base quantities of <em>mass</em>, <em>length</em>,
+  and <em>time</em>. As those are also the roots of quantities of their kinds and all other quantities from their
+  trees are implicitly convertible to them (we agreed on that "every <em>width</em> is a <em>length</em>" already),
+  it means that an <em>energy</em> can be implicitly constructed from any quantity of <em>mass</em>, <em>length</em>, and <em>time</em>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">mass</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">),</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">energy</span><span class="p">));</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">mass</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">),</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">energy</span><span class="p">));</span>
 </span></code></pre></div>
 </li>
 <li>
-<p><code>mechanical_energy</code> is a more "specialized" quantity than <code>energy</code> (not every <code>energy</code> is
-  a <code>mechanical_energy</code>). It is why an explicit cast is needed to convert from either <code>energy</code> or
-  the results of its <a href="../../../appendix/glossary/#quantity-equation">quantity equation</a>.</p>
+<p><em>mechanical energy</em> is a more "specialized" quantity than <em>energy</em> (not every <em>energy</em> is
+  a <em>mechanical energy</em>). It is why an explicit cast is needed to convert from either <em>energy</em> or
+  the results of its <a href="../../../appendix/glossary/#quantity-equation">quantity equation</a>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">energy</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">mechanical_energy</span><span class="p">));</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">energy</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">mechanical_energy</span><span class="p">));</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">mass</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pow</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">),</span>
@@ -1996,10 +2003,10 @@ used to create them implicitly:</p>
 </span></code></pre></div>
 </li>
 <li>
-<p><code>gravitational_potential_energy</code> is not only even more specialized one but additionally,
+<p><em>gravitational potential energy</em> is not only even more specialized one but additionally,
   it is special in a way that it provides its own "constrained"
   <a href="../../../appendix/glossary/#quantity-equation">quantity equation</a>. Maybe not every
-  <code>mass * pow&lt;2&gt;(length) / pow&lt;2&gt;(time)</code> is a <code>gravitational_potential_energy</code>, but every
+  <code>mass * pow&lt;2&gt;(length) / pow&lt;2&gt;(time)</code> is a <em>gravitational potential energy</em>, but every
   <code>mass * acceleration_of_free_fall * height</code> is.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">implicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">energy</span><span class="p">,</span><span class="w"> </span><span class="n">gravitational_potential_energy</span><span class="p">));</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">explicitly_convertible</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">energy</span><span class="p">,</span><span class="w"> </span><span class="n">gravitational_potential_energy</span><span class="p">));</span>
@@ -2031,7 +2038,7 @@ convertible to any quantity in a tree.</p>
 <p>Additionally, the result of operations on quantity kinds is also a quantity kind:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">same_type</span><span class="o">&lt;</span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 </span></code></pre></div>
-<p>However, if at least one equation's operand is not a kind, the result becomes a "strong"
+<p>However, if at least one equation's operand is not a quantity kind, the result becomes a "strong"
 quantity where all the kinds are converted to the hierarchy tree's root quantities:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">same_type</span><span class="o">&lt;</span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">same_type</span><span class="o">&lt;</span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">time</span><span class="o">&gt;</span><span class="p">);</span>
