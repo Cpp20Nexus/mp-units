@@ -900,6 +900,15 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#points-are-more-common-than-most-of-us-imagine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points are more common than most of us imagine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#vector-is-modeled-by-quantity" class="md-nav__link">
     <span class="md-ellipsis">
       Vector is modeled by quantity
@@ -1815,8 +1824,8 @@ You're not viewing the latest version.
 <h1 id="the-affine-space">The Affine Space<a class="headerlink" href="#the-affine-space" title="Permanent link">&para;</a></h1>
 <p>The affine space has two types of entities:</p>
 <ul>
-<li><strong><em>point</em></strong> - a position specified with coordinate values (e.g. location, address, etc.)</li>
-<li><strong><em>vector</em></strong> - the difference between two points (e.g. shift, offset, displacement, duration, etc.)</li>
+<li><strong><em>point</em></strong> - a position specified with coordinate values (e.g., location, address, etc.)</li>
+<li><strong><em>vector</em></strong> - the difference between two points (e.g., shift, offset, displacement, duration, etc.)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1848,15 +1857,29 @@ as the quantity of a vector character that we discussed in the
 <li>multiply nor divide <em>points</em> with anything else.</li>
 </ul>
 </div>
+<h2 id="points-are-more-common-than-most-of-us-imagine"><em>Points</em> are more common than most of us imagine<a class="headerlink" href="#points-are-more-common-than-most-of-us-imagine" title="Permanent link">&para;</a></h2>
+<p><em>Point</em> abstractions should be used more often in the C++ software.
+They are not only about temperature or time. <em>Points</em> are everywhere around us and should become
+more popular in the products we implement. They can be used to implement:</p>
+<ul>
+<li>temperature points,</li>
+<li>timestamps,</li>
+<li>daily mass readouts from the scale,</li>
+<li>altitudes of mountain peaks on a map,</li>
+<li>current speed displayed on a car's speed-o-meter,</li>
+<li>today's price of instruments on the market,</li>
+<li>and many more.</li>
+</ul>
+<p>Improving the affine space's <em>points</em> intuition will allow us to write better and safer software.</p>
 <h2 id="vector-is-modeled-by-quantity"><em>Vector</em> is modeled by <code>quantity</code><a class="headerlink" href="#vector-is-modeled-by-quantity" title="Permanent link">&para;</a></h2>
-<p>Up until now, each time when we used a <code>quantity</code> in our code, we were modeling some kind of a
+<p>Up until now, each time we used a <code>quantity</code> in our code, we were modeling some kind of a
 difference between two things:</p>
 <ul>
-<li>the distance between two points</li>
-<li>duration between two time points</li>
-<li>the difference in speed (even if relative to <code>0</code>)</li>
+<li>the distance between two points,</li>
+<li>duration between two time points,</li>
+<li>the difference in speed (even if relative to zero).</li>
 </ul>
-<p>As we already know, a <code>quantity</code> type provides all operations required for <em>vector</em> type in
+<p>As we already know, a <code>quantity</code> type provides all operations required for a <em>vector</em> type in
 the affine space.</p>
 <h2 id="point-is-modeled-by-pointorigin-and-quantity_point"><em>Point</em> is modeled by <code>PointOrigin</code> and <code>quantity_point</code><a class="headerlink" href="#point-is-modeled-by-pointorigin-and-quantity_point" title="Permanent link">&para;</a></h2>
 <p>In the <strong>mp-units</strong> library the <em>point</em> abstraction is modelled by:</p>
@@ -2060,7 +2083,7 @@ a much better solution, but the library does not have enough information to prin
 </ul>
 </li>
 <li><strong>subtracting</strong> a <code>quantity_point</code> from a <code>quantity</code><ul>
-<li>What would it mean to subtract DEN airport location from the distance to it?</li>
+<li>What would it mean to subtract the DEN airport location from the distance to it?</li>
 </ul>
 </li>
 <li><strong>multiplying/dividing</strong> a <code>quantity_point</code> with a scalar<ul>
@@ -2080,19 +2103,19 @@ a much better solution, but the library does not have enough information to prin
 </ul>
 </li>
 <li><strong>mixing</strong> <code>quantity_points</code> of inconvertible quantities<ul>
-<li>What does it mean to subtract a distance point to DEN airport from the Mount Everest base camp
-  altitude?</li>
+<li>What does subtracting a distance point to DEN airport from the Mount Everest base camp
+  altitude mean?</li>
 </ul>
 </li>
 <li><strong>mixing</strong> <code>quantity_points</code> of convertible quantities but with unrelated origins<ul>
-<li>How to subtract a point on our trip to CppCon measured relatively to our home location from
+<li>How do we subtract a point on our trip to CppCon measured relatively to our home location from
   a point measured relative to the center of the Solar System?</li>
 </ul>
 </li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important: The affine space improves safety</p>
-<p>The usage of <code>quantity_point</code> and affine space types in general, improves expressiveness and
+<p>The usage of <code>quantity_point</code> and affine space types, in general, improves expressiveness and
 type-safety of the code we write.</p>
 </div>
 
