@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mpusz.github.io/mp-units/2.2/blog/2023/11/12/report-from-the-kona-2023-iso-c-committee-meeting/</loc>
+         <lastmod>2023-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mpusz.github.io/mp-units/2.2/getting_started/code_example/</loc>
          <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
@@ -222,6 +227,11 @@
     </url>
     <url>
          <loc>https://mpusz.github.io/mp-units/2.2/blog/archive/2023/</loc>
+         <lastmod>2023-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mpusz.github.io/mp-units/2.2/blog/category/wg21/</loc>
          <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
