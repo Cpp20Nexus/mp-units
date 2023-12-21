@@ -36,11 +36,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mpusz.github.io/mp-units/2.2/getting_started/code_example/</loc>
-         <lastmod>2023-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://mpusz.github.io/mp-units/2.2/getting_started/faq/</loc>
          <lastmod>2023-12-21</lastmod>
          <changefreq>daily</changefreq>
@@ -52,6 +47,11 @@
     </url>
     <url>
          <loc>https://mpusz.github.io/mp-units/2.2/getting_started/introduction/</loc>
+         <lastmod>2023-12-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mpusz.github.io/mp-units/2.2/getting_started/look_and_feel/</loc>
          <lastmod>2023-12-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
