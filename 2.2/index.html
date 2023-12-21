@@ -1984,18 +1984,28 @@ providing a backward-compatible way to use it.</p>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">{</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">364.4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">smoot</span><span class="p">;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Harward Bridge length = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;(&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dist</span><span class="p">.</span><span class="n">in</span><span class="p">(</span><span class="n">usc</span><span class="o">::</span><span class="n">foot</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dist</span><span class="p">.</span><span class="n">in</span><span class="p">(</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;) +- an ear :-)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Harvard Bridge length = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;(&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dist</span><span class="p">.</span><span class="n">in</span><span class="p">(</span><span class="n">usc</span><span class="o">::</span><span class="n">foot</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dist</span><span class="p">.</span><span class="n">in</span><span class="p">(</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;) ± 1 εar</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Output:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Harward Bridge length = 364.4 smoot(2034.57 ft, 620.136 m) +- an ear :-)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Harvard Bridge length = 364.4 smoot(2034.57 ft, 620.136 m) ± 1 εar
 </span></code></pre></div>
 <div class="admonition example">
 <p class="admonition-title"><a href="https://godbolt.org/z/T6Tx93Ysc">Try it on Compiler Explorer</a></p>
 </div>
 <details class="question">
 <summary>What is <code>smoot</code>?</summary>
-<p>More on the <code>smoot</code> unit can be found at <a href="https://units.fandom.com/wiki/Smoot">https://units.fandom.com/wiki/Smoot</a>.</p>
+<p>The smoot (/ˈsmuːt/) is a nonstandard unit of length created as part of an MIT fraternity prank.
+It is named after Oliver R. Smoot, a fraternity pledge to Lambda Chi Alpha, who in October 1958
+lay on the Harvard Bridge (between Boston and Cambridge, Massachusetts), and was used by his
+fraternity brothers to measure the length of the bridge.</p>
+<p>One smoot is equal to Oliver Smoot's height at the time of the prank (five feet and seven inches).
+The bridge's length was measured to be 364.4 smoots plus or minus one ear, with the "plus or minus"
+intended to express uncertainty of measurement.</p>
+<p>Oliver Smoot graduated from MIT with the class of 1962, became a lawyer, and later became
+chairman of the American National Standards Institute (ANSI) and president of the International
+Organization for Standardization (ISO).</p>
+<p>More on the smoot unit of length can be found at <a href="https://en.wikipedia.org/wiki/Smoot">https://en.wikipedia.org/wiki/Smoot</a>.</p>
 </details>
 <div class="admonition important">
 <p class="admonition-title">Important: Help needed!</p>
