@@ -2060,8 +2060,12 @@ namespace.</p>
 our <a href="../faq/#why-dont-we-use-udls-to-create-quantities">FAQ</a>.</p>
 </div>
 <h2 id="quantity-points">Quantity points<a class="headerlink" href="#quantity-points" title="Permanent link">&para;</a></h2>
-<p>The <code>quantity_point</code> class template specifies an absolute quantity with respect to an origin.
-Together with quantities they model <a href="../../users_guide/framework_basics/the_affine_space/">The Affine Space</a>.</p>
+<p>The quantity point specifies an absolute quantity with respect to an origin.
+Together with quantities, they model <a href="../../users_guide/framework_basics/the_affine_space/">The Affine Space</a>.</p>
+<p>Quantity points should be used in all places where adding two values is meaningless
+(e.g., temperature points, timestamps, altitudes, readouts from the car's odometer, etc.).</p>
+<p>The set of operations that can be done on quantity points is limited compared to quantities.
+This introduces an additional type-safety.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mp-units/ostream.h&gt;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mp-units/systems/si/si.h&gt;</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mp-units/systems/usc/usc.h&gt;</span>
@@ -2082,6 +2086,11 @@ Together with quantities they model <a href="../../users_guide/framework_basics/
 <p>The above outputs:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Temperature: 20 °C (68 °F)
 </span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Check <a href="../../users_guide/framework_basics/the_affine_space/">The Affine Space</a> chapter to learn
+more about quantity points.</p>
+</div>
 
 
 
