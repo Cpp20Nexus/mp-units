@@ -82,6 +82,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#working-with-legacy-interfaces" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1280,6 +1285,8 @@ You're not viewing the latest version.
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1942,9 +1949,33 @@ You're not viewing the latest version.
   
 
 
-  <h1>Working with Legacy Interfaces</h1>
-
-
+<h1 id="working-with-legacy-interfaces">Working with Legacy interfaces<a class="headerlink" href="#working-with-legacy-interfaces" title="Permanent link">&para;</a></h1>
+<p>In case we are working with a legacy/unsafe interface, we may need to extract the
+<a href="../../../appendix/glossary/#numerical-value">numerical value of a quantity</a> and pass it to
+some third-party legacy unsafe interfaces.</p>
+<p>In such situations we can use <code>.numerical_value_in(Unit)</code> member function:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">legacy_check_speed_limit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">speed_in_km_per_h</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">legacy_check_speed_limit</span><span class="p">((</span><span class="mi">180</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">)).</span><span class="n">numerical_value_in</span><span class="p">(</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">));</span>
+</span></code></pre></div>
+<p>Such a getter will explicitly enforce the usage of a correct unit required by the underlying
+interface, which reduces a significant number of safety-related issues.</p>
+<p>The above code will not compile in case value truncation may happen. To solve the issue, we
+need to either use a value-preserving representation type or force the truncating conversion
+with <code>.force_numerical_value_in(Unit)</code>:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">legacy_check_speed_limit</span><span class="p">((</span><span class="mi">140</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">)).</span><span class="n">force_numerical_value_in</span><span class="p">(</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">));</span>
+</span></code></pre></div>
+<p>The getters mentioned above always return by value as a quantity value conversion may be required
+to adjust it to the target unit. In case a user needs a reference to the underlying storage
+<code>.numerical_value_ref_in(Unit)</code> should be used:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">legacy_set_speed_limit</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">speed_in_km_per_h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="n">speed_in_km_per_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">quantity</span><span class="o">&lt;</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">speed_limit</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">legacy_set_speed_limit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">speed_limit</span><span class="p">.</span><span class="n">numerical_value_ref_in</span><span class="p">(</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">));</span>
+</span></code></pre></div>
+<p>This member function again requires a target unit to enforce safety. This overload does not
+participate in overload resolution if the provided unit has a different scaling factor than the
+current one.</p>
 
 
 
