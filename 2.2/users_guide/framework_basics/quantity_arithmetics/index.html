@@ -2040,8 +2040,8 @@ properly constrained set of arithmetic operations on one or two operands.</p>
 <div class="admonition important">
 <p class="admonition-title">Important: <code>quantity</code> propagates the underlying interface</p>
 <p>Every single arithmetic operator is exposed by the <code>quantity</code> class template only if
-the underlying representation type provides it as well and its implementation has proper
-semantics (e.g. returns a reasonable type).</p>
+the underlying representation type provides it as well, and when its implementation has proper
+semantics (e.g., returns a reasonable type).</p>
 </div>
 <p>For example, in the following code, <code>-a</code> will compile only if <code>MyInt</code> exposes such an operation
 as well:</p>
@@ -2051,10 +2051,10 @@ as well:</p>
 <p>Assuming that:</p>
 <ul>
 <li><code>q</code> is our quantity,</li>
-<li><code>qq</code> is a quantity implicitly convertible to <code>q</code>,</li>
-<li><code>q2</code> is any other quantity,</li>
-<li><code>kind</code> is a <a href="../systems_of_quantities/#quantities-of-the-same-kind">quantity of the same kind</a> as <code>q</code>,</li>
-<li><code>one</code> is a <a href="../dimensionless_quantities/">quantity of <code>dimension_one</code> with the unit <code>one</code></a>,</li>
+<li><code>qi</code> is a quantity implicitly convertible to <code>q</code>,</li>
+<li><code>qk</code> is a <a href="../systems_of_quantities/#quantities-of-the-same-kind">quantity of the same kind</a> as <code>q</code>,</li>
+<li><code>q1</code> is a <a href="../dimensionless_quantities/">quantity of <code>dimension_one</code> with the unit <code>one</code></a>,</li>
+<li><code>qq</code> is any other quantity,</li>
 <li><code>number</code> is a value of a type "compatible" with <code>q</code>'s representation type,</li>
 </ul>
 <p>here is the list of all the supported operators:</p>
@@ -2069,30 +2069,30 @@ as well:</p>
 </ul>
 </li>
 <li>compound assignment:<ul>
-<li><code>q += qq</code></li>
-<li><code>q -= qq</code></li>
-<li><code>q %= qq</code></li>
+<li><code>q += qi</code></li>
+<li><code>q -= qi</code></li>
+<li><code>q %= qi</code></li>
 <li><code>q *= number</code></li>
-<li><code>q *= one</code></li>
+<li><code>q *= q1</code></li>
 <li><code>q /= number</code></li>
-<li><code>q /= one</code></li>
+<li><code>q /= q1</code></li>
 </ul>
 </li>
 <li>binary:<ul>
-<li><code>q + kind</code></li>
-<li><code>q - kind</code></li>
-<li><code>q % kind</code></li>
-<li><code>q * q2</code></li>
+<li><code>q + qk</code></li>
+<li><code>q - qk</code></li>
+<li><code>q % qk</code></li>
+<li><code>q * qq</code></li>
 <li><code>q * number</code></li>
 <li><code>number * q</code></li>
-<li><code>q / q2</code></li>
+<li><code>q / qq</code></li>
 <li><code>q / number</code></li>
 <li><code>number / q</code></li>
 </ul>
 </li>
 <li>ordering and comparison:<ul>
-<li><code>q == kind</code></li>
-<li><code>q &lt;=&gt; kind</code></li>
+<li><code>q == qk</code></li>
+<li><code>q &lt;=&gt; qk</code></li>
 </ul>
 </li>
 </ul>
@@ -2129,7 +2129,7 @@ LHS is always the result of such an operation:</p>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">static_assert</span><span class="p">((</span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w"> </span><span class="c1">// Compile-time error(3)</span>
 </span></code></pre></div>
 <ol>
-<li>Floating-point to integral representation type is <a href="../value_conversions/">considered narrowing</a>.</li>
+<li>The floating-point to integral representation type is <a href="../value_conversions/">considered narrowing</a>.</li>
 <li>Conversion of quantity with integral representation type from a unit of a higher resolution to the one
    with a lower resolution is <a href="../value_conversions/">considered narrowing</a>.</li>
 <li>Conversion from a more generic quantity type to a more specific one is
@@ -2147,10 +2147,10 @@ its representation type may change. For example:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">static_assert</span><span class="p">((</span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">height</span><span class="p">(</span><span class="mf">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">));</span><span class="w"> </span><span class="c1">// Compile-time error(1)</span>
 </span></code></pre></div>
 <ol>
-<li>Floating-point to integral representation type is <a href="../value_conversions/">considered narrowing</a>.</li>
+<li>The floating-point to integral representation type is <a href="../value_conversions/">considered narrowing</a>.</li>
 </ol>
 </div>
-<p>However, suppose we multiply or divide quantities of the same or different types, or we divide a raw
+<p>However, suppose we multiply or divide quantities of the same or different types or we divide a raw
 number by a quantity. In that case, we most probably will end up in a quantity of yet another type:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="mi">120</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">area</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m2</span><span class="p">));</span>
@@ -2180,7 +2180,7 @@ of different quantity types, we do not convert quantity values to a common unit 
 <div class="admonition important">
 <p class="admonition-title">Important: Beware of integral division</p>
 <p>The physical units library can't do any runtime branching logic for the division operator.
-All logic has to be done at compile-time when the actual values are not known, and the quantity types
+All logic must be done at compile-time when the actual values are unknown, and the quantity types
 can't change at runtime.</p>
 <p>If we expect <code>120 * km / (2 * h)</code> to return <code>60 km / h</code>, we have to agree with the fact that
 <code>5 * km / (24 * h)</code> returns <code>0 km/h</code>. We can't do a range check at runtime to dynamically adjust scales
@@ -2190,7 +2190,7 @@ Some popular physical units libraries even
 <a href="https://aurora-opensource.github.io/au/main/troubleshooting/#integer-division-forbidden">forbid integer division at all</a>.</p>
 </div>
 <h2 id="modulo">Modulo<a class="headerlink" href="#modulo" title="Permanent link">&para;</a></h2>
-<p>Now that we know how addition, subtraction, multiplication, and division work, it is time to talk about
+<p>Now that we know how addition, subtraction, multiplication, and division work, it is time to discuss
 modulo. What would we expect to be returned from the following quantity equation?</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="mi">120</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">min</span><span class="p">);</span>
 </span></code></pre></div>
@@ -2261,12 +2261,12 @@ operation uses a common unit to do the calculation and provide its result:</p>
 </span></code></pre></div>
 <h2 id="comparison-against-zero">Comparison against zero<a class="headerlink" href="#comparison-against-zero" title="Permanent link">&para;</a></h2>
 <p>In our code, we often want to compare the value of a quantity against zero. For example, we do it
-every time when we want to ensure that we deal with a non-zero or positive value.</p>
+every time we want to ensure that we deal with a non-zero or positive value.</p>
 <p>We could implement such checks in the following way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">q1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">q2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="c1">// ...</span>
 </span></code></pre></div>
-<p>The above would work (assuming we are dealing with the quantity of speed), but could be suboptimal
+<p>The above would work (assuming we are dealing with the quantity of speed) but could be suboptimal
 if the result of <code>q1 / q2</code> is not expressed in <code>m / s</code>. To eliminate the need for conversion, we
 need to write:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">q2</span><span class="p">;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">zero</span><span class="p">())</span>
@@ -2295,14 +2295,13 @@ as follows:</p>
 <p class="admonition-title">Tip</p>
 <p>Those functions will work with any type <code>T</code> that exposes <code>zero()</code> member function returning
 something comparable to <code>T</code>. Thanks to that, we can use them not only with quantities but also
-with <a href="../the_affine_space/#quantity_point">quantity points</a>,
-<a href="https://en.cppreference.com/w/cpp/chrono/duration"><code>std::chrono::duration</code></a> or any other type
-that exposes such an interface.</p>
+with <a href="https://en.cppreference.com/w/cpp/chrono/duration"><code>std::chrono::duration</code></a> or any other
+type that exposes such an interface.</p>
 </div>
 <h2 id="other-maths">Other maths<a class="headerlink" href="#other-maths" title="Permanent link">&para;</a></h2>
 <p>This chapter scopes only on the <code>quantity</code> type's operators. However, there are many named math
-functions provided in the <em>mp-units/math.h</em> header file. Among others, we can find there
-the following:</p>
+functions taking quantities as arguments. Those can be found in the <em>mp-units/math.h</em> header file.
+Among others, we can find there the following:</p>
 <ul>
 <li><code>pow()</code>, <code>sqrt()</code>, <code>cbrt()</code>,</li>
 <li><code>exp()</code>,</li>
@@ -2317,7 +2316,7 @@ the following:</p>
 <li><code>asin()</code>, <code>acos()</code>, <code>atan()</code>.</li>
 </ul>
 <p>In the library, we can also find <em>mp-units/random.h</em> header file with all the pseudo-random number
-generators.</p>
+generators working on quantity types.</p>
 
 
 

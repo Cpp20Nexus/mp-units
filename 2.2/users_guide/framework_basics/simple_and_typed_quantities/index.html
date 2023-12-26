@@ -929,9 +929,9 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#which-mode-to-use-in-my-project" class="md-nav__link">
+  <a href="#which-mode-should-i-use-in-my-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Which mode to use in my project?
+      Which mode should I use in my project?
     </span>
   </a>
   
@@ -2167,7 +2167,7 @@ compile-time.</p>
 <h2 id="typed-quantities">Typed quantities<a class="headerlink" href="#typed-quantities" title="Permanent link">&para;</a></h2>
 <p>Simple mode is all about and just about units. In case we care about a specific quantity type,
 <strong>typed quantities</strong> should be preferred. With this mode, for example, we can specify if we
-deal with <code>width</code>, <code>height</code>, or <code>radius</code> and ensure we will not assign one to another by
+deal with <em>width</em>, <em>height</em>, or <em>radius</em> and ensure we will not assign one to another by
 accident.</p>
 <p>The previous example can be re-typed using typed quantities in the following way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mp-units/ostream.h&gt;</span>
@@ -2201,7 +2201,7 @@ accident.</p>
 <p class="admonition-title"><a href="https://godbolt.org/z/q3PzMzqsh">Try it on Compiler Explorer</a></p>
 </div>
 <p>In case we will accidentally make the same calculation error as before, this time, we will
-get a bit longer error message also containing information about the quantity type:</p>
+get a bit longer error message, this time also containing information about the quantity type:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>In function &#39;constexpr mp_units::quantity&lt;mp_units::reference&lt;mp_units::isq::speed(), mp_units::derived_unit&lt;mp_units::si::metre, mp_units::per&lt;mp_units::si::second&gt; &gt;()&gt;()&gt; avg_speed(mp_units::quantity&lt;mp_units::reference&lt;mp_units::isq::length(), mp_units::si::metre()&gt;()&gt;, mp_units::quantity&lt;mp_units::reference&lt;mp_units::isq::time(), mp_units::si::second()&gt;()&gt;)&#39;:
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>error: could not convert &#39;mp_units::operator*&lt;reference&lt;isq::length(), si::metre()&gt;(), double, reference&lt;isq::time(), si::second()&gt;(), double&gt;(d, t)&#39; from &#39;quantity&lt;mp_units::reference&lt;mp_units::derived_quantity_spec&lt;mp_units::isq::length, mp_units::isq::time&gt;(), mp_units::derived_unit&lt;mp_units::si::metre, mp_units::si::second&gt;()&gt;(),[...]&gt;&#39; to &#39;quantity&lt;mp_units::reference&lt;mp_units::isq::speed(), mp_units::derived_unit&lt;mp_units::si::metre, mp_units::per&lt;mp_units::si::second&gt; &gt;()&gt;(),[...]&gt;&#39;
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>   12 |   return d * t;
@@ -2213,7 +2213,7 @@ get a bit longer error message also containing information about the quantity ty
 <h3 id="additional-type-safety-with-typed-quantities">Additional type safety with typed quantities<a class="headerlink" href="#additional-type-safety-with-typed-quantities" title="Permanent link">&para;</a></h3>
 <p>Based on the previous example, it might seem that typed quantities are not that useful,
 more to type and provide harder-to-understand error messages. It might be true in some cases,
-but there are scenarios where they offer an additional level of safety.</p>
+but there are scenarios where they offer additional level of safety.</p>
 <p>Let's see another example:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Simple</label><label for="__tabbed_1_2">Typed</label></div>
 <div class="tabbed-content">
@@ -2407,8 +2407,8 @@ quantities-related issues, this should be the first function to look for.</p>
 <p>Do not overuse <code>quantity_cast()</code>. Use it only when necessary and ensure that the
 requested conversion is exactly what you need in this case.</p>
 </div>
-<h2 id="which-mode-to-use-in-my-project">Which mode to use in my project?<a class="headerlink" href="#which-mode-to-use-in-my-project" title="Permanent link">&para;</a></h2>
-<p>In case you wonder which mode you should choose for your project, we have good news for you.
+<h2 id="which-mode-should-i-use-in-my-project">Which mode should I use in my project?<a class="headerlink" href="#which-mode-should-i-use-in-my-project" title="Permanent link">&para;</a></h2>
+<p>We have good news for you if you wonder which mode you should choose for your project.
 Simple and typed quantity modes can be freely mixed with each other. When you use different
 quantities of the same kind (e.g., <em>radius</em>, <em>wavelength</em>, <em>altitude</em>, ...), you should probably
 reach for typed quantities to bring additional safety for those cases. Otherwise, just use

@@ -2049,8 +2049,8 @@ tensor depend on that choice.</p>
 </div>
 <p>Such distinction is important because each quantity character represents different properties
 and allows different operations to be done on its quantities.</p>
-<p>For example, imagine a physical units library that allows the creation of a <code>speed</code> quantity from both
-<code>length / time</code> and <code>length * time</code>. It wouldn't be too safe to use such a product, right?</p>
+<p>For example, imagine a physical units library that allows the creation of a <span class="arithmatex">\(speed\)</span> quantity from both
+<span class="arithmatex">\(length / time\)</span> and <span class="arithmatex">\(length * time\)</span>. It wouldn't be too safe to use such a product, right?</p>
 <p>Now we have to realize that both of the above operations (multiplication and division) are not even
 mathematically defined for linear algebra types such as vectors or tensors. On the other hand, two vectors
 can be passed as arguments to dot and cross-product operations. The result of the first one is
@@ -2070,106 +2070,106 @@ character. Here are some examples:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>duration</code></td>
+<td><span class="arithmatex">\(duration\)</span></td>
 <td style="text-align: center;">scalar</td>
 <td style="text-align: center;"><em>{base quantity}</em></td>
 </tr>
 <tr>
-<td><code>mass</code></td>
+<td><span class="arithmatex">\(mass\)</span></td>
 <td style="text-align: center;">scalar</td>
 <td style="text-align: center;"><em>{base quantity}</em></td>
 </tr>
 <tr>
-<td><code>length</code></td>
+<td><span class="arithmatex">\(length\)</span></td>
 <td style="text-align: center;">scalar</td>
 <td style="text-align: center;"><em>{base quantity}</em></td>
 </tr>
 <tr>
-<td><code>path_length</code></td>
+<td><span class="arithmatex">\(path\; length\)</span></td>
 <td style="text-align: center;">scalar</td>
 <td style="text-align: center;"><em>{base quantity}</em></td>
 </tr>
 <tr>
-<td><code>radius</code></td>
+<td><span class="arithmatex">\(radius\)</span></td>
 <td style="text-align: center;">scalar</td>
 <td style="text-align: center;"><em>{base quantity}</em></td>
 </tr>
 <tr>
-<td><code>position_vector</code></td>
+<td><span class="arithmatex">\(position\; vector\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
 <td style="text-align: center;"><em>{base quantity}</em></td>
 </tr>
 <tr>
-<td><code>velocity</code></td>
+<td><span class="arithmatex">\(velocity\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
-<td style="text-align: center;"><code>position_vector / duration</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(position\; vector / duration\)</span></td>
 </tr>
 <tr>
-<td><code>acceleration</code></td>
+<td><span class="arithmatex">\(acceleration\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
-<td style="text-align: center;"><code>velocity / duration</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(velocity / duration\)</span></td>
 </tr>
 <tr>
-<td><code>force</code></td>
+<td><span class="arithmatex">\(force\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
-<td style="text-align: center;"><code>mass * acceleration</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(mass * acceleration\)</span></td>
 </tr>
 <tr>
-<td><code>power</code></td>
+<td><span class="arithmatex">\(power\)</span></td>
 <td style="text-align: center;">scalar</td>
-<td style="text-align: center;"><code>force ⋅ velocity</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(force \cdot velocity\)</span></td>
 </tr>
 <tr>
-<td><code>moment_of_force</code></td>
+<td><span class="arithmatex">\(moment\; of\; force\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
-<td style="text-align: center;"><code>position_vector × force</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(position\; vector \times force\)</span></td>
 </tr>
 <tr>
-<td><code>torque</code></td>
+<td><span class="arithmatex">\(torque\)</span></td>
 <td style="text-align: center;">scalar</td>
-<td style="text-align: center;"><code>moment_of_force ⋅ {unit-vector}</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(moment\; of\; force \cdot \{unit\; vector\}\)</span></td>
 </tr>
 <tr>
-<td><code>surface_tension</code></td>
+<td><span class="arithmatex">\(surface\; tension\)</span></td>
 <td style="text-align: center;">scalar</td>
-<td style="text-align: center;"><code>|force| / length</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(\lvert force \rvert / length\)</span></td>
 </tr>
 <tr>
-<td><code>angular_displacement</code></td>
+<td><span class="arithmatex">\(angular\; displacement\)</span></td>
 <td style="text-align: center;">scalar</td>
-<td style="text-align: center;"><code>path_length / radius</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(path\; length / radius\)</span></td>
 </tr>
 <tr>
-<td><code>angular_velocity</code></td>
+<td><span class="arithmatex">\(angular\; velocity\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
-<td style="text-align: center;"><code>angular_displacement / duration * {unit-vector}</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(angular\; displacement / duration * \{unit\; vector\}\)</span></td>
 </tr>
 <tr>
-<td><code>momentum</code></td>
+<td><span class="arithmatex">\(momentum\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
-<td style="text-align: center;"><code>mass * velocity</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(mass * velocity\)</span></td>
 </tr>
 <tr>
-<td><code>angular_momentum</code></td>
+<td><span class="arithmatex">\(angular\; momentum\)</span></td>
 <td style="text-align: center;"><strong>vector</strong></td>
-<td style="text-align: center;"><code>position_vector × momentum</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(position\; vector \times momentum\)</span></td>
 </tr>
 <tr>
-<td><code>moment_of_inertia</code></td>
+<td><span class="arithmatex">\(moment\; of\; inertia\)</span></td>
 <td style="text-align: center;"><strong><em>tensor</em></strong></td>
-<td style="text-align: center;"><code>angular_momentum ⊗ angular_velocity</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(angular\; momentum \otimes angular\; velocity\)</span></td>
 </tr>
 </tbody>
 </table>
 <p>In the above equations:</p>
 <ul>
-<li><code>a * b</code> - regular multiplication where one of the arguments has to be scalar</li>
-<li><code>a / b</code> - regular division where the divisor has to be scalar</li>
-<li><code>a ⋅ b</code> - dot product of two vectors</li>
-<li><code>a × b</code> - cross product of two vectors</li>
-<li><code>|a|</code> - magnitude of a vector</li>
-<li><code>{unit-vector}</code> - a special vector with the magnitude of <code>1</code></li>
-<li><code>a ⊗ b</code> - tensor product of two vectors or tensors</li>
+<li><span class="arithmatex">\(a * b\)</span> - regular multiplication where one of the arguments has to be scalar</li>
+<li><span class="arithmatex">\(a / b\)</span> - regular division where the divisor has to be scalar</li>
+<li><span class="arithmatex">\(a \cdot b\)</span> - dot product of two vectors</li>
+<li><span class="arithmatex">\(a \times b\)</span> - cross product of two vectors</li>
+<li><span class="arithmatex">\(\lvert a \rvert\)</span> - magnitude of a vector</li>
+<li><span class="arithmatex">\(\{unit\; vector\}\)</span> - a special vector with the magnitude of <span class="arithmatex">\(1\)</span></li>
+<li><span class="arithmatex">\(a \otimes b\)</span> - tensor product of two vectors or tensors</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

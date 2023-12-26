@@ -2008,8 +2008,8 @@ You're not viewing the latest version.
 
 <h1 id="faster-than-lightspeed-constants">Faster-than-lightspeed Constants<a class="headerlink" href="#faster-than-lightspeed-constants" title="Permanent link">&para;</a></h1>
 <p>In most libraries, physical constants are implemented as constant (possibly <code>constexpr</code>)
-quantity values. Such an approach has some disadvantages, often resulting in longer
-compilation times and a loss of precision.</p>
+quantity values. Such an approach has some disadvantages, often affecting the run time
+performance and causing a loss of precision.</p>
 <h2 id="simplifying-constants-in-an-equation">Simplifying constants in an equation<a class="headerlink" href="#simplifying-constants-in-an-equation" title="Permanent link">&para;</a></h2>
 <p>When dealing with equations involving physical constants, they often occur more than once
 in an expression. Such a constant may appear both in a numerator and denominator of
@@ -2017,7 +2017,7 @@ a quantity equation. As we know from fundamental physics, we can simplify such a
 by striking a constant out of the equation. Supporting such behavior allows a faster runtime
 performance and often a better precision of the resulting value.</p>
 <h2 id="physical-constants-as-units">Physical constants as units<a class="headerlink" href="#physical-constants-as-units" title="Permanent link">&para;</a></h2>
-<p>The <strong>mp-units</strong> library allows and encourages implementing physical constants as
+<p>The <strong>mp-units</strong> library allows and encourages the implementation of physical constants as
 regular units. With that, the constant's value is handled at compile-time, and under
 favorable circumstances, it can be simplified in the same way as all other repeated
 units do. If it is not simplified, the value is stored in a type, and the expensive
@@ -2047,7 +2047,7 @@ are implemented as units in the following way:</p>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace mp_units::si</span>
 </span></code></pre></div>
 <h2 id="usage-examples">Usage examples<a class="headerlink" href="#usage-examples" title="Permanent link">&para;</a></h2>
-<p>With the above definitions, we can calculate vacuum permittivity as:</p>
+<p>With the above definitions, we can calculate <em>vacuum permittivity</em> as:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">permeability_of_vacuum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">magnetic_constant</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">speed_of_light_in_vacuum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">si2019</span><span class="o">::</span><span class="n">speed_of_light_in_vacuum</span><span class="p">;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -2060,8 +2060,8 @@ are implemented as units in the following way:</p>
 </span></code></pre></div>
 <p>As we can clearly see, all the calculations above were just about multiplying and dividing
 the number <code>1</code> with the rest of the information provided as a compile-time type. Only when
-a user wants a specific SI unit as a result the unit ratios are lazily resolved.</p>
-<p>Another similar example can be an equation for total energy:</p>
+a user wants a specific SI unit as a result, the unit ratios are lazily resolved.</p>
+<p>Another similar example can be an equation for <em>total energy</em>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">mechanical_energy</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">total_energy</span><span class="p">(</span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">momentum</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">                                                     </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">mass</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">                                                     </span><span class="n">QuantityOf</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">speed</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
