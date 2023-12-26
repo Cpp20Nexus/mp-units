@@ -2245,9 +2245,13 @@ to the <code>std::chrono</code> abstractions:</p>
 </span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
 </span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">quantity_point</span><span class="w"> </span><span class="n">qp4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_origin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="k">auto</span><span class="w"> </span><span class="n">tp4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_chrono_time_point</span><span class="p">(</span><span class="n">qp4</span><span class="p">);</span><span class="w">  </span><span class="c1">// Compile-time Error (1)</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="n">quantity_point</span><span class="w"> </span><span class="n">qp5</span><span class="p">{</span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">};</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="k">auto</span><span class="w"> </span><span class="n">tp5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_chrono_time_point</span><span class="p">(</span><span class="n">qp5</span><span class="p">);</span><span class="w">  </span><span class="c1">// Compile-time Error (2)</span>
 </span></code></pre></div>
 <ol>
 <li><code>my_origin</code> is not defined in terms of <code>chrono_point_origin&lt;Clock&gt;</code>.</li>
+<li><code>zeroth_point_origin</code> is not defined in terms of <code>chrono_point_origin&lt;Clock&gt;</code>.</li>
 </ol>
 </div>
 <p>Here is an example of how interoperability described in this chapter can be used in practice:</p>

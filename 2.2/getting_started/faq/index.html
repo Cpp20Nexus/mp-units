@@ -2122,10 +2122,10 @@ to not follow this path.</p>
 to form a quantity.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The same applies to the <code>quantity_point</code> construction. To prevent similar issues during
-construction, it always needs to get both a <code>quantity</code> and
-a <a href="../../users_guide/framework_basics/concepts/#PointOrigin"><code>PointOrigin</code></a> that we use
-as a reference point.</p>
+<p>The same applies to the construction of <code>quantity_point</code> using an explicit point origin.
+To prevent similar safety issues during maintenance, the initialization always requires
+providing both a <code>quantity</code> and a <a href="../../users_guide/framework_basics/concepts/#PointOrigin"><code>PointOrigin</code></a>
+that we use as a reference point.</p>
 </div>
 <h2 id="why-a-dimensionless-quantity-is-not-just-a-fundamental-arithmetic-type">Why a dimensionless quantity is not just a fundamental arithmetic type?<a class="headerlink" href="#why-a-dimensionless-quantity-is-not-just-a-fundamental-arithmetic-type" title="Permanent link">&para;</a></h2>
 <p>In the initial design of this library, the resulting type of division of two quantities was their
