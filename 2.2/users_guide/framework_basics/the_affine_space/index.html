@@ -1058,7 +1058,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#absolute-point-origin" class="md-nav__link">
     <span class="md-ellipsis">
-      Absolute point origin
+      Absolute Point origin
     </span>
   </a>
   
@@ -1076,7 +1076,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#relative-point-origin" class="md-nav__link">
     <span class="md-ellipsis">
-      Relative point origin
+      Relative Point origin
     </span>
   </a>
   
@@ -1085,7 +1085,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#converting-between-different-representations-of-the-same-point" class="md-nav__link">
     <span class="md-ellipsis">
-      Converting between different representations of the same point
+      Converting between different representations of the same Point
     </span>
   </a>
   
@@ -1103,7 +1103,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#no-text-output-for-points" class="md-nav__link">
     <span class="md-ellipsis">
-      No text output for points
+      No text output for Points
     </span>
   </a>
   
@@ -2105,12 +2105,12 @@ You're not viewing the latest version.
 <h1 id="the-affine-space">The Affine Space<a class="headerlink" href="#the-affine-space" title="Permanent link">&para;</a></h1>
 <p>The affine space has two types of entities:</p>
 <ul>
-<li><strong><em>point</em></strong> - a position specified with coordinate values (e.g., location, address, etc.)</li>
-<li><strong><em>vector</em></strong> - the difference between two points (e.g., shift, offset, displacement, duration, etc.)</li>
+<li><strong><em>Point</em></strong> - a position specified with coordinate values (e.g., location, address, etc.)</li>
+<li><strong><em>Vector</em></strong> - the difference between two points (e.g., shift, offset, displacement, duration, etc.)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <em>vector</em> described here is specific to the affine space theory and is not the same thing
+<p>The <em>Vector</em> described here is specific to the affine space theory and is not the same thing
 as the quantity of a vector character that we discussed in the
 <a href="../character_of_a_quantity/#scalars-vectors-and-tensors">"Scalars, vectors, and tensors" chapter</a>
 (although, in some cases, those terms may overlap).</p>
@@ -2118,55 +2118,55 @@ as the quantity of a vector character that we discussed in the
 <h2 id="operations-in-the-affine-space">Operations in the affine space<a class="headerlink" href="#operations-in-the-affine-space" title="Permanent link">&para;</a></h2>
 <p>Here are the primary operations one can do in the affine space:</p>
 <ul>
-<li><em>vector</em> + <em>vector</em> -&gt; <em>vector</em></li>
-<li><em>vector</em> - <em>vector</em> -&gt; <em>vector</em></li>
-<li>-<em>vector</em> -&gt; <em>vector</em></li>
-<li><em>vector</em> * scalar -&gt; <em>vector</em></li>
-<li>scalar * <em>vector</em> -&gt; <em>vector</em></li>
-<li><em>vector</em> / scalar -&gt; <em>vector</em></li>
-<li><em>point</em> - <em>point</em> -&gt; <em>vector</em></li>
-<li><em>point</em> + <em>vector</em> -&gt; <em>point</em></li>
-<li><em>vector</em> + <em>point</em> -&gt; <em>point</em></li>
-<li><em>point</em> - <em>vector</em> -&gt; <em>point</em></li>
+<li><em>Vector</em> + <em>Vector</em> -&gt; <em>Vector</em></li>
+<li><em>Vector</em> - <em>Vector</em> -&gt; <em>Vector</em></li>
+<li>-<em>Vector</em> -&gt; <em>Vector</em></li>
+<li><em>Vector</em> * Scalar -&gt; <em>Vector</em></li>
+<li>Scalar * <em>Vector</em> -&gt; <em>Vector</em></li>
+<li><em>Vector</em> / Scalar -&gt; <em>Vector</em></li>
+<li><em>Point</em> - <em>Point</em> -&gt; <em>Vector</em></li>
+<li><em>Point</em> + <em>Vector</em> -&gt; <em>Point</em></li>
+<li><em>Vector</em> + <em>Point</em> -&gt; <em>Point</em></li>
+<li><em>Point</em> - <em>Vector</em> -&gt; <em>Point</em></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>It is not possible to:</p>
 <ul>
-<li>add two <em>points</em>,</li>
-<li>subtract a <em>point</em> from a <em>vector</em>,</li>
-<li>multiply nor divide <em>points</em> with anything else.</li>
+<li>add two <em>Points</em>,</li>
+<li>subtract a <em>Point</em> from a <em>Vector</em>,</li>
+<li>multiply nor divide <em>Points</em> with anything else.</li>
 </ul>
 </div>
 <h2 id="points-are-more-common-than-most-of-us-imagine"><em>Points</em> are more common than most of us imagine<a class="headerlink" href="#points-are-more-common-than-most-of-us-imagine" title="Permanent link">&para;</a></h2>
 <p><em>Point</em> abstractions should be used more often in the C++ software.
-They are not only about temperature or time. <em>Points</em> are everywhere around us and should become
+They are not only about <em>temperature</em> or <em>time</em>. <em>Points</em> are everywhere around us and should become
 more popular in the products we implement. They can be used to implement:</p>
 <ul>
-<li>temperature points,</li>
+<li><em>temperature</em> points,</li>
 <li>timestamps,</li>
-<li>daily mass readouts from the scale,</li>
-<li>altitudes of mountain peaks on a map,</li>
-<li>current speed displayed on a car's speed-o-meter,</li>
-<li>today's price of instruments on the market,</li>
+<li>daily <em>mass</em> readouts from the scale,</li>
+<li><em>altitudes</em> of mountain peaks on a map,</li>
+<li>current <em>speed</em> displayed on a car's speed-o-meter,</li>
+<li>today's <em>price</em> of instruments on the market,</li>
 <li>and many more.</li>
 </ul>
-<p>Improving the affine space's <em>points</em> intuition will allow us to write better and safer software.</p>
+<p>Improving the affine space's <em>Points</em> intuition will allow us to write better and safer software.</p>
 <h2 id="vector-is-modeled-by-quantity"><em>Vector</em> is modeled by <code>quantity</code><a class="headerlink" href="#vector-is-modeled-by-quantity" title="Permanent link">&para;</a></h2>
 <p>Up until now, each time we used a <code>quantity</code> in our code, we were modeling some kind of a
 difference between two things:</p>
 <ul>
-<li>the distance between two points,</li>
-<li>duration between two time points,</li>
-<li>the difference in speed (even if relative to zero).</li>
+<li>the <em>distance</em> between two points,</li>
+<li><em>duration</em> between two time points,</li>
+<li>the difference in <em>speed</em> (even if relative to zero).</li>
 </ul>
-<p>As we already know, a <code>quantity</code> type provides all operations required for a <em>vector</em> type in
+<p>As we already know, a <code>quantity</code> type provides all operations required for a <em>Vector</em> type in
 the affine space.</p>
 <h2 id="point-is-modeled-by-quantity_point-and-pointorigin"><em>Point</em> is modeled by <code>quantity_point</code> and <code>PointOrigin</code><a class="headerlink" href="#point-is-modeled-by-quantity_point-and-pointorigin" title="Permanent link">&para;</a></h2>
-<p>In the <strong>mp-units</strong> library the <em>point</em> abstraction is modelled by:</p>
+<p>In the <strong>mp-units</strong> library the <em>Point</em> abstraction is modelled by:</p>
 <ul>
 <li><a href="../concepts/#PointOrigin"><code>PointOrigin</code> concept</a> that specifies measurement origin,</li>
-<li><code>quantity_point</code> class template that specifies a <em>point</em> relative to a specific predefined origin.</li>
+<li><code>quantity_point</code> class template that specifies a <em>Point</em> relative to a specific predefined origin.</li>
 </ul>
 <h3 id="quantity_point"><code>quantity_point</code><a class="headerlink" href="#quantity_point" title="Permanent link">&para;</a></h3>
 <p>The <code>quantity_point</code> class template specifies an absolute quantity measured from a predefined
@@ -2241,7 +2241,7 @@ one of the previous lines like that:</p>
 this specific quantity type.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Storing <em>points</em> is the most efficient representation we can choose in this scenario:</p>
+<p>Storing <em>Points</em> is the most efficient representation we can choose in this scenario:</p>
 <ul>
 <li>to store a value, we read it directly from the instrument, and no additional transformation
   is needed,</li>
@@ -2249,7 +2249,7 @@ this specific quantity type.</p>
 <li>to get any relative quantity (e.g., distance from the start, distance from the previous point,
   etc.), we have to perform a single subtraction operation.</li>
 </ul>
-<p>If we stored <em>vectors</em> in our database instead, we would have to pay at runtime for additional
+<p>If we stored <em>Vectors</em> in our database instead, we would have to pay at runtime for additional
 operations:</p>
 <ul>
 <li>to store a quantity, we would have to perform the subtraction right away to get the interval
@@ -2267,7 +2267,7 @@ accidentally subtract points from different trips. The library will not prevent
 us from doing so.</p>
 <p>The points from Alice's and Bob's trips should be considered separate, and to enforce it at
 compilation time, we need to introduce explicit origins.</p>
-<h3 id="absolute-point-origin">Absolute <em>point</em> origin<a class="headerlink" href="#absolute-point-origin" title="Permanent link">&para;</a></h3>
+<h3 id="absolute-point-origin">Absolute <em>Point</em> origin<a class="headerlink" href="#absolute-point-origin" title="Permanent link">&para;</a></h3>
 <p>The <strong>absolute point origin</strong> specifies the "zero" of our measurement's scale. User can
 specify such an origin by deriving from the <code>absolute_point_origin</code> class template:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">actor</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">alice</span><span class="p">,</span><span class="w"> </span><span class="n">bob</span><span class="w"> </span><span class="p">};</span>
@@ -2298,10 +2298,10 @@ clock.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <strong>mp-units</strong> library provides means to specify
-<a href="../use_cases/interoperability_with_other_units_libraries.md">interoperability with other units libraries</a>.
+<a href="../../use_cases/interoperability_with_other_libraries/">interoperability with other units libraries</a>.
 It also has built-in compatibility with <code>std::chrono</code> types, so users do not have to define
-interoperability traits for such types by themselves. Those are provided in the
-<code>mp-units/chrono.h</code> header file.</p>
+interoperability traits or point origins for such types by themselves. Those are already
+provided in the <code>mp-units/chrono.h</code> header file.</p>
 </div>
 <p>Now, we can refactor our database to benefit from the explicit points:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="n">actor</span><span class="w"> </span><span class="n">A</span><span class="o">&gt;</span>
@@ -2317,7 +2317,7 @@ interoperability traits for such types by themselves. Those are provided in the
 <p>We also need to update the initialization part in our code. In the case of implicit zeroth origins,
 we could construct <code>quantity_point</code> directly from the value of a <code>quantity</code>. This is no longer
 the case.
-As a <em>point</em> can be represented with a <em>vector</em> from the origin, to improve the safety of the code
+As a <em>Point</em> can be represented with a <em>Vector</em> from the origin, to improve the safety of the code
 we write, a <code>quantity_point</code> class template must be created with one of the following operations:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">quantity_point</span><span class="w"> </span><span class="n">qp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeroth_odometer</span><span class="o">&lt;</span><span class="n">actor</span><span class="o">::</span><span class="n">alice</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1356</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="p">;</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">quantity_point</span><span class="w"> </span><span class="n">qp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1356</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">zeroth_odometer</span><span class="o">&lt;</span><span class="n">actor</span><span class="o">::</span><span class="n">alice</span><span class="o">&gt;</span><span class="p">;</span>
@@ -2326,7 +2326,7 @@ we write, a <code>quantity_point</code> class template must be created with one 
 <p>Although, the <code>qp3</code> above does not have a physical sense in this specific scenario.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><a href="#operations-in-the-affine-space">It is not allowed to subtract a <em>point</em> from a <em>vector</em></a>
+<p><a href="#operations-in-the-affine-space">It is not allowed to subtract a <em>Point</em> from a <em>Vector</em></a>
 thus <code>1356 * km - zeroth_odometer&lt;actor::alice&gt;</code> is an invalid operation.</p>
 </div>
 <div class="admonition info">
@@ -2391,7 +2391,7 @@ more calculations:</p>
 (e.g., <code>home - home</code>) as those do not contain information about the unit, so we are not able
 to determine a resulting <code>quantity</code> type.</p>
 </div>
-<h3 id="relative-point-origin">Relative <em>point</em> origin<a class="headerlink" href="#relative-point-origin" title="Permanent link">&para;</a></h3>
+<h3 id="relative-point-origin">Relative <em>Point</em> origin<a class="headerlink" href="#relative-point-origin" title="Permanent link">&para;</a></h3>
 <p>We often do not have only one ultimate "zero" point when we measure things.</p>
 <p>For example, let's assume that we have the following absolute point origin:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">mean_sea_level</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">absolute_point_origin</span><span class="o">&lt;</span><span class="n">mean_sea_level</span><span class="p">,</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">altitude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">mean_sea_level</span><span class="p">;</span>
@@ -2402,7 +2402,7 @@ represented with an 8-bit integer type, allowing us to save memory in our databa
 <p>For this purpose, we can define a <code>relative_point_origin</code> in the following way:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">everest_base_camp</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">relative_point_origin</span><span class="o">&lt;</span><span class="n">mean_sea_level</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5364</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">everest_base_camp</span><span class="p">;</span>
 </span></code></pre></div>
-<p>The above can be used as an origin for subsequent <em>points</em>:</p>
+<p>The above can be used as an origin for subsequent <em>Points</em>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">quantity_point</span><span class="w"> </span><span class="n">first_climb_alt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">everest_base_camp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">altitude</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">uint8_t</span><span class="p">{</span><span class="mi">42</span><span class="p">}</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">first_climb_alt</span><span class="p">.</span><span class="n">quantity_from</span><span class="p">(</span><span class="n">everest_base_camp</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">first_climb_alt</span><span class="p">.</span><span class="n">quantity_from</span><span class="p">(</span><span class="n">mean_sea_level</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5406</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span>
@@ -2411,9 +2411,9 @@ represented with an 8-bit integer type, allowing us to save memory in our databa
 <p>As we can see above, the <code>quantity_from()</code> member function returns a relative distance from the
 provided point origin while the <code>quantity_from_zero()</code> returns the distance from the absolute point
 origin.</p>
-<h3 id="converting-between-different-representations-of-the-same-point">Converting between different representations of the same <em>point</em><a class="headerlink" href="#converting-between-different-representations-of-the-same-point" title="Permanent link">&para;</a></h3>
-<p>As we might represent the same <em>point</em> with <em>vectors</em> from various origins, the <strong>mp-units</strong> library
-provides facilities to convert the <em>point</em> to <code>quantity_point</code> class templates expressed in
+<h3 id="converting-between-different-representations-of-the-same-point">Converting between different representations of the same <em>Point</em><a class="headerlink" href="#converting-between-different-representations-of-the-same-point" title="Permanent link">&para;</a></h3>
+<p>As we might represent the same <em>Point</em> with <em>Vectors</em> from various origins, the <strong>mp-units</strong> library
+provides facilities to convert the <em>Point</em> to <code>quantity_point</code> class templates expressed in
 terms of origins relative to each other in the type system.</p>
 <p>For this purpose, we can use:</p>
 <ul>
@@ -2433,8 +2433,8 @@ terms of origins relative to each other in the type system.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is only allowed to convert between various origins defined in terms of the same
-<code>absolute_point_origin</code>. Even if it is theoretically possible to express the same <em>point</em> as
-a <em>vector</em> from another <code>absolute_point_origin</code>, the library will not allow such a conversion.
+<code>absolute_point_origin</code>. Even if it is theoretically possible to express the same <em>Point</em> as
+a <em>Vector</em> from another <code>absolute_point_origin</code>, the library will not allow such a conversion.
 A custom user-defined conversion function will be needed to add this functionality.</p>
 <p>Said otherwise, in the <strong>mp-units</strong> library, there is no way to spell how two distinct
 <code>absolute_point_origin</code> types relate to each other.</p>
@@ -2468,7 +2468,7 @@ for this purpose:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Notice that while stacking point origins, we can use not only different representation types
-but also different units for origins and a <em>point</em>. In the above example, the relative
+but also different units for origins and a <em>Point</em>. In the above example, the relative
 point origin for degree Celsius is defined in terms of <code>si::kelvin</code>, while the quantity point
 for it will use <code>si::degree_Celsius</code> as a unit.</p>
 </div>
@@ -2509,7 +2509,7 @@ choose from here. Depending on our needs or taste we can:</p>
 </span></code></pre></div>
 </li>
 <li>
-<p>benefit from CTAD:</p>
+<p>benefit from <abbr title="Class Template Argument Deduction">CTAD</abbr>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">quantity_point</span><span class="w"> </span><span class="n">q7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">zeroth_degree_Celsius</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">20.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">deg_C</span><span class="p">;</span>
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">quantity_point</span><span class="w"> </span><span class="n">q8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">20.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">deg_C</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">zeroth_degree_Celsius</span><span class="p">};</span>
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">quantity_point</span><span class="w"> </span><span class="n">q9</span><span class="p">{</span><span class="mf">20.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">deg_C</span><span class="p">};</span>
@@ -2556,9 +2556,10 @@ the following way:</p>
 </span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>| Default        |        0 °C        |       21 °C        |     294.15 °C      |
 </span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>| Highest        |        3 °C        |       24 °C        |     297.15 °C      |
 </span></code></pre></div>
-<h3 id="no-text-output-for-points">No text output for <em>points</em><a class="headerlink" href="#no-text-output-for-points" title="Permanent link">&para;</a></h3>
+<h3 id="no-text-output-for-points">No text output for <em>Points</em><a class="headerlink" href="#no-text-output-for-points" title="Permanent link">&para;</a></h3>
 <p>The library does not provide a text output for quantity points, as printing just a number and a unit
-is not enough to adequately describe a quantity point. Often, an additional postfix is required.</p>
+is not enough to adequately describe a quantity point. Often, an additional prefix or postfix is
+required.</p>
 <p>For example, the text output of <code>42 m</code> may mean many things and can also be confused with an output
 of a regular quantity. On the other hand, printing <code>42 m AMSL</code> for altitudes above mean sea level is
 a much better solution, but the library does not have enough information to print it that way by itself.</p>
