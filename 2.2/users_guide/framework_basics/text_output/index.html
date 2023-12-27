@@ -2227,7 +2227,7 @@ output text. To change this behavior, we have to provide a partial specializatio
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above works only for <a href="#default-formatting">the default formatting</a>. In case we provide our own
-format specification (e.g. <code>std::format("{:%Q %q}", q)</code>), the library will always obey this
+format specification (e.g., <code>std::format("{:%Q %q}", q)</code>), the library will always obey this
 specification for all the units (no matter of what is the actual value of the
 <code>space_before_unit_symbol</code> customization point) and the separating space will always be present
 in this case.</p>
@@ -2253,7 +2253,7 @@ typically followed by a space and then the symbol of a <a href="../../../appendi
 associated with this quantity.</p>
 <div class="admonition important">
 <p class="admonition-title">Important: Don't assume a unit</p>
-<p>Remember that when we deal with a quantity of an "unknown" (e.g. <code>auto</code>) type, it is a good
+<p>Remember that when we deal with a quantity of an "unknown" (e.g., <code>auto</code>) type, it is a good
 practice to always <a href="../value_conversions/#value-conversions">convert the unit to the expected one</a>
 before passing it to the text output:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="n">in</span><span class="p">(</span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">       </span><span class="c1">// 110 km/h</span>
@@ -2268,6 +2268,11 @@ to the general C++ rules:</p>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;|&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;|</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">          </span><span class="c1">// |123 m     |</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;|&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setfill</span><span class="p">(</span><span class="sc">&#39;*&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;|</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// |123 m*****|</span>
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To have more control over the formatting of the quantity that is printed with the output
+stream just use <code>std::cout &lt;&lt; std::format(...)</code>.</p>
+</div>
 <h3 id="stdformat"><code>std::format</code><a class="headerlink" href="#stdformat" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2277,50 +2282,59 @@ to the general C++ rules:</p>
 <p>The <strong>mp-units</strong> library provides custom formatters for <code>std::format</code> facility which allows
 fine-grained control over what and how it is being printed in the text output.</p>
 <h4 id="grammar">Grammar<a class="headerlink" href="#grammar" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>units-format-spec   ::=  [fill-and-align] [width] [units-specs]
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>units-specs         ::=  conversion-spec
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>                         units-specs conversion-spec
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>                         units-specs literal-char
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>literal-char        ::=  any character other than &#39;{&#39; or &#39;}&#39;
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>conversion-spec     ::=  &#39;%&#39; units-type
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>units-type          ::=  [units-rep-modifier] &#39;Q&#39;
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>                         [units-unit-modifier] &#39;q&#39;
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>units-rep-modifier  ::=  [sign] [#] [precision] [L] [units-rep-type]
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>units-rep-type      ::=  one of &quot;aAbBdeEfFgGoxX&quot;
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>units-unit-modifier ::=  [units-text-encoding units-unit-symbol-denominator units-unit-symbol-separator]
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>units-text-encoding ::=  one of &quot;UA&quot;
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>units-unit-symbol-solidus   ::=  one of &quot;oan&quot;
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>units-unit-symbol-separator ::=  one of &quot;sd&quot;
+<div class="language-ebnf highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">quantity-format-spec  </span><span class="err">::</span><span class="o">=</span>  <span class="p">[</span><span class="k">fill-and-align</span><span class="p">]</span> <span class="p">[</span><span class="k">width</span><span class="p">]</span> <span class="p">[</span><span class="k">quantity-specs</span><span class="p">]</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">quantity-specs        </span><span class="err">::=</span>  <span class="k">conversion-spec</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>                           <span class="k">quantity-specs conversion-spec</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>                           <span class="k">quantity-specs literal-char</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">literal-char          </span><span class="err">::=</span>  <span class="k">any character other than </span><span class="s1">&#39;{&#39;</span> <span class="k">or </span><span class="s1">&#39;}&#39;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">conversion-spec       </span><span class="err">::=</span>  <span class="s1">&#39;%&#39;</span> <span class="k">type</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">type                  </span><span class="err">::=</span>  <span class="p">[</span><span class="k">rep-modifier</span><span class="p">]</span> <span class="s1">&#39;Q&#39;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>                           <span class="p">[</span><span class="k">unit-modifier</span><span class="p">]</span> <span class="s1">&#39;q&#39;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="k">rep-modifier          </span><span class="err">::=</span>  <span class="p">[</span><span class="k">sign</span><span class="p">]</span> <span class="p">[</span><span class="err">#</span><span class="p">]</span> <span class="p">[</span><span class="k">precision</span><span class="p">]</span> <span class="p">[</span><span class="k">L</span><span class="p">]</span> <span class="p">[</span><span class="k">rep-type</span><span class="p">]</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="k">rep-type              </span><span class="err">::=</span>  <span class="k">one of</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>                           <span class="k">a A b B d e E f F g G o x X</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="k">unit-modifier         </span><span class="err">::=</span>  <span class="p">[</span><span class="k">text-encoding</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-solidus</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-separator</span><span class="p">]</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>                           <span class="p">[</span><span class="k">text-encoding</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-separator</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-solidus</span><span class="p">]</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>                           <span class="p">[</span><span class="k">unit-symbol-solidus</span><span class="p">]</span> <span class="p">[</span><span class="k">text-encoding</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-separator</span><span class="p">]</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>                           <span class="p">[</span><span class="k">unit-symbol-solidus</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-separator</span><span class="p">]</span> <span class="p">[</span><span class="k">text-encoding</span><span class="p">]</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>                           <span class="p">[</span><span class="k">unit-symbol-separator</span><span class="p">]</span> <span class="p">[</span><span class="k">text-encoding</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-solidus</span><span class="p">]</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>                           <span class="p">[</span><span class="k">unit-symbol-separator</span><span class="p">]</span> <span class="p">[</span><span class="k">unit-symbol-solidus</span><span class="p">]</span> <span class="p">[</span><span class="k">text-encoding</span><span class="p">]</span> 
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="k">text-encoding         </span><span class="err">::=</span>  <span class="k">one of</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>                           <span class="k">U A</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="k">unit-symbol-solidus   </span><span class="err">::=</span>  <span class="k">one of</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>                           <span class="k">o a n</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="k">unit-symbol-separator </span><span class="err">::=</span>  <span class="k">one of</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>                           <span class="k">s d</span>
 </span></code></pre></div>
 <p>In the above grammar:</p>
 <ul>
 <li><code>fill-and-align</code>, <code>width</code>, <code>sign</code>, <code>#</code>, <code>precision</code>, and <code>L</code> tokens, as well as the individual
-  tokens of <code>units-rep-type</code> are defined in the <a href="https://wg21.link/format.string.std">format.string.std</a>
+  tokens of <code>rep-type</code> are defined in the <a href="https://wg21.link/format.string.std">format.string.std</a>
   chapter of the C++ standard specification,</li>
-<li>tokens <code>Q</code> and <code>q</code> of <code>units-type</code> are described in the <a href="https://wg21.link/time.format">time.format</a>
+<li>tokens <code>Q</code> and <code>q</code> of <code>type</code> are described in the <a href="https://wg21.link/time.format">time.format</a>
   chapter of the C++ standard specification,</li>
-<li><code>units-text-encoding</code> tokens specify the unit text encoding:<ul>
+<li><code>text-encoding</code> tokens specify the unit text encoding:<ul>
 <li><code>U</code> (default) uses the <strong>Unicode</strong> symbols defined by the <a href="../../../appendix/glossary/#si">SI</a>
-  specification (e.g. <code>m³</code>, <code>µs</code>)</li>
-<li><code>A</code> token forces non-standard <strong>ASCII</strong>-only output (e.g. <code>m^3</code>, <code>us</code>)</li>
+  specification (e.g., <code>m³</code>, <code>µs</code>)</li>
+<li><code>A</code> token forces non-standard <strong>ASCII</strong>-only output (e.g., <code>m^3</code>, <code>us</code>)</li>
 </ul>
 </li>
-<li><code>units-unit-symbol-solidus</code> tokens specify how the division of units should look like:<ul>
+<li><code>unit-symbol-solidus</code> tokens specify how the division of units should look like:<ul>
 <li><code>o</code> (default) outputs <code>/</code> only when there is only <strong>one</strong> unit in the denominator, otherwise negative
-  exponents are printed (e.g. <code>m/s</code>, <code>kg m⁻¹ s⁻¹</code>)</li>
-<li><code>a</code> <strong>always</strong> uses solidus (e.g. <code>m/s</code>, <code>kg/(m s)</code>)</li>
-<li><code>n</code> <strong>never</strong> prints solidus, which means that negative exponents are always used (e.g. <code>m s⁻¹</code>,
+  exponents are printed (e.g., <code>m/s</code>, <code>kg m⁻¹ s⁻¹</code>)</li>
+<li><code>a</code> <strong>always</strong> uses solidus (e.g., <code>m/s</code>, <code>kg/(m s)</code>)</li>
+<li><code>n</code> <strong>never</strong> prints solidus, which means that negative exponents are always used (e.g., <code>m s⁻¹</code>,
   <code>kg m⁻¹ s⁻¹</code>)</li>
 </ul>
 </li>
-<li><code>units-unit-symbol-separator</code> tokens specify how multiplied unit symbols should be separated:<ul>
-<li><code>s</code> (default) uses <strong>space</strong> as a separator (e.g. <code>kg m²/s²</code>)</li>
-<li><code>d</code> uses half-high <strong>dot</strong> (<code>⋅</code>) as a separator (e.g. <code>kg⋅m²/s²</code>)</li>
+<li><code>unit-symbol-separator</code> tokens specify how multiplied unit symbols should be separated:<ul>
+<li><code>s</code> (default) uses <strong>space</strong> as a separator (e.g., <code>kg m²/s²</code>)</li>
+<li><code>d</code> uses half-high <strong>dot</strong> (<code>⋅</code>) as a separator (e.g., <code>kg⋅m²/s²</code>)</li>
 </ul>
 </li>
 </ul>
 <h4 id="default-formatting">Default formatting<a class="headerlink" href="#default-formatting" title="Permanent link">&para;</a></h4>
-<p>To format <code>quantity</code> values, the formatting facility uses <code>units-format-spec</code>. If left empty,
+<p>To format <code>quantity</code> values, the formatting facility uses <code>quantity-format-spec</code>. If left empty,
 the default formatting is applied. The same default formatting is also applied to the output streams.
 This is why the following code lines produce the same output:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Distance: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -2381,7 +2395,7 @@ Also, a custom style of quantity formatting might be applied:</p>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%.1Q %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1.2345</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1.2 m</span>
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%.2Q %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1.2345</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1.23 m</span>
 </span></code></pre></div>
-<p><code>units-rep-type</code> specifies how a value of the representation type is being printed.
+<p><code>rep-type</code> specifies how a value of the representation type is being printed.
 For integral types:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%bQ %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">    </span><span class="c1">// 101010 m</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%BQ %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">    </span><span class="c1">// 101010 m</span>
@@ -2397,7 +2411,7 @@ For integral types:</p>
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%#xQ %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">   </span><span class="c1">// 0x2a m</span>
 </span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%#XQ %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">   </span><span class="c1">// 0X2A m</span>
 </span></code></pre></div>
-<p>For floating-point values, the <code>units-rep-type</code> token works as follows:</p>
+<p>For floating-point values, the <code>rep-type</code> token works as follows:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%aQ %q}&quot;</span><span class="p">,</span><span class="w">   </span><span class="mf">1.2345678</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">      </span><span class="c1">// 0x1.3c0ca2a5b1d5dp+0 m</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%.3aQ %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1.2345678</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">      </span><span class="c1">// 0x1.3c1p+0 m</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%AQ %q}&quot;</span><span class="p">,</span><span class="w">   </span><span class="mf">1.2345678</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">      </span><span class="c1">// 0X1.3C0CA2A5B1D5DP+0 m</span>
@@ -2417,11 +2431,11 @@ For integral types:</p>
 </span></code></pre></div>
 <h4 id="unit-symbol-formatting">Unit symbol formatting<a class="headerlink" href="#unit-symbol-formatting" title="Permanent link">&para;</a></h4>
 <p>Unit symbols of some quantities are specified to use Unicode signs by the
-<a href="../../../appendix/glossary/#si">SI</a> (e.g. <code>Ω</code> symbol for the resistance quantity). The <strong>mp-units</strong>
+<a href="../../../appendix/glossary/#si">SI</a> (e.g., <code>Ω</code> symbol for the resistance quantity). The <strong>mp-units</strong>
 library follows this by default. From the engineering point of view, sometimes Unicode text might
 not be the best solution as terminals of many (especially embedded) devices are ASCII-only.
 In such a case, the unit symbol can be forced to be printed using ASCII-only characters thanks to
-<code>units-text-encoding</code> token:</p>
+<code>text-encoding</code> token:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">ohm</span><span class="p">);</span><span class="w">             </span><span class="c1">// 10 Ω</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%Q %Aq}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">ohm</span><span class="p">);</span><span class="w">      </span><span class="c1">// 10 ohm</span>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">125</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">us</span><span class="p">);</span><span class="w">                 </span><span class="c1">// 125 µs</span>
@@ -2431,7 +2445,7 @@ In such a case, the unit symbol can be forced to be printed using ASCII-only cha
 </span></code></pre></div>
 <p>Additionally, both <a href="../../../appendix/glossary/#isq">ISQ</a> and <a href="../../../appendix/glossary/#si">SI</a>
 leave some freedom on how to print unit symbols. This is why two additional tokens were introduced.</p>
-<p><code>units-unit-symbol-solidus</code> specifies how the division of units should look like. By default,
+<p><code>unit-symbol-solidus</code> specifies how the division of units should look like. By default,
 <code>/</code> will be used only when the denominator contains only one unit. However, with the <code>a</code> or <code>n</code>
 options, we can force the facility to print the <code>/</code> character always (even when there are more units
 in the denominator), or never in which case a parenthesis will be added to enclose all denominator
@@ -2457,7 +2471,7 @@ to just use the <code>·</code> symbol as a separator.</p>
 <p class="admonition-title">Note</p>
 <p>Please let us know in case you require more formatting options here.</p>
 </div>
-<p>The <code>units-unit-symbol-separator</code> token allows us to obtain the following outputs:</p>
+<p>The <code>unit-symbol-separator</code> token allows us to obtain the following outputs:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%Q %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">kg</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w">   </span><span class="c1">// 1 kg m²/s²</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%Q %dq}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">kg</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1 kg⋅m²/s²</span>
 </span></code></pre></div>
