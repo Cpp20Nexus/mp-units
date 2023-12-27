@@ -2143,17 +2143,19 @@ You're not viewing the latest version.
 any quantity in the most user-friendly way.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The library does not provide a text output for quantity points, as printing just a number and a unit
-is not enough to adequately describe a quantity point. Often an additional postfix is required.</p>
-<p>For example, the text output of <code>42 m</code> may mean many things and can also be confused with an output
-of a regular quantity. On the other hand, printing <code>42 m AMSL</code> for altitudes above mean sea level is
-a much better solution, but the library does not have enough information to print it that way by itself.</p>
+<p>The library does not provide a text output for quantity points, as printing just a number and
+a unit is not enough to adequately describe a quantity point. Often, an additional postfix is
+required.</p>
+<p>For example, the text output of <code>42 m</code> may mean many things and can also be confused with an
+output of a regular quantity. On the other hand, printing <code>42 m AMSL</code> for altitudes above mean
+sea level is a much better solution, but the library does not have enough information to print
+it that way by itself.</p>
 </div>
 <h2 id="derived-unit-symbols-generation">Derived unit symbols generation<a class="headerlink" href="#derived-unit-symbols-generation" title="Permanent link">&para;</a></h2>
-<p>Based on the provided definitions for base units, the library creates symbols for derived ones.</p>
+<p>The library creates symbols for derived ones based on the provided definitions for base units.</p>
 <h3 id="unit_symbol_formatting"><code>unit_symbol_formatting</code><a class="headerlink" href="#unit_symbol_formatting" title="Permanent link">&para;</a></h3>
 <p><code>unit_symbol_formatting</code> is a data type describing the configuration of the symbol generation
-algorithm. It contains three orthogonal fields, and each of them has a default value.</p>
+algorithm. It contains three orthogonal fields, each with a default value.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">text_encoding</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">int8_t</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">unicode</span><span class="p">,</span><span class="w">  </span><span class="c1">// m³;  µs</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="n">ascii</span><span class="p">,</span><span class="w">    </span><span class="c1">// m^3; us</span>
@@ -2226,8 +2228,8 @@ output text. To change this behavior, we have to provide a partial specializatio
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The above works only for <a href="#default-formatting">the default formatting</a>. In case we provide our own
-format specification (e.g., <code>std::format("{:%Q %q}", q)</code>), the library will always obey this
+<p>The above works only for <a href="#default-formatting">the default formatting</a>. In case we provide our
+own format specification (e.g., <code>std::format("{:%Q %q}", q)</code>), the library will always obey this
 specification for all the units (no matter of what is the actual value of the
 <code>space_before_unit_symbol</code> customization point) and the separating space will always be present
 in this case.</p>
@@ -2261,7 +2263,7 @@ before passing it to the text output:</p>
 </span></code></pre></div>
 </div>
 <h4 id="output-stream-formatting">Output stream formatting<a class="headerlink" href="#output-stream-formatting" title="Permanent link">&para;</a></h4>
-<p>Only basic formatting can be applied for output streams. It includes control over width, fill,
+<p>Only basic formatting can be applied to output streams. It includes control over width, fill,
 and alignment of the entire quantity and formatting of a quantity numerical value according
 to the general C++ rules:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;|&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;|</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">                       </span><span class="c1">// |     123 m|</span>
@@ -2320,11 +2322,11 @@ fine-grained control over what and how it is being printed in the text output.</
 </ul>
 </li>
 <li><code>unit-symbol-solidus</code> tokens specify how the division of units should look like:<ul>
-<li><code>o</code> (default) outputs <code>/</code> only when there is only <strong>one</strong> unit in the denominator, otherwise negative
-  exponents are printed (e.g., <code>m/s</code>, <code>kg m⁻¹ s⁻¹</code>)</li>
+<li><code>o</code> (default) outputs <code>/</code> only when there is only <strong>one</strong> unit in the denominator, otherwise
+  negative exponents are printed (e.g., <code>m/s</code>, <code>kg m⁻¹ s⁻¹</code>)</li>
 <li><code>a</code> <strong>always</strong> uses solidus (e.g., <code>m/s</code>, <code>kg/(m s)</code>)</li>
-<li><code>n</code> <strong>never</strong> prints solidus, which means that negative exponents are always used (e.g., <code>m s⁻¹</code>,
-  <code>kg m⁻¹ s⁻¹</code>)</li>
+<li><code>n</code> <strong>never</strong> prints solidus, which means that negative exponents are always used
+  (e.g., <code>m s⁻¹</code>, <code>kg m⁻¹ s⁻¹</code>)</li>
 </ul>
 </li>
 <li><code>unit-symbol-separator</code> tokens specify how multiplied unit symbols should be separated:<ul>
@@ -2343,8 +2345,8 @@ This is why the following code lines produce the same output:</p>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For some quantities the <code>{:%Q %q}</code> format may provide a different output than the default one.
-It will happen for example for:</p>
+<p>For some quantities, the <code>{:%Q %q}</code> format may provide a different output than the default one.
+It will happen, for example for:</p>
 <ul>
 <li>units for which <a href="#customization-point"><code>space_before_unit_symbol</code></a> customization point is set
   to <code>false</code>,</li>
@@ -2435,7 +2437,7 @@ For integral types:</p>
 library follows this by default. From the engineering point of view, sometimes Unicode text might
 not be the best solution as terminals of many (especially embedded) devices are ASCII-only.
 In such a case, the unit symbol can be forced to be printed using ASCII-only characters thanks to
-<code>text-encoding</code> token:</p>
+the <code>text-encoding</code> token:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">ohm</span><span class="p">);</span><span class="w">             </span><span class="c1">// 10 Ω</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%Q %Aq}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">ohm</span><span class="p">);</span><span class="w">      </span><span class="c1">// 10 ohm</span>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">125</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">us</span><span class="p">);</span><span class="w">                 </span><span class="c1">// 125 µs</span>
@@ -2464,12 +2466,12 @@ units.</p>
 is indicated in one of the following ways: <code>ab</code>, <code>a b</code>, <code>a · b</code>, <code>a × b</code></p>
 <p><em>NOTE 1</em> In some fields, e.g., vector algebra, distinction is made between <code>a ∙ b</code> and <code>a × b</code>.</p>
 </div>
-<p>As of today, the <strong>mp-units</strong> library provides the support for <code>a b</code> and <code>a · b</code> only. Additionally,
+<p>As of today, the <strong>mp-units</strong> library only supports <code>a b</code> and <code>a · b</code>. Additionally,
 we decided that the extraneous space in the latter case makes the result too verbose, so we decided
 to just use the <code>·</code> symbol as a separator.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please let us know in case you require more formatting options here.</p>
+<p>Please let us know if you require more formatting options here.</p>
 </div>
 <p>The <code>unit-symbol-separator</code> token allows us to obtain the following outputs:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;{:%Q %q}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">kg</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w">   </span><span class="c1">// 1 kg m²/s²</span>
