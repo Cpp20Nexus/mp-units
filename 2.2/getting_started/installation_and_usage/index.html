@@ -609,9 +609,27 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#cpp-compiler-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ compiler support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#repository-structure-and-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Repository Structure and Dependencies
+      Repository structure and dependencies
     </span>
   </a>
   
@@ -620,17 +638,17 @@ You're not viewing the latest version.
         <li class="md-nav__item">
   <a href="#obtaining-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Obtaining Dependencies
+      Obtaining dependencies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Obtaining Dependencies">
+    <nav class="md-nav" aria-label="Obtaining dependencies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#conan-quick-intro" class="md-nav__link">
     <span class="md-ellipsis">
-      Conan Quick Intro
+      Conan quick intro
     </span>
   </a>
   
@@ -644,17 +662,26 @@ You're not viewing the latest version.
         <li class="md-nav__item">
   <a href="#build-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Build Options
+      Build options
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Build Options">
+    <nav class="md-nav" aria-label="Build options">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conan-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conan options
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#conan-configuration-properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Conan Configuration Properties
+      Conan configuration properties
     </span>
   </a>
   
@@ -663,7 +690,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#cmake-options" class="md-nav__link">
     <span class="md-ellipsis">
-      CMake Options
+      CMake options
     </span>
   </a>
   
@@ -677,7 +704,7 @@ You're not viewing the latest version.
         <li class="md-nav__item">
   <a href="#cmake-with-presets-support" class="md-nav__link">
     <span class="md-ellipsis">
-      CMake with Presets Support
+      CMake with presets support
     </span>
   </a>
   
@@ -686,11 +713,11 @@ You're not viewing the latest version.
         <li class="md-nav__item">
   <a href="#installation-and-reuse" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation and Reuse
+      Installation and reuse
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation and Reuse">
+    <nav class="md-nav" aria-label="Installation and reuse">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -773,7 +800,7 @@ You're not viewing the latest version.
         <li class="md-nav__item">
   <a href="#uploading-mp-units-package-to-the-conan-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Uploading mp-units Package to the Conan Server
+      Uploading mp-units package to the Conan server
     </span>
   </a>
   
@@ -1464,6 +1491,8 @@ You're not viewing the latest version.
       
         
       
+        
+      
     
     
     
@@ -1590,6 +1619,27 @@ You're not viewing the latest version.
   
   <span class="md-ellipsis">
     Extending the Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users_guide/use_cases/wide_compatibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wide Compatibility
   </span>
   
 
@@ -2183,6 +2233,9 @@ You're not viewing the latest version.
 
 
 <h1 id="installation-and-usage">Installation And Usage<a class="headerlink" href="#installation-and-usage" title="Permanent link">&para;</a></h1>
+<p>This chapter provides all the necessary information to obtain and build the code using <strong>mp-units</strong>.
+It also describes how to build or distribute the library and generate its documentation.</p>
+<h2 id="cpp-compiler-support">C++ compiler support<a class="headerlink" href="#cpp-compiler-support" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p><strong>mp-units</strong> library tries to provide the best user experience possible with the C++ language.
@@ -2193,14 +2246,88 @@ from C++23.</p>
 use all of the library's functionality. C++23 features are hidden behind
 a <a href="../../users_guide/framework_basics/systems_of_quantities/#defining-quantities">preprocessor macro</a>
 providing a backward-compatible way to use it.</p>
-<p>As of today, the library compiles fine on the following compilers (or newer):</p>
-<ul>
-<li>gcc-12</li>
-<li>clang-16</li>
-<li>apple-clang-15</li>
-</ul>
 </div>
-<h2 id="repository-structure-and-dependencies">Repository Structure and Dependencies<a class="headerlink" href="#repository-structure-and-dependencies" title="Permanent link">&para;</a></h2>
+<p>The below table provides the minimum compiler version required to compile the code using the
+specific feature:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: center;">gcc</th>
+<th style="text-align: center;">clang</th>
+<th style="text-align: center;">apple-clang</th>
+<th style="text-align: center;">MSVC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Minimum support</strong></td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">None</td>
+</tr>
+<tr>
+<td><strong><code>std::format</code></strong></td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+</tr>
+<tr>
+<td><strong>C++ modules</strong></td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+</tr>
+<tr>
+<td><strong>C++23 extensions</strong></td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+</tr>
+</tbody>
+</table>
+<p>More requirements for C++ modules support can be found in the
+<a href="https://cmake.org/cmake/help/latest/manual/cmake-cxxmodules.7.html">CMake's documentation</a>.</p>
+<h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
+<p>The <strong>mp-units</strong> library provides the following C++ modules.</p>
+<pre class="mermaid"><code>flowchart TD
+    mp_units --- mp_units.systems --- mp_units.core</code></pre>
+<table>
+<thead>
+<tr>
+<th>C++ Module</th>
+<th>CMake Target</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mp_units.core</code></td>
+<td><code>mp-units::core</code></td>
+<td>Core library framework</td>
+</tr>
+<tr>
+<td><code>mp_units.systems</code></td>
+<td><code>mp-units::systems</code></td>
+<td>All the systems of quantities and units</td>
+</tr>
+<tr>
+<td><code>mp_units</code></td>
+<td><code>mp-units::mp-units</code></td>
+<td>Core + Systems</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>C++ modules are provided within the package only when <a href="#cxx_modules"><code>cxx_modules</code></a> Conan
+option is set to <code>True</code>.</p>
+</div>
+<h2 id="repository-structure-and-dependencies">Repository structure and dependencies<a class="headerlink" href="#repository-structure-and-dependencies" title="Permanent link">&para;</a></h2>
 <p>This repository contains three independent CMake-based projects:</p>
 <ul>
 <li>
@@ -2251,21 +2378,23 @@ the code correctly before pushing a commit. Having such options would allow unin
 leak to PRs and CI.</p>
 <p>This is why our projects have two entry points:</p>
 <ul>
-<li><em>./CMakeLists.txt</em> is to be used by projects developers to build <strong>ALL</strong> the project code with really
-restrictive compilation flags,</li>
-<li><em>./src/CMakeLists.txt</em> contains only a pure library definition and should be used by the customers
-that prefer to use CMake's <code>add_subdirectory()</code> to handle the dependencies.</li>
+<li><em>./CMakeLists.txt</em> is <strong>to be used by projects developers</strong> to build <strong>ALL</strong> the project code
+  with really restrictive compilation flags,</li>
+<li><em>./src/CMakeLists.txt</em> contains only a pure library definition and <strong>should be used by the
+  customers</strong> that prefer to use CMake's
+  <a href="https://cmake.org/cmake/help/latest/command/add_subdirectory.html"><code>add_subdirectory()</code></a> to
+  handle the dependencies.</li>
 </ul>
 <p>To learn more about the rationale, please check our
 <a href="../faq/#why-dont-we-have-cmake-options-to-disable-building-of-tests-and-examples">FAQ</a>.</p>
 </div>
-<h2 id="obtaining-dependencies">Obtaining Dependencies<a class="headerlink" href="#obtaining-dependencies" title="Permanent link">&para;</a></h2>
+<h2 id="obtaining-dependencies">Obtaining dependencies<a class="headerlink" href="#obtaining-dependencies" title="Permanent link">&para;</a></h2>
 <p>This library assumes that most of the dependencies will be provided by the
 <a href="https://conan.io/">Conan Package Manager</a>. If you want to obtain required
 dependencies by other means, some modifications to the library's CMake files might be needed.
 The rest of the dependencies responsible for documentation generation are provided by
 <code>python3-pip</code>.</p>
-<h3 id="conan-quick-intro">Conan Quick Intro<a class="headerlink" href="#conan-quick-intro" title="Permanent link">&para;</a></h3>
+<h3 id="conan-quick-intro">Conan quick intro<a class="headerlink" href="#conan-quick-intro" title="Permanent link">&para;</a></h3>
 <p>In case you are not familiar with Conan, to install it (or upgrade) just do:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>conan
 </span></code></pre></div>
@@ -2310,15 +2439,24 @@ each compiler and C++ standard version:</p>
 provided below rather than just <code>conan-default</code> and <code>conan-release</code>
 (e.g. <code>conan-gcc-13-23</code> and <code>conan-gcc-13-23-release</code>)</p>
 </div>
-<h2 id="build-options">Build Options<a class="headerlink" href="#build-options" title="Permanent link">&para;</a></h2>
-<h3 id="conan-configuration-properties">Conan Configuration Properties<a class="headerlink" href="#conan-configuration-properties" title="Permanent link">&para;</a></h3>
+<h2 id="build-options">Build options<a class="headerlink" href="#build-options" title="Permanent link">&para;</a></h2>
+<h3 id="conan-options">Conan options<a class="headerlink" href="#conan-options" title="Permanent link">&para;</a></h3>
+<dl>
+<dt><a href="#cxx_modules" id="cxx_modules">cxx_modules</a></dt>
+<dd>
+<p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>True</code>/<code>False</code> (Default: <code>False</code>)</p>
+<p>Configures CMake to add C++ modules to the list of default targets.</p>
+</dd>
+</dl>
+<h3 id="conan-configuration-properties">Conan configuration properties<a class="headerlink" href="#conan-configuration-properties" title="Permanent link">&para;</a></h3>
 <dl>
 <dt><a href="#user-build-all" id="user-build-all"><code>user.build:all</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v0.8.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 0.8.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>True</code>/<code>False</code> (Default: <code>False</code>)</p>
 <p>Enables compilation of all the source code, including tests and examples. To support this, it requires some additional Conan build dependencies described in
 <a href="#repository-structure-and-dependencies">Repository Structure and Dependencies</a>.
-It also runs unit tests during Conan build (unless <code>tools.build:skip_test</code>
+It also runs unit tests during Conan build (unless
+<a href="https://docs.conan.io/2/reference/commands/config.html?highlight=tools.build:skip_test#conan-config-list"><code>tools.build:skip_test</code></a>
 configuration property is set to <code>True</code>).</p>
 </dd>
 <dt><a href="#user-skip-la" id="user-skip-la"><code>user.build:skip_la</code></a></dt>
@@ -2330,8 +2468,13 @@ dependency and enables the compilation of linear algebra-based tests and usage e
 Such behavior can be disabled with this option.</p>
 </dd>
 </dl>
-<h3 id="cmake-options">CMake Options<a class="headerlink" href="#cmake-options" title="Permanent link">&para;</a></h3>
+<h3 id="cmake-options">CMake options<a class="headerlink" href="#cmake-options" title="Permanent link">&para;</a></h3>
 <dl>
+<dt><a href="#MP_UNITS_BUILD_CXX_MODULES" id="MP_UNITS_BUILD_CXX_MODULES"><code>MP_UNITS_BUILD_CXX_MODULES</code></a></dt>
+<dd>
+<p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>ON</code>/<code>OFF</code> (Default: <code>OFF</code>)</p>
+<p>Adds C++ modules to the list of default targets.</p>
+</dd>
 <dt><a href="#MP_UNITS_AS_SYSTEM_HEADERS" id="MP_UNITS_AS_SYSTEM_HEADERS"><code>MP_UNITS_AS_SYSTEM_HEADERS</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.0.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.0.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>ON</code>/<code>OFF</code> (Default: <code>OFF</code>)</p>
@@ -2352,10 +2495,10 @@ Additionally turns on <a href="#MP_UNITS_AS_SYSTEM_HEADERS"><code>MP_UNITS_AS_SY
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.0.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.0.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>ON</code>/<code>OFF</code> (Default: <code>ON</code>)</p>
 <p>Forces usage of <a href="https://github.com/fmtlib/fmt">{fmt}</a> library instead of the C++20 Standard
-Library feature.</p>
+Library features.</p>
 </dd>
 </dl>
-<h2 id="cmake-with-presets-support">CMake with Presets Support<a class="headerlink" href="#cmake-with-presets-support" title="Permanent link">&para;</a></h2>
+<h2 id="cmake-with-presets-support">CMake with presets support<a class="headerlink" href="#cmake-with-presets-support" title="Permanent link">&para;</a></h2>
 <p>It is recommended to use at least CMake 3.23 to build this project as this version introduced support
 for CMake Presets schema version 4, used now by Conan to generate presets files. All build instructions
 below assume that you have such support. If not, your CMake invocations have to be replaced with something
@@ -2370,7 +2513,7 @@ like:</p>
 <code>-c tools.cmake.cmaketoolchain.presets:max_schema_version=2</code> to the <code>conan install</code> command
 which will force Conan to use an older version of the CMake Presets schema.</p>
 </div>
-<h2 id="installation-and-reuse">Installation and Reuse<a class="headerlink" href="#installation-and-reuse" title="Permanent link">&para;</a></h2>
+<h2 id="installation-and-reuse">Installation and reuse<a class="headerlink" href="#installation-and-reuse" title="Permanent link">&para;</a></h2>
 <p>There are many different ways of installing/reusing <strong>mp-units</strong> in your project. Below we mention
 only a few of many options possible.</p>
 <div class="admonition important">
@@ -2417,12 +2560,15 @@ The following steps may be performed to obtain an official library release:</p>
 <div class="language-ini highlight"><span class="filename">conanfile.txt</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[requires]</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">mp-units/2.1.0</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">[layout]</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">cmake_layout</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">[options]</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">mp-units</span><span class="o">:</span><span class="s">cxx_modules=True</span>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">[generators]</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="na">CMakeToolchain</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="na">CMakeDeps</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">[layout]</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="na">cmake_layout</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">[generators]</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="na">CMakeToolchain</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="na">CMakeDeps</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -2468,12 +2614,15 @@ with the following differences:</p>
 <div class="language-ini highlight"><span class="filename">conanfile.txt</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">[requires]</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="hll"><span class="na">mp-units/2.2.0@mpusz/testing</span>
 </span></span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">[layout]</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="na">cmake_layout</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">[options]</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="na">mp-units</span><span class="o">:</span><span class="s">cxx_modules=True</span>
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">[generators]</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="na">CMakeToolchain</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="na">CMakeDeps</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">[layout]</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="na">cmake_layout</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="k">[generators]</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="na">CMakeToolchain</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="na">CMakeDeps</span>
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2506,7 +2655,7 @@ you should:</p>
 <li>Run Conan with <a href="#user-build-all"><code>user.build:all</code></a> = <code>True</code>.</li>
 </ol>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mpusz/mp-units.git<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>units
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>conan<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-c<span class="w"> </span>user.build:all<span class="o">=</span>True<span class="w"> </span>-b<span class="w"> </span>missing
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>conan<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">23</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">cxx_modules</span><span class="o">=</span>True<span class="w"> </span>-c<span class="w"> </span>user.build:all<span class="o">=</span>True<span class="w"> </span>-b<span class="w"> </span>missing
 </span></code></pre></div>
 <p>The above will download and install all of the dependencies needed for the development of the library,
 build all of the source code, and run unit tests.</p>
@@ -2537,10 +2686,10 @@ is with <code>pip</code>:</p>
 </ul>
 <h2 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h2>
 <p>To test CMake installation and Conan packaging or create a Conan package run:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>conan<span class="w"> </span>create<span class="w"> </span>.<span class="w"> </span>--user<span class="w"> </span>&lt;username&gt;<span class="w"> </span>--channel<span class="w"> </span>&lt;channel&gt;<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-c<span class="w"> </span>user.build:all<span class="o">=</span>True<span class="w"> </span>-b<span class="w"> </span>missing
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>conan<span class="w"> </span>create<span class="w"> </span>.<span class="w"> </span>--user<span class="w"> </span>&lt;username&gt;<span class="w"> </span>--channel<span class="w"> </span>&lt;channel&gt;<span class="w"> </span>-pr<span class="w"> </span>&lt;your_conan_profile&gt;<span class="w"> </span>-s<span class="w"> </span>compiler.cppstd<span class="o">=</span><span class="m">20</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">cxx_modules</span><span class="o">=</span>True<span class="w"> </span>-c<span class="w"> </span>user.build:all<span class="o">=</span>True<span class="w"> </span>-b<span class="w"> </span>missing
 </span></code></pre></div>
 <p>The above will create a Conan package and run tests provided in <em>./test_package</em> directory.</p>
-<h2 id="uploading-mp-units-package-to-the-conan-server">Uploading <strong>mp-units</strong> Package to the Conan Server<a class="headerlink" href="#uploading-mp-units-package-to-the-conan-server" title="Permanent link">&para;</a></h2>
+<h2 id="uploading-mp-units-package-to-the-conan-server">Uploading <strong>mp-units</strong> package to the Conan server<a class="headerlink" href="#uploading-mp-units-package-to-the-conan-server" title="Permanent link">&para;</a></h2>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>conan<span class="w"> </span>upload<span class="w"> </span>-r<span class="w"> </span>&lt;remote-name&gt;<span class="w"> </span>--all<span class="w"> </span>mp-units/2.1.0@&lt;user&gt;/&lt;channel&gt;
 </span></code></pre></div>
 
