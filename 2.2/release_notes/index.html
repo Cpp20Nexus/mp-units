@@ -2157,20 +2157,34 @@ You're not viewing the latest version.
 <h2 id="mp-units">mp-units<a class="headerlink" href="#mp-units" title="Permanent link">&para;</a></h2>
 <h3 id="2.2.0">2.2.0 <small>WIP</small><a class="headerlink" href="#2.2.0" title="Permanent link">&para;</a></h3>
 <ul>
+<li>(!) feat: C++ modules support added by <a href="https://github.com/JohelEGP">@JohelEGP</a></li>
 <li>feat: implicit point origins support added</li>
 <li>feat: unit default point origin support added</li>
 <li>feat: <code>fma</code>, <code>isfinite</code>, <code>isinf</code>, and <code>isnan</code> math function added by <a href="https://github.com/NAThompson">@NAThompson</a></li>
 <li>feat: <code>quantity_point</code> support added for <code>quantity_cast</code> and <code>value_cast</code></li>
 <li>feat: <code>value_cast&lt;Unit, Representation&gt;</code> added</li>
+<li>feat: <code>interconvertible(QuantitySpec, QuantitySpec)</code> added</li>
+<li>feat: <code>qp.quantity_from_zero()</code> added</li>
 <li>(!) refactor: <code>zero_Fahrenheit</code> renamed to <code>zeroth_degree_Fahrenheit</code></li>
 <li>(!) refactor: SI-related trigonometric functions moved to the <code>si</code> subnamespace</li>
-<li>refactor: <code>math.h</code> header file broke up to smaller pieces</li>
+<li>(!) refactor: <code>math.h</code> header file broke up to smaller pieces</li>
 <li>refactor: math functions constraints refactored</li>
 <li>fix: <code>QuantityLike</code> conversions required <code>Q::rep</code> instead of using one provided by <code>quantity_like_traits</code></li>
+<li>fix: <code>QuantitySpec[Unit]</code> replaced with <code>make_reference</code> in <code>value_cast</code></li>
+<li>fix: <code>ice_point</code> is now defined with the integral offset from <code>absolute_zero</code></li>
 <li>docs: project blog and first posts added</li>
 <li>docs: project documentation layout refactored</li>
 <li>docs: "Interoperability with Other Libraries" chapter added</li>
 <li>docs: "Framework Basics" chapters updated and cleaned up</li>
+<li>docs: <code>smoot</code> unit example added to the main page</li>
+<li>docs: "Code Example" chapter renamed to "Look and Feel" and reordered in TOC to be after "Quick Start"</li>
+<li>docs: "Quick Start" chapter reworked to be simpler and include quantity points</li>
+<li>docs: "Quantity points" chapter extended</li>
+<li>docs: "The Affine Space" chapter updated to reflect the recent design changes</li>
+<li>docs: "Working with Legacy interfaces" chapter added</li>
+<li>docs: "Text Output" chapter updated</li>
+<li>docs: mkdocs social plugin enabled</li>
+<li>docs: project logo and custom color scheme added</li>
 </ul>
 <h3 id="2.1.0">2.1.0 <small>December 9, 2023</small><a class="headerlink" href="#2.1.0" title="Permanent link">&para;</a></h3>
 <ul>

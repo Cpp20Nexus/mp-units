@@ -2084,7 +2084,8 @@ library, we have to provide specializations of:</p>
 <h2 id="specifying-a-conversion-kind">Specifying a conversion kind<a class="headerlink" href="#specifying-a-conversion-kind" title="Permanent link">&para;</a></h2>
 <p>Before we delve into the template specialization details, let's first decide if we want the
 conversions to happen implicitly or if explicit ones would be a better choice. Or maybe
-the conversion should be implicit in one direction only (e.g., into <strong>mp-units</strong> abstractions) while the explicit conversions in the other direction should be preferred?</p>
+the conversion should be implicit in one direction only (e.g., into <strong>mp-units</strong> abstractions)
+while the explicit conversions in the other direction should be preferred?</p>
 <p>There is no one unified answer to the above questions. Everything depends on the use case.</p>
 <p>Typically, the implicit conversions are allowed in cases where:</p>
 <ul>
@@ -2276,7 +2277,8 @@ Those are:</p>
 <li><a href="https://en.cppreference.com/w/cpp/chrono/time_point"><code>std::chrono::time_point</code></a> - specifies
   quantity points of time.</li>
 </ul>
-<p>The <strong>mp-units</strong> library comes with built-in interoperability with those types. It is enough to include the <em>mp-units/chrono.h</em> file to benefit from it. This file provides:</p>
+<p>The <strong>mp-units</strong> library comes with built-in interoperability with those types. It is enough to
+include the <em>mp-units/systems/si/chrono.h</em> file to benefit from it. This file provides:</p>
 <ul>
 <li>partial specializations of <code>quantity_like_traits</code> and <code>quantity_point_like_traits</code> that provide
   support for implicit conversions between <code>std</code> and <code>mp_units</code> types in both directions,</li>
