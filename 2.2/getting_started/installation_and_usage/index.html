@@ -2574,7 +2574,7 @@ The following steps may be performed to obtain an official library release:</p>
 <li>
 <p>Import <strong>mp-units</strong> and its dependencies definitions to your project's build procedure
    with <code>find_package</code>:</p>
-<div class="language-cmake highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">mp-units</span><span class="w"> </span><span class="s">CONFIG</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">mp-units</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -2663,7 +2663,8 @@ build all of the source code, and run unit tests.</p>
 the <code>conan build</code> with <code>conan install</code> command and then follow with a regular CMake build:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cmake<span class="w"> </span>--preset<span class="w"> </span>conan-default
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>cmake<span class="w"> </span>--build<span class="w"> </span>--preset<span class="w"> </span>conan-release
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>cmake<span class="w"> </span>--build<span class="w"> </span>--preset<span class="w"> </span>conan-release<span class="w"> </span>--target<span class="w"> </span><span class="nb">test</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>cmake<span class="w"> </span>--build<span class="w"> </span>--preset<span class="w"> </span>conan-release<span class="w"> </span>--target<span class="w"> </span>all_verify_interface_header_sets
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>cmake<span class="w"> </span>--build<span class="w"> </span>--preset<span class="w"> </span>conan-release<span class="w"> </span>--target<span class="w"> </span><span class="nb">test</span>
 </span></code></pre></div>
 <h2 id="building-documentation">Building documentation<a class="headerlink" href="#building-documentation" title="Permanent link">&para;</a></h2>
 <p>Starting from <strong>mp-units 2.0</strong> we are using <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
