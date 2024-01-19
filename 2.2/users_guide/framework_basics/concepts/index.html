@@ -2405,25 +2405,8 @@ A <code>Reference</code> can either be:</p>
   the first template argument and a <a href="#Unit"><code>Unit</code></a> passed as the second one.</li>
 </ul>
 <h3 id="ReferenceOf"><code>ReferenceOf&lt;T, V&gt;</code><a class="headerlink" href="#ReferenceOf" title="Permanent link">&para;</a></h3>
-<p><code>ReferenceOf</code> concept is satisfied by references <code>T</code> that match the following value <code>V</code>:</p>
-<table>
-<thead>
-<tr>
-<th><code>V</code></th>
-<th>Condition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Dimension</code></td>
-<td>The dimension of a quantity specification satisfies <a href="#DimensionOf"><code>DimensionOf&lt;V&gt;</code></a> concept.</td>
-</tr>
-<tr>
-<td><code>QuantitySpec</code></td>
-<td>The quantity specification satisfies <a href="#QuantitySpecOf"><code>QuantitySpecOf&lt;V&gt;</code></a> concept.</td>
-</tr>
-</tbody>
-</table>
+<p><code>ReferenceOf</code> concept is satisfied by references <code>T</code> which have a quantity specification that satisfies
+<a href="#QuantitySpecOf"><code>QuantitySpecOf&lt;V&gt;</code></a> concept.          |</p>
 <h2 id="Representation"><code>Representation&lt;T&gt;</code><a class="headerlink" href="#Representation" title="Permanent link">&para;</a></h2>
 <p><code>Representation</code> concept constraints a type of a number that stores the
 <a href="../../../appendix/glossary/#quantity-value">value of a quantity</a>.</p>
@@ -2450,7 +2433,7 @@ with <code>true</code> for one or more of the following variable templates:</p>
 <p><code>Quantity</code> concept matches every <a href="../../../appendix/glossary/#quantity">quantity</a> in the library and is
 satisfied by all types being or deriving from an instantiation of a <code>quantity</code> class template.</p>
 <h3 id="QuantityOf"><code>QuantityOf&lt;T, V&gt;</code><a class="headerlink" href="#QuantityOf" title="Permanent link">&para;</a></h3>
-<p><code>QuantityOf</code> concept is satisfied by all the quantities for which a <a href="#ReferenceOf"><code>ReferenceOf&lt;V&gt;</code></a>
+<p><code>QuantityOf</code> concept is satisfied by all the quantities for which a <a href="#QuantitySpecOf"><code>QuantitySpecOf&lt;V&gt;</code></a>
 is <code>true</code>.</p>
 <h2 id="PointOrigin"><code>PointOrigin&lt;T&gt;</code><a class="headerlink" href="#PointOrigin" title="Permanent link">&para;</a></h2>
 <p><code>PointOrigin</code> concept matches all <a href="../../../appendix/glossary/#point-origin">quantity point origins</a> in
@@ -2491,8 +2474,8 @@ class template.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>Reference</code></td>
-<td>The quantity point reference satisfies <a href="#ReferenceOf"><code>ReferenceOf&lt;V&gt;</code></a> concept.</td>
+<td><code>QuantitySpec</code></td>
+<td>The quantity point quantity specification satisfies <a href="#QuantitySpecOf"><code>QuantitySpecOf&lt;V&gt;</code></a> concept.</td>
 </tr>
 <tr>
 <td><code>PointOrigin</code></td>
