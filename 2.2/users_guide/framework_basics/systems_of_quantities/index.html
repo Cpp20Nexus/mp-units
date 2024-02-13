@@ -2447,7 +2447,10 @@ quantity where all the kinds are converted to the hierarchy tree's root quantiti
 <p class="admonition-title">Info</p>
 <p>Only a root quantity from the hierarchy tree or the one marked with <code>is_kind</code> specifier
 in the <code>quantity_spec</code> definition can be put as a template parameter to the <code>kind_of</code>
-specifier. For example, <code>kind_of&lt;isq::width&gt;</code> will fail to compile.</p>
+specifier. For example, <code>kind_of&lt;isq::width&gt;</code> will fail to compile. However, we can call
+<code>get_kind(q)</code> to obtain a kind of any quantity:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">get_kind</span><span class="p">(</span><span class="n">isq</span><span class="o">::</span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">length</span><span class="o">&gt;</span><span class="p">);</span>
+</span></code></pre></div>
 </div>
 
 
