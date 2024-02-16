@@ -2123,6 +2123,11 @@ You're not viewing the latest version.
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span><span class="o">::</span><span class="n">rep</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">);</span>
 </span></code></pre></div>
 </li>
+</ol>
+<p>When such UDL is intermixed in arithmetics with any quantity type of a shorter representation
+   type, it will always expand it to the longest one. In other words, such long type spreads until
+   all types use it everywhere.</p>
+<ol>
 <li>
 <p>While increasing the coverage for the library, we learned that many unit symbols conflict with
    built-in types or numeric extensions. A few of those are: <code>F</code> (farad), <code>J</code> (joule), <code>W</code> (watt),
