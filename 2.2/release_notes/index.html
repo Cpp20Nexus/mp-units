@@ -2160,6 +2160,9 @@ You're not viewing the latest version.
 <h3 id="2.2.0">2.2.0 <small>WIP</small><a class="headerlink" href="#2.2.0" title="Permanent link">&para;</a></h3>
 <ul>
 <li>(!) feat: C++ modules support added by <a href="https://github.com/JohelEGP">@JohelEGP</a></li>
+<li>(!) feat: formatting grammar improved and units formatting support added</li>
+<li>(!) feat: <code>has_unit_symbol</code> support removed</li>
+<li>(!) feat: ABI concerns resolved with introduction of u8 strings for symbols</li>
 <li>feat: implicit point origins support added</li>
 <li>feat: unit default point origin support added</li>
 <li>feat: <code>fma</code>, <code>isfinite</code>, <code>isinf</code>, and <code>isnan</code> math function added by <a href="https://github.com/NAThompson">@NAThompson</a></li>
@@ -2167,13 +2170,31 @@ You're not viewing the latest version.
 <li>feat: <code>value_cast&lt;Unit, Representation&gt;</code> added</li>
 <li>feat: <code>interconvertible(QuantitySpec, QuantitySpec)</code> added</li>
 <li>feat: <code>qp.quantity_from_zero()</code> added</li>
+<li>feat: <code>underlying_type</code> type trait added</li>
+<li>feat: do not print space between a number and <code>percent</code> or <code>per_mille</code></li>
+<li>feat: <code>ppm</code> parts per million added by <a href="https://github.com/nebkat">@nebkat</a></li>
+<li>feat: <code>atan2</code> 2-argument arctangent added by <a href="https://github.com/nebkat">@nebkat</a></li>
+<li>feat: <code>fmod</code> floating-point division remainder added by <a href="https://github.com/nebkat">@nebkat</a></li>
+<li>feat: <code>std::format</code> support added</li>
+<li>feat: unit text output support added</li>
+<li>feat: formatting error messages improved</li>
+<li>feat: improve types readability by eliminating extraneous <code>()</code> in references, prefixes, and <code>kind_of</code></li>
 <li>(!) refactor: <code>zero_Fahrenheit</code> renamed to <code>zeroth_degree_Fahrenheit</code></li>
 <li>(!) refactor: SI-related trigonometric functions moved to the <code>si</code> subnamespace</li>
 <li>(!) refactor: <code>math.h</code> header file broke up to smaller pieces</li>
+<li>(!) refactor: <code>fixed_string</code> interface refactored</li>
+<li>(!) refactor: <code>ReferenceOf</code> does not take a dimension anymore</li>
+<li>(!) refactor: 'o' replaced with '1' as a modifier for <code>unit_symbol_solidus::one_denominator</code></li>
+<li>(!) refactor: <code>get_kind()</code> now returns <code>kind_of</code></li>
 <li>refactor: math functions constraints refactored</li>
+<li>refactor: <code>si_quantities.h</code> added to improve compile-times</li>
+<li>refactor: <code>validate_ascii_string</code> refactored to <code>is_basic_literal_character_set</code></li>
 <li>fix: <code>QuantityLike</code> conversions required <code>Q::rep</code> instead of using one provided by <code>quantity_like_traits</code></li>
 <li>fix: <code>QuantitySpec[Unit]</code> replaced with <code>make_reference</code> in <code>value_cast</code></li>
 <li>fix: <code>ice_point</code> is now defined with the integral offset from <code>absolute_zero</code></li>
+<li>fix: performance regression in <code>sudo_cast</code> fixed</li>
+<li>fix: explicit object parameter support fixed</li>
+<li>fix: missing <code>version</code> header file added to <code>hacks.h</code></li>
 <li>docs: project blog and first posts added</li>
 <li>docs: project documentation layout refactored</li>
 <li>docs: "Interoperability with Other Libraries" chapter added</li>
@@ -2187,9 +2208,17 @@ You're not viewing the latest version.
 <li>docs: "Text Output" chapter updated</li>
 <li>docs: mkdocs social plugin enabled</li>
 <li>docs: project logo and custom color scheme added</li>
+<li>docs: minimum compiler requirements updated</li>
+<li>docs: Cairo dependency described in the MkDocs section</li>
+<li>(!) build: Conan and CMake options refactored</li>
+<li>(!) build: <code>MP_UNITS_AS_SYSTEM_HEADERS</code> support removed</li>
 <li>build: gsl-lite updated to 0.41.0</li>
 <li>build: catch2 updated to 3.5.1</li>
 <li>build: fmt updated to 10.2.1</li>
+<li>build: gitpod environment updated</li>
+<li>build: <code>check_cxx_feature_supported</code> added</li>
+<li>build(conan): <code>generate()</code> now set <code>cache_variables</code></li>
+<li>build(conan): <code>can_run</code> check added before running tests</li>
 </ul>
 <h3 id="2.1.0">2.1.0 <small>December 9, 2023</small><a class="headerlink" href="#2.1.0" title="Permanent link">&para;</a></h3>
 <ul>

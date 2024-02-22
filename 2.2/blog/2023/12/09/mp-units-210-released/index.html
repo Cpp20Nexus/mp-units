@@ -2241,7 +2241,7 @@ chapter.</p>
 <p>Previously, each class derived from <code>absolute_point_origin</code> was considered a unique independent
 point origin. On the other hand, it was OK to derive multiple classes from the same
 <code>relative_point_origin</code>, and those were specifying the same point in the domain. We found this
-confusing and limiting. This is why, in this version, the <code>absolute_point_origin</code> uses a <abbr title="Curiously Recurring Template Pattern">CRTP</abbr> idiom
+confusing and limiting. This is why, in this version, the <code>absolute_point_origin</code> uses a <abbr title="Curiously Recurring Template Parameter">CRTP</abbr> idiom
 to be able to detect between points that should be considered different from the ones that should
 be equivalent.</p>
 <p>If we derive from the same instantiation of <code>absolute_point_origin</code> we end up with an equivalent
