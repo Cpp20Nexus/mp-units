@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mpusz.github.io/mp-units/2.2/blog/2024/04/15/report-from-the-tokyo-2024-iso-c-committee-meeting/</loc>
+         <lastmod>2024-04-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mpusz.github.io/mp-units/2.2/getting_started/cpp_compiler_support/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
@@ -226,17 +231,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mpusz.github.io/mp-units/2.2/blog/archive/2024/</loc>
+         <lastmod>2024-04-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mpusz.github.io/mp-units/2.2/blog/archive/2023/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mpusz.github.io/mp-units/2.2/blog/category/releases/</loc>
+         <loc>https://mpusz.github.io/mp-units/2.2/blog/category/wg21/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mpusz.github.io/mp-units/2.2/blog/category/wg21/</loc>
+         <loc>https://mpusz.github.io/mp-units/2.2/blog/category/releases/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
