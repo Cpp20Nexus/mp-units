@@ -2096,7 +2096,7 @@ You're not viewing the latest version.
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              3 min read
+                              5 min read
                             
                           </span>
                         </div>
@@ -2231,7 +2231,7 @@ parenthesis around the unit equation or create a custom value of the named unit:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">quantity</span><span class="w"> </span><span class="n">q5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">km</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">quantity</span><span class="w"> </span><span class="n">q6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 </span></code></pre></div>
-<p>As a side effect, we introduced a <strong>breaking change</strong>. We can't use the following definition of
+<p>As a side effect, we introduced a <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" /> <strong>breaking change</strong> <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" />. We can't use the following definition of
 hertz anymore:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">hertz</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="s">&quot;Hz&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">kind_of</span><span class="o">&lt;</span><span class="n">isq</span><span class="o">::</span><span class="n">frequency</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">hertz</span><span class="p">;</span>
 </span></code></pre></div>
@@ -2263,7 +2263,8 @@ specifications definitions. Now, to define a <em>frequency</em> we have to type:
 <p>In the initial version of the V2 framework, if someone did not like the multiply syntax to create
 a <code>quantity</code> we provided the <code>make_quantity()</code> factory function. A similar approach was used for
 <code>quantity_point</code> creation.</p>
-<p>This version removes those (<strong>breaking change</strong>) and introduces two parameter constructors:</p>
+<p>This version removes those (<img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" /> <strong>breaking change</strong> <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" />) and introduces two parameter
+constructors:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">quantity</span><span class="w"> </span><span class="nf">q</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="p">);</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">quantity_point</span><span class="w"> </span><span class="nf">qp</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">mean_sea_level</span><span class="p">);</span>
 </span></code></pre></div>
@@ -2281,7 +2282,7 @@ for the definition of those units.</p>
 <p>Another significant improvement in this version was redesigning the way we provide compatibility
 with other similar libraries. The interfaces of <code>quantity_like_traits</code> and <code>quantity_point_like_traits</code>
 were changed and extended to provide conversion not only from but also to entities from other
-libraries (<strong>breaking change</strong>).</p>
+libraries (<img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" /> <strong>breaking change</strong> <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" />).</p>
 <p>We've also introduced an innovative approach that allows us to specify if such conversions should
 happen implicitly or if they need to be forced explicitly.</p>
 <p>More on this subject can be found in the
@@ -2302,12 +2303,12 @@ point origin. This change allows us to provide different names for the same temp
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">ice_point</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">relative_point_origin</span><span class="o">&lt;</span><span class="n">absolute_zero</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">273.15</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">kelvin</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">ice_point</span><span class="p">;</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">zeroth_degree_Celsius</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">ice_point</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="n">zeroth_degree_Celsius</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Please note that this is a <strong>breaking change</strong> as well.</p>
+<p>Please note that this is a <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" /> <strong>breaking change</strong> <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" /> as well.</p>
 <h2 id="unit-symbol-text-can-now-be-properly-used-at-runtime">Unit symbol text can now be properly used at runtime<a class="headerlink" href="#unit-symbol-text-can-now-be-properly-used-at-runtime" title="Permanent link">&para;</a></h2>
 <p>The interface of the previous definition of <code>unit_symbol</code> function allowed the use of the returned
 buffer only at compile-time. This was too limiting as users often want to use unit symbols at
 runtime (e.g., print them to the console). The new version redesigned the interface of this
-function (<strong>breaking change</strong>) to return a buffer that can be properly used at both compilation and
+function (<img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" /> <strong>breaking change</strong> <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" />) to return a buffer that can be properly used at both compilation and
 runtime:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">unit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unit_symbol</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">unit1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">     </span><span class="c1">// m/s</span>
