@@ -2380,8 +2380,8 @@ projects:</p>
 <p>in case this library becomes part of the C++ standard, it will have no external dependencies
   but until then, it depends on the following:</p>
 <ul>
-<li><a href="https://github.com/gsl-lite/gsl-lite">gsl-lite</a> to verify runtime contracts with
-  the <code>gsl_Expects</code> macro,</li>
+<li><a href="https://github.com/gsl-lite/gsl-lite">gsl-lite</a> or <a href="https://github.com/microsoft/GSL">ms-gsl</a>
+  to verify runtime contracts (if contract checking is enabled),</li>
 <li><a href="https://github.com/fmtlib/fmt">{fmt}</a> to provide text formatting of quantities
   (if <code>std::format</code> is not supported yet on a specific compiler).</li>
 </ul>
@@ -2427,7 +2427,7 @@ leak to PRs and CI.</p>
   handle the dependencies.</li>
 </ul>
 <p>To learn more about the rationale, please check our
-<a href="../faq/#why-dont-we-have-cmake-options-to-disable-building-of-tests-and-examples">FAQ</a>.</p>
+<a href="../faq/#why-dont-we-have-cmake-options-to-disable-the-building-of-tests-and-examples">FAQ</a>.</p>
 </div>
 <h3 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h3>
 <p>The <strong>mp-units</strong> library provides the following C++ modules:</p>
@@ -2594,19 +2594,19 @@ about which C++ features are required and which compiler support them.</p>
 </div>
 <h3 id="conan-options">Conan options<a class="headerlink" href="#conan-options" title="Permanent link">&para;</a></h3>
 <dl>
-<dt><a href="#cxx_modules" id="cxx_modules">cxx_modules</a></dt>
+<dt><a href="#cxx_modules" id="cxx_modules"><code>cxx_modules</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>auto</code>/<code>True</code>/<code>False</code> (Default: <code>auto</code>)</p>
 <p>Configures CMake to add C++ modules to the list of default targets.</p>
 </dd>
-<dt><a href="#std_format" id="std_format">std_format</a></dt>
+<dt><a href="#std_format" id="std_format"><code>std_format</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>auto</code>/<code>True</code>/<code>False</code> (Default: <code>auto</code>)</p>
 <p>Enables the usage of <a href="https://en.cppreference.com/w/cpp/utility/format/format"><code>std::format</code></a>
 and associated facilities for text formatting. If it is not supported, then
 the <a href="https://github.com/fmtlib/fmt">{fmt}</a> library is used instead.</p>
 </dd>
-<dt><a href="#string_view_ret" id="string_view_ret">string_view_ret</a></dt>
+<dt><a href="#string_view_ret" id="string_view_ret"><code>string_view_ret</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>auto</code>/<code>True</code>/<code>False</code> (Default: <code>auto</code>)</p>
 <p>Enables returning <code>std::string_view</code> from the
@@ -2615,11 +2615,16 @@ and <a href="../../users_guide/framework_basics/text_output/#dimension_symbol"><
 functions.  If this feature is not available, those functions will return
 <code>mp_units::basic_fixed_string&lt;CharT, N&gt;</code> instead.</p>
 </dd>
-<dt><a href="#no_crtp" id="no_crtp">no_crtp</a></dt>
+<dt><a href="#no_crtp" id="no_crtp"><code>no_crtp</code></a></dt>
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>auto</code>/<code>True</code>/<code>False</code> (Default: <code>auto</code>)</p>
 <p>Removes the need for the usage of the CRTP idiom in the
 <a href="../../users_guide/framework_basics/systems_of_quantities/#defining-quantities"><code>quantity_spec</code> definitions</a>.</p>
+</dd>
+<dt><a href="#contracts" id="contracts"><code>contracts</code></a></dt>
+<dd>
+<p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>none</code>/<code>gsl-lite</code>/<code>ms-gsl</code> (Default: <code>gsl-lite</code>)</p>
+<p>Enables checking of preconditions and additional asserts in the code.</p>
 </dd>
 </dl>
 <h3 id="conan-configuration-properties">Conan configuration properties<a class="headerlink" href="#conan-configuration-properties" title="Permanent link">&para;</a></h3>
@@ -2628,7 +2633,7 @@ functions.  If this feature is not available, those functions will return
 <dd>
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>True</code>/<code>False</code> (Default: <code>False</code>)</p>
 <p>Enables compilation of all the source code, including tests and examples. To support this, it requires some additional Conan build dependencies described in
-<a href="#repository-structure-and-dependencies">Repository Structure and Dependencies</a>.
+<a href="#repository-directory-tree-and-dependencies">Repository directory tree and dependencies</a>.
 It also runs unit tests during Conan build (unless
 <a href="https://docs.conan.io/2/reference/commands/config.html?highlight=tools.build:skip_test#conan-config-list"><code>tools.build:skip_test</code></a>
 configuration property is set to <code>True</code>).</p>
@@ -2675,6 +2680,11 @@ functions.  If this feature is not available, those functions will return
 <p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>AUTO</code>/<code>ON</code>/<code>OFF</code> (Default: <code>AUTO</code>)</p>
 <p>Removes the need for the usage of the CRTP idiom in the
 <a href="../../users_guide/framework_basics/systems_of_quantities/#defining-quantities"><code>quantity_spec</code> definitions</a>.</p>
+</dd>
+<dt><a href="#MP_UNITS_API_CONTRACTS" id="MP_UNITS_API_CONTRACTS"><code>MP_UNITS_API_CONTRACTS</code></a></dt>
+<dd>
+<p><a href="https://github.com/mpusz/mp-units/releases/tag/v2.2.0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> 2.2.0</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.75 1a.75.75 0 0 1 .75.75V4h6.532c.42 0 .826.15 1.143.425l3.187 2.75a1.75 1.75 0 0 1 0 2.65l-3.187 2.75a1.75 1.75 0 0 1-1.143.425H12.5v9.25a.75.75 0 0 1-1.5 0V13H3.75A1.75 1.75 0 0 1 2 11.25v-5.5C2 4.783 2.784 4 3.75 4H11V1.75a.75.75 0 0 1 .75-.75Zm7.282 4.5H3.75a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h15.282c.06 0 .118-.021.163-.06l3.188-2.75a.248.248 0 0 0 0-.38l-3.188-2.75a.249.249 0 0 0-.163-.06Z"/></svg></span> <code>NONE</code>/<code>GSL-LITE</code>/<code>MS-GSL</code> (Default: <code>GSL-LITE</code>)</p>
+<p>Enables checking of preconditions and additional asserts in the code.</p>
 </dd>
 </dl>
 <h4 id="options-for-mp-units-project-developers">Options for mp-units project developers<a class="headerlink" href="#options-for-mp-units-project-developers" title="Permanent link">&para;</a></h4>
