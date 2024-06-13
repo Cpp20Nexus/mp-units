@@ -2217,11 +2217,12 @@ You're not viewing the latest version.
 <h3 id="2.2.0">2.2.0 <small>WIP</small><a class="headerlink" href="#2.2.0" title="Permanent link">&para;</a></h3>
 <ul>
 <li>(!) feat: C++ modules support added by <a href="https://github.com/JohelEGP">@JohelEGP</a></li>
-<li>(!) feat: formatting grammar improved and units formatting support added</li>
+<li>(!) feat: New formatting specification implemented</li>
 <li>(!) feat: <code>has_unit_symbol</code> support removed</li>
 <li>(!) feat: ABI concerns resolved with introduction of u8 strings for symbols</li>
 <li>(!) feat: API-related Conan, CMake, and preprocessor options redesigned</li>
-<li>(!) feat: <img alt="💥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4a5.svg" title=":boom:" /> <code>core.h</code> removed</li>
+<li>(!) feat: <code>core.h</code> removed</li>
+<li>(!) feat: from now on units, dimensions, quantity specifications, and point origins have to be marked as <code>final</code></li>
 <li>feat: implicit point origins support added</li>
 <li>feat: unit default point origin support added</li>
 <li>feat: <code>fma</code>, <code>isfinite</code>, <code>isinf</code>, and <code>isnan</code> math function added by <a href="https://github.com/NAThompson">@NAThompson</a></li>
@@ -2240,10 +2241,10 @@ You're not viewing the latest version.
 <li>feat: unit text output support added</li>
 <li>feat: formatting error messages improved</li>
 <li>feat: improve types readability by eliminating extraneous <code>()</code> in references, prefixes, and <code>kind_of</code></li>
-<li>feat: dimension text output added</li>
+<li>feat: dimension and unit text output added</li>
 <li>feat: some light and radiation ISQ quantities added</li>
-<li>feat: New formatting specification implemented</li>
 <li>feat: allow configuring GSL library use</li>
+<li>feat: freestanding support added</li>
 <li>(!) refactor: <code>zero_Fahrenheit</code> renamed to <code>zeroth_degree_Fahrenheit</code></li>
 <li>(!) refactor: SI-related trigonometric functions moved to the <code>si</code> subnamespace</li>
 <li>(!) refactor: <code>math.h</code> header file broke up to smaller pieces</li>
@@ -2258,6 +2259,9 @@ You're not viewing the latest version.
 <li>(!) refactor: <code>framework.h</code> introduced</li>
 <li>(!) refactor: type list tools made an implementation detail of the library</li>
 <li>(!) refactor: header files with the entire system definitions moved up in the directory tree</li>
+<li>(!) refactor: <code>absolute_point_origin</code> does not use CRTP anymore</li>
+<li>refactor: system's units do not inherit from one another anymore</li>
+<li>refactor: all units made <code>final</code></li>
 <li>refactor: math functions constraints refactored</li>
 <li>refactor: <code>si_quantities.h</code> added to improve compile-times</li>
 <li>refactor: <code>validate_ascii_string</code> refactored to <code>is_basic_literal_character_set</code></li>
@@ -2265,6 +2269,8 @@ You're not viewing the latest version.
 <li>refactor: code refactored to comply with clang-tidy</li>
 <li>refactor: remove dependency on <code>&lt;ranges&gt;</code> header and switch to use an iterator-based <code>copy</code> algorithm</li>
 <li>refactor: <code>terminate</code> replaced with <code>abort</code> and a header file added</li>
+<li>refactor: most <code>std::remove_const_t</code> removed and some replaced with the GCC-specific workaround</li>
+<li>refactor: not needed <code>remove_reference_t</code> and <code>remove_cvref_t</code> removed</li>
 <li>fix: <code>QuantityLike</code> conversions required <code>Q::rep</code> instead of using one provided by <code>quantity_like_traits</code></li>
 <li>fix: <code>QuantitySpec[Unit]</code> replaced with <code>make_reference</code> in <code>value_cast</code></li>
 <li>fix: <code>ice_point</code> is now defined with the integral offset from <code>absolute_zero</code></li>
@@ -2293,6 +2299,7 @@ You're not viewing the latest version.
 <li>docs: "Text Output" chapter updated with the recent formatting changes</li>
 <li>docs: formatting grammar language changed to EBNF</li>
 <li>docs: "Project structure" chapter expanded</li>
+<li>docs: CITATION.cff updated</li>
 <li>(!) build: Conan and CMake options refactored</li>
 <li>(!) build: <code>MP_UNITS_AS_SYSTEM_HEADERS</code> renamed to <code>MP_UNITS_BUILD_AS_SYSTEM_HEADERS</code></li>
 <li>(!) build: <code>MP_UNITS_BUILD_LA</code> and <code>MP_UNITS_IWYU</code> CMake options now have <code>_DEV_</code> in the name</li>
@@ -2308,6 +2315,7 @@ You're not viewing the latest version.
 <li>build(conan): <code>can_run</code> check added before running tests</li>
 <li>ci: Conan and CMake CI now use different cache names</li>
 <li>ci: gcc-14 added</li>
+<li>ci: <code>clang-tidy</code> CI added</li>
 </ul>
 <h3 id="2.1.1">2.1.1 <small>May 16, 2024</small><a class="headerlink" href="#2.1.1" title="Permanent link">&para;</a></h3>
 <ul>
