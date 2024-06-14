@@ -40,10 +40,11 @@ class TestPackageConan(ConanFile):
     def generate(self):
         tc = CMakeToolchain(self)
         if self.dependencies["mp-units"].options.cxx_modules:
-            tc.variables["MP_UNITS_BUILD_CXX_MODULES"] = True
-        tc.variables["MP_UNITS_API_STD_FORMAT"] = bool(
+            tc.cache_variables["CMAKE_CXX_SCAN_FOR_MODULES"] = True
+            tc.cache_variables["MP_UNITS_BUILD_CXX_MODULES"] = True
+        tc.cache_variables["MP_UNITS_API_STD_FORMAT"] = str(
             self.dependencies["mp-units"].options.std_format
-        )
+        ).upper()
         tc.generate()
 
     def build(self):
