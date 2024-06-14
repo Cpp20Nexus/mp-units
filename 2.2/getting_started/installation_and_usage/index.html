@@ -2786,7 +2786,7 @@ The following steps may be performed to obtain an official library release:</p>
    project's top-level directory and add <strong>mp-units</strong> as a dependency of your project.
    For example, the simplest file may look as follows:</p>
 <div class="language-ini highlight"><span class="filename">conanfile.txt</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[requires]</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">mp-units/2.1.0</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">mp-units/2.2.0</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">[options]</span>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">mp-units</span><span class="o">:</span><span class="s">cxx_modules=True</span>
@@ -2840,7 +2840,7 @@ with the following differences:</p>
 <li>
 <p>In your Conan configuration file, provide the package identifier of the <code>mpusz/testing</code> stream:</p>
 <div class="language-ini highlight"><span class="filename">conanfile.txt</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">[requires]</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="hll"><span class="na">mp-units/2.2.0@mpusz/testing</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="hll"><span class="na">mp-units/2.3.0@mpusz/testing</span>
 </span></span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">[options]</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="na">mp-units</span><span class="o">:</span><span class="s">cxx_modules=True</span>
@@ -2922,7 +2922,7 @@ Material for MkDocs. Please follow the
 </span></code></pre></div>
 <p>The above will create a Conan package and run tests provided in <em>./test_package</em> directory.</p>
 <h2 id="uploading-mp-units-package-to-the-conan-server">Uploading <strong>mp-units</strong> package to the Conan server<a class="headerlink" href="#uploading-mp-units-package-to-the-conan-server" title="Permanent link">&para;</a></h2>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>conan<span class="w"> </span>upload<span class="w"> </span>-r<span class="w"> </span>&lt;remote-name&gt;<span class="w"> </span>--all<span class="w"> </span>mp-units/2.1.0@&lt;user&gt;/&lt;channel&gt;
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>conan<span class="w"> </span>upload<span class="w"> </span>-r<span class="w"> </span>&lt;remote-name&gt;<span class="w"> </span>--all<span class="w"> </span>mp-units/2.2.0@&lt;user&gt;/&lt;channel&gt;
 </span></code></pre></div>
 
 
