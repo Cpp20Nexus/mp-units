@@ -42,9 +42,18 @@ class TestPackageConan(ConanFile):
         if self.dependencies["mp-units"].options.cxx_modules:
             tc.cache_variables["CMAKE_CXX_SCAN_FOR_MODULES"] = True
             tc.cache_variables["MP_UNITS_BUILD_CXX_MODULES"] = True
-        tc.cache_variables["MP_UNITS_API_STD_FORMAT"] = str(
-            self.dependencies["mp-units"].options.std_format
+
+        if self.dependencies["mp-units"].options.freestanding:
+            tc.cache_variables["MP_UNITS_API_FREESTANDING"] = True
+        else:
+            tc.cache_variables["MP_UNITS_API_STD_FORMAT"] = str(
+                self.dependencies["mp-units"].options.std_format
+            ).upper()
+
+        tc.cache_variables["MP_UNITS_API_CONTRACTS"] = str(
+            self.dependencies["mp-units"].options.contracts
         ).upper()
+
         tc.generate()
 
     def build(self):
