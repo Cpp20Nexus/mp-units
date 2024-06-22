@@ -2194,6 +2194,9 @@ behind this is that:</p>
 <p>To improve compiler errors' readability and make it easier to correlate them with
 a user's written code, a new idiom in the library is to use the same identifier for
 a type and its instance.</p>
+<p>Also, to prevent possible issues in compile-time logic, all of the library's entities must be
+marked <code>final</code>. This prevents the users to derive own strong types from them, which would
+prevent expression template simplification of equivalent entities.</p>
 </div>
 <h2 id="strong-types-instead-of-aliases">Strong types instead of aliases<a class="headerlink" href="#strong-types-instead-of-aliases" title="Permanent link">&para;</a></h2>
 <p>Let's look again at the above units definitions. Another important point to notice is that
@@ -2454,6 +2457,15 @@ they are being simplified into one entry:</p>
 </tr>
 </tbody>
 </table>
+<p>It is important to notice here that only the elements with exactly the same type are being
+simplified. This means that, for example, <code>m/m</code> results in <code>one</code>, but <code>km/m</code> will not be
+simplified. The resulting derived unit will preserve both symbols and their relative
+magnitude. This allows us to properly print symbols of some units or constants that require
+such behavior. For example, the Hubble constant is expressed in <code>km⋅s⁻¹⋅Mpc⁻¹</code>, where both
+<code>km</code> and <code>Mpc</code> are units of <em>length</em>.</p>
+<p>Also, to prevent possible issues in compile-time logic, all of the library's entities must be
+marked <code>final</code>. This prevents the users to derive own strong types from them, which would
+prevent expression template simplification of equivalent entities.</p>
 </li>
 <li>
 <p><strong>Repacking</strong></p>
